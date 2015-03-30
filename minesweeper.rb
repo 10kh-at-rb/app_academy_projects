@@ -36,7 +36,7 @@ class MineSweeper
       save_game
       board.over = true
       p "Game Saved."
-      return
+      exit
     end
   end
 
@@ -84,7 +84,13 @@ class MineSweeper
   end
 
   def save_game
+    serialize = self.to_yaml
+    puts "Filename of save game (without extension): "
+    filename = gets.chomp + ".ms"
 
+    file = File.new("#{filename}", "w")
+    file << serialize
+    file.close
   end
 
 end
@@ -240,4 +246,14 @@ class Tile
     !board[position].nil?
   end
 
+end
+
+if __FILE__ == $PROGRAM_NAME && !ARGV.empty?
+  filename = ARGV.shift
+  serialize = YAML::load(filename)
+  game = MineSweeper.new(serialize)
+  game.play
+else
+  game = MineSweeper.new
+  game.play
 end
