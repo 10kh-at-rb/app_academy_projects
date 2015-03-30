@@ -3,77 +3,86 @@ require 'yaml'
 
 class MineSweeper
 
-    def initialize(board = Board.new)
-      @board = board
+  attr_reader :board
+
+  def initialize(board = Board.new)
+    @board = board
+  end
+
+  def play
+    until @board.over?
+      display
+      play_action(get_action)
     end
 
-    def play
-      until @board.over?
-        display
-        action = get_action
-        case action
-        when "R"
-          @board.reveal(get_coordinates)
+    end_game
+  end
 
-        when "F"
-          @board.flag(get_coordinates)
-        when "S"
-          save_game
-          p "Game Saved."
-          return
-        else
-          next
-        end
-      end
-
-      if @board.all_revealed?
-        puts "Great job! You won."
-      else
-        display
-        puts "Oops. You revealed a bomb!"
-      end
+  def get_action
+    loop do
+      puts "(R)eveal, toggle a (F)lag or (S)ave game"
+      input = gets.chomp.upcase
+      p input
+      return input if input.match(/R|S|F/)
     end
+  end
 
-    def get_action
-      loop do
-        puts "(R)eveal, toggle a (F)lag or (S)ave game"
-        input = gets.chomp.upcase
-        return input if input.match(/r|s|f/)
-      end
+  def play_action(action)
+    case action
+    when "R"
+      @board.reveal(get_coordinates)
+    when "F"
+      @board.flag(get_coordinates)
+    when "S"
+      save_game
+      @board.over = true
+      p "Game Saved."
+      return
     end
+  end
 
-    def get_coordinates
-      loop do
-        puts "Enter row, from 1 to #{@board.grid_size}."
-        row = gets.chomp.to_i - 1
-        puts "Enter column, from 1 to #{@board.grid_size}"
-        column = gets.chomp.to_i - 1
-        return [row, column] if @board[row][column].nil?
-        puts "Please enter a valid co-ordinate"
-      end
+  def get_coordinates
+    loop do
+      puts "Enter row, from 1 to #{@board.grid_size}."
+      row = gets.chomp.to_i - 1
+      puts "Enter column, from 1 to #{@board.grid_size}"
+      column = gets.chomp.to_i - 1
+      p @board.board[row][column]
+      return [row, column] if @board.board[row][column].nil?
+      puts "Please enter a valid co-ordinate"
     end
+  end
 
   def render
-    render_str = ""
-    @board.each_with_index do |row, rindex|
-      row.each_with_index do |el, cindex|
-        if @board.over? && @board.bombs.include?([rindex, cindex])
-          render_str << "B"
-        elsif el.nil?
-          render_str << "_"
-        elsif @board.flags.include?([rindex, cindex])
-          render_str << "F"
-        else
-          render_str << el.to_s
+    "".tap do |render_str|
+      @board.board.each_with_index do |row, rindex|
+        row.each_with_index do |el, cindex|
+          if @board.over? && @board.bombs.include?([rindex, cindex])
+            render_str << "B "
+          elsif @board.flags.include?([rindex, cindex])
+            render_str << "F "
+          elsif el.nil?
+            render_str << "_ "
+          else
+            render_str << "#{el.to_s} "
+          end
         end
+        render_str << "\n"
       end
-      render_str << "\n"
     end
-    render_str
   end
 
   def display
     puts render
+  end
+
+  def end_game
+    if @board.all_revealed?
+      puts "Great job! You won."
+    else
+      display
+      puts "Oops. You revealed a bomb!"
+    end
   end
 
 end
@@ -130,9 +139,11 @@ class Board
         board[x][y] = bomb_count
         tile_queue.concat(current_tile.neighbors) if bomb_count < 1
       end
+    else
+      @over = true
     end
 
-    root_tile
+    # root_tile
   end
 
   def flag(pos)
@@ -145,7 +156,7 @@ class Board
 
   def all_revealed?
     empty = 0
-    self.each do |rows|
+    @board.each do |rows|
       rows.each do |el|
         empty += 1 if el.nil?
       end
