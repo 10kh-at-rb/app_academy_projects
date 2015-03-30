@@ -46,13 +46,29 @@ class Board
     nil
   end
 
-  def initialize(board=self.class.default_board,bombs = self.class.place_bombs)
+  def initialize(board = self.class.default_board,
+                 bombs = self.class.place_bombs
+                )
     @board = board
     @bombs = bombs
     @flags = []
   end
 
-  def reveal
+  def reveal(pos)
+
+    root_tile = Tile.new(pos, self)
+    if root_tile.bomb?
+      # END GAME (probably just return and handle in Game loop)
+    end
+    tile_queue = [root_tile]
+
+    until tile_queue.empty?
+      current_tile = tile_queue.shift
+      bomb_count = current_tile.neighbor_bomb_count
+
+      board[current_tile.position] = bomb_count
+      tile_queue.concat(current_tile.neighbors) if bomb_count < 1
+    end
 
   end
 
@@ -100,7 +116,6 @@ class Tile
         if new_position.all? { |pos| pos.between(0, board.grid_size - 1)}
           neighbor = Tile.new(new_position, board, self)
           neighbors << neighbor unless neighbor.revealed?
-          board[new_position] = neighbor.neighbor_bomb_count
         end
       end
     end
