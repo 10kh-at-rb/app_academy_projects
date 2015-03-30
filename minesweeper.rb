@@ -72,12 +72,9 @@ class MineSweeper
     render_str
   end
 
-  end
-
   def display
     puts render
   end
-
 
 end
 
