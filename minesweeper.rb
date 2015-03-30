@@ -37,13 +37,15 @@ class Board
 
   def initialize(board=self.class.default_board)
     @board = board
+    @bombs = []
+    @flags = []
   end
   #array of arrays that = board state
   #array of bombs created in initialize or passed from prev. game
   #array of flags
   #array of revealed tile objects
   #reveal method
-  
+
 
   def [](pos)
     row, col = pos[0], pos[1]
@@ -97,11 +99,28 @@ class Tile
         end
       end
     end
-
-
   end
 
-  def
+  def neighbor_bomb_count
+    count = 0
+    neighbors.each do |neighbor|
+      count += 1 if neighbor.bomb?
+    end
+  end
+
+  def flagged?
+    return true if board.flags.include?(self)
+    false
+  end
+
+  def bomb?
+    return true if board.bombs.include?(self)
+    false
+  end
+
+  def revealed?
+    return true unless board[position].empty?
+    false
   end
 
   def
