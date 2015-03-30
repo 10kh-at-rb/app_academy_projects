@@ -27,15 +27,23 @@ end
 
 class Board
 
+
   GRID_SIZE = 9
 
-  def initialize()
+  def self.default_board
+    Array.new(GRID_SIZE) {Array.new(GRID_SIZE)}
+  end
+
+
+  def initialize(board=self.class.default_board)
+    @board = board
   end
   #array of arrays that = board state
   #array of bombs created in initialize or passed from prev. game
   #array of flags
   #array of revealed tile objects
-  #
+  #reveal method
+  
 
   def [](pos)
     row, col = pos[0], pos[1]
@@ -45,6 +53,7 @@ class Board
   def []=(pos, state)
 
   end
+
 
 
 end
@@ -71,7 +80,6 @@ class Tile
     @board = board
   end
 
-  #neighbors - array of tile objects
   #neighbor bomb count - integer
     #loop through neighbors array, bomb? generates neighbor bomb count
   #bomb?
@@ -84,10 +92,18 @@ class Tile
       NEIGHBORS.each do |(dx, dy)|
         new_position = [x + dx, y + dy]
         if new_position.all? { |pos| pos.between(0, board.grid_size - 1)}
-          nearby << Tile.new([new_x, new_y], board, self)
+          neighbor = Tile.new([new_x, new_y], board, self)
+          nearby << neighbor unless neighbor.revealed?
         end
       end
     end
+
+
   end
+
+  def
+  end
+
+  def
 
 end
