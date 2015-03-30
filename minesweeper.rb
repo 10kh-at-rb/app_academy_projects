@@ -46,27 +46,24 @@ class Board
     nil
   end
 
-
-
   def initialize(board=self.class.default_board,bombs = self.class.place_bombs)
     @board = board
     @bombs = bombs
     @flags = []
   end
-  #array of arrays that = board state
-  #array of bombs created in initialize or passed from prev. game
-  #array of flags
-  #array of revealed tile objects
-  #reveal method
 
+  def reveal
+
+  end
 
   def [](pos)
     row, col = pos[0], pos[1]
-    @position[row][col]
+    board[row][col]
   end
 
-  def []=(pos, state)
-
+  def []=(pos, bomb_count)
+    row, col = pos[0], pos[1]
+    board[row][col] = bomb_count
   end
 
 
@@ -76,7 +73,7 @@ end
 
 class Tile
 
-  NEIGHBORS = [
+  NEARBY = [
     [1,1],
     [1,-1],
     [1,0],
@@ -90,19 +87,20 @@ class Tile
   def initialize(position, board, parent = nil)
     @position = position
     @parent = parent
-    @neighbors = find_neighbors(board)
+    @neighbors = find_neighbors(board)   #FLAGGED FOR REFACTOR
     @board = board
   end
 
 
   def find_neighbors(board)
-    [].tap do |nearby|
+    [].tap do |neighbors|
       x, y = position
-      NEIGHBORS.each do |(dx, dy)|
+      NEARBY.each do |(dx, dy)|
         new_position = [x + dx, y + dy]
         if new_position.all? { |pos| pos.between(0, board.grid_size - 1)}
-          neighbor = Tile.new([new_x, new_y], board, self)
-          nearby << neighbor unless neighbor.revealed?
+          neighbor = Tile.new(new_position, board, self)
+          neighbors << neighbor unless neighbor.revealed?
+          board[new_position] = neighbor.neighbor_bomb_count
         end
       end
     end
@@ -117,12 +115,12 @@ class Tile
   end
 
   def flagged?
-    return true if board.flags.include?(self)
+    return true if board.flags.include?(self.position)
     false
   end
 
   def bomb?
-    return true if board.bombs.include?(self)
+    return true if board.bombs.include?(self.position)
     false
   end
 
