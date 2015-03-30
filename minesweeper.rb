@@ -1,9 +1,44 @@
 require 'byebug'
+require 'yaml'
 
 class MineSweeper
 
+    def initialize(board = Board.new)
+      @board = board
+    end
 
-    #initialize
+    def play
+      until @board.over?
+        display
+        action = get_action
+        case action
+        when "R"
+          @board.reveal(get_coordinates)
+
+        when "F"
+          @board.flag(get_coordinates)
+        when "S"
+          save_game
+          p "Game Saved."
+          return
+        else
+          next
+        end
+
+      end
+        #win state
+    end
+
+    def get_action
+      loop do
+        puts "(R)eveal, toggle a (F)lag or (S)ave game"
+        input = gets.chomp.upcase
+        return input if input.match(/r|s|f/)
+      end
+    end
+
+    
+
       #creates board object or gets saved one
 
     #run game method
@@ -50,7 +85,7 @@ class Board
   end
 
   attr_reader :bombs, :grid_size
-  attr_accessor :board, :flags
+  attr_accessor :board, :flags, :over
 
   def initialize(board = self.class.default_board,
                  bombs = self.class.place_bombs
@@ -59,6 +94,7 @@ class Board
     @bombs = bombs
     @flags = []
     @grid_size = GRID_SIZE
+    @over = false
   end
 
   def reveal(pos)
@@ -80,6 +116,28 @@ class Board
     end
 
     root_tile
+  end
+
+  def flag(pos)
+    if @flags.include?(pos)
+      @flags.delete(pos)
+    else
+      @flags << pos
+    end
+  end
+
+  def all_revealed?
+    empty = 0
+    self.each do |rows|
+      rows.each do |el|
+        empty += 1 if el.nil?
+      end
+    end
+    @over = (empty == BOMBS)
+  end
+
+  def over?
+    @over
   end
 
   def [](pos)
@@ -133,11 +191,6 @@ class Tile
       count += 1 if neighbor.bomb?
     end
     count
-  end
-
-  def flagged?
-    return true if @board.flags.include?(self.position)
-    false
   end
 
   def bomb?
