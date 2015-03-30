@@ -22,7 +22,6 @@ class MineSweeper
     loop do
       puts "(R)eveal, toggle a (F)lag or (S)ave game"
       input = gets.chomp.upcase
-      p input
       return input if input.match(/R|S|F/)
     end
   end
@@ -47,7 +46,6 @@ class MineSweeper
       row = gets.chomp.to_i - 1
       puts "Enter column, from 1 to #{@board.grid_size}"
       column = gets.chomp.to_i - 1
-      p @board.board[row][column]
       return [row, column] if @board.board[row][column].nil?
       puts "Please enter a valid co-ordinate"
     end
@@ -77,7 +75,7 @@ class MineSweeper
   end
 
   def end_game
-    if @board.all_revealed?
+    if @board.won?
       puts "Great job! You won."
     else
       display
@@ -143,7 +141,6 @@ class Board
       @over = true
     end
 
-    # root_tile
   end
 
   def flag(pos)
@@ -154,23 +151,31 @@ class Board
     end
   end
 
-  def all_revealed?
+  def won?
     empty = 0
     @board.each do |rows|
       rows.each do |el|
         empty += 1 if el.nil?
       end
     end
-    @over = (empty == BOMBS)
+    empty == BOMBS
   end
 
   def over?
+    if self.won?
+      @over = true
+    end
     @over
   end
 
   def [](pos)
     row, col = pos[0], pos[1]
     board[row][col]
+  end
+
+  def []=(pos, value)
+    row, col = pos[0], pos[1]
+    board[row][col] = value
   end
 
 end
@@ -210,6 +215,7 @@ class Tile
         neighbors << neighbor unless neighbor.revealed?
       end
     end
+
     nil
   end
 
@@ -218,17 +224,16 @@ class Tile
     neighbors.each do |neighbor|
       count += 1 if neighbor.bomb?
     end
+
     count
   end
 
   def bomb?
-    return true if @board.bombs.include?(self.position)
-    false
+    @board.bombs.include?(self.position)
   end
 
   def revealed?
-    return true unless @board[position].nil?
-    false
+    !@board[position].nil?
   end
 
 end
