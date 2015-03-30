@@ -1,3 +1,5 @@
+require 'byebug'
+
 class MineSweeper
 
 
@@ -37,14 +39,18 @@ class Board
   end
 
   def self.place_bombs
+    bombs = []
     until bombs.count == BOMBS
       row = (0...GRID_SIZE).to_a.sample
       col = (0...GRID_SIZE).to_a.sample
       pos = row, col
       bombs << pos unless bombs.include?(pos)
     end
-    nil
+    bombs
   end
+
+  attr_reader :bombs, :grid_size
+  attr_accessor :board, :flags
 
   def initialize(board = self.class.default_board,
                  bombs = self.class.place_bombs
@@ -52,6 +58,7 @@ class Board
     @board = board
     @bombs = bombs
     @flags = []
+    @grid_size = GRID_SIZE
   end
 
   def reveal(pos)
@@ -63,9 +70,11 @@ class Board
 
       until tile_queue.empty?
         current_tile = tile_queue.shift
+        current_tile.find_neighbors
         bomb_count = current_tile.neighbor_bomb_count
 
-        board[current_tile.position] = bomb_count
+        x, y = current_tile.position
+        board[x][y] = bomb_count
         tile_queue.concat(current_tile.neighbors) if bomb_count < 1
       end
     end
@@ -77,13 +86,6 @@ class Board
     row, col = pos[0], pos[1]
     board[row][col]
   end
-
-  def []=(pos, bomb_count)
-    row, col = pos[0], pos[1]
-    board[row][col] = bomb_count
-  end
-
-
 
 end
 
@@ -101,25 +103,28 @@ class Tile
     [-1,-1]
   ]
 
+  attr_reader :position, :parent, :neighbors, :board
+
   def initialize(position, board, parent = nil)
     @position = position
     @parent = parent
-    @neighbors = find_neighbors(board)   #FLAGGED FOR REFACTOR
+    @neighbors = []
     @board = board
   end
 
 
-  def find_neighbors(board)
-    [].tap do |neighbors|
-      x, y = position
-      NEARBY.each do |(dx, dy)|
-        new_position = [x + dx, y + dy]
-        if new_position.all? { |pos| pos.between(0, board.grid_size - 1)}
-          neighbor = Tile.new(new_position, board, self)
-          neighbors << neighbor unless neighbor.revealed?
-        end
+  def find_neighbors
+    x, y = position
+    NEARBY.each do |(dx, dy)|
+      new_x = x + dx
+      new_y = y + dy
+      new_position = [new_x, new_y]
+      if new_position.all? { |pos| pos.between?(0, @board.grid_size - 1)}
+        neighbor = Tile.new(new_position, @board, self)
+        neighbors << neighbor unless neighbor.revealed?
       end
     end
+    nil
   end
 
   def neighbor_bomb_count
@@ -131,20 +136,18 @@ class Tile
   end
 
   def flagged?
-    return true if board.flags.include?(self.position)
+    return true if @board.flags.include?(self.position)
     false
   end
 
   def bomb?
-    return true if board.bombs.include?(self.position)
+    return true if @board.bombs.include?(self.position)
     false
   end
 
   def revealed?
-    return true unless board[position].empty?
+    return true unless @board[position].nil?
     false
   end
-
-  def
 
 end
