@@ -24,9 +24,14 @@ class MineSweeper
         else
           next
         end
-
       end
-        #win state
+
+      if @board.all_revealed?
+        puts "Great job! You won."
+      else
+        display
+        puts "Oops. You revealed a bomb!"
+      end
     end
 
     def get_action
@@ -37,21 +42,36 @@ class MineSweeper
       end
     end
 
-    
-
-      #creates board object or gets saved one
-
-    #run game method
-    #game loop until over?
-      #render board
-      #ask user what they want to do
-      #get coordinates for that
-      #change board state
-      #check win/loss
-      #end
-    # messages about end game state
+    def get_coordinates
+      loop do
+        puts "Enter row, from 1 to #{@board.grid_size}."
+        row = gets.chomp.to_i - 1
+        puts "Enter column, from 1 to #{@board.grid_size}"
+        column = gets.chomp.to_i - 1
+        return [row, column] if @board[row][column].nil?
+        puts "Please enter a valid co-ordinate"
+      end
+    end
 
   def render
+    render_str = ""
+    @board.each_with_index do |row, rindex|
+      row.each_with_index do |el, cindex|
+        if @board.over? && @board.bombs.include?([rindex, cindex])
+          render_str << "B"
+        elsif el.nil?
+          render_str << "_"
+        elsif @board.flags.include?([rindex, cindex])
+          render_str << "F"
+        else
+          render_str << el.to_s
+        end
+      end
+      render_str << "\n"
+    end
+    render_str
+  end
+
   end
 
   def display
