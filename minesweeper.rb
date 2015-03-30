@@ -10,7 +10,7 @@ class MineSweeper
   end
 
   def play
-    until @board.over?
+    until board.over?
       display
       play_action(get_action)
     end
@@ -29,12 +29,12 @@ class MineSweeper
   def play_action(action)
     case action
     when "R"
-      @board.reveal(get_coordinates)
+      board.reveal(get_coordinates)
     when "F"
-      @board.flag(get_coordinates)
+      board.flag(get_coordinates)
     when "S"
       save_game
-      @board.over = true
+      board.over = true
       p "Game Saved."
       return
     end
@@ -42,22 +42,22 @@ class MineSweeper
 
   def get_coordinates
     loop do
-      puts "Enter row, from 1 to #{@board.grid_size}."
+      puts "Enter row, from 1 to #{board.grid_size}."
       row = gets.chomp.to_i - 1
-      puts "Enter column, from 1 to #{@board.grid_size}"
+      puts "Enter column, from 1 to #{board.grid_size}"
       column = gets.chomp.to_i - 1
-      return [row, column] if @board.board[row][column].nil?
+      return [row, column] if board.grid[row][column].nil?
       puts "Please enter a valid co-ordinate"
     end
   end
 
   def render
     "".tap do |render_str|
-      @board.board.each_with_index do |row, rindex|
+      board.grid.each_with_index do |row, rindex|
         row.each_with_index do |el, cindex|
-          if @board.over? && @board.bombs.include?([rindex, cindex])
+          if board.over? && board.bombs.include?([rindex, cindex])
             render_str << "B "
-          elsif @board.flags.include?([rindex, cindex])
+          elsif board.flags.include?([rindex, cindex])
             render_str << "F "
           elsif el.nil?
             render_str << "_ "
@@ -75,12 +75,16 @@ class MineSweeper
   end
 
   def end_game
-    if @board.won?
+    if board.won?
       puts "Great job! You won."
     else
       display
       puts "Oops. You revealed a bomb!"
     end
+  end
+
+  def save_game
+
   end
 
 end
@@ -109,12 +113,12 @@ class Board
   end
 
   attr_reader :bombs, :grid_size
-  attr_accessor :board, :flags, :over
+  attr_accessor :grid, :flags, :over
 
-  def initialize(board = self.class.default_board,
+  def initialize(grid = self.class.default_board,
                  bombs = self.class.place_bombs
                 )
-    @board = board
+    @grid = grid
     @bombs = bombs
     @flags = []
     @grid_size = GRID_SIZE
@@ -134,7 +138,7 @@ class Board
         bomb_count = current_tile.neighbor_bomb_count
 
         x, y = current_tile.position
-        board[x][y] = bomb_count
+        grid[x][y] = bomb_count
         tile_queue.concat(current_tile.neighbors) if bomb_count < 1
       end
     else
@@ -153,7 +157,7 @@ class Board
 
   def won?
     empty = 0
-    @board.each do |rows|
+    grid.each do |rows|
       rows.each do |el|
         empty += 1 if el.nil?
       end
@@ -170,12 +174,12 @@ class Board
 
   def [](pos)
     row, col = pos[0], pos[1]
-    board[row][col]
+    grid[row][col]
   end
 
   def []=(pos, value)
     row, col = pos[0], pos[1]
-    board[row][col] = value
+    grid[row][col] = value
   end
 
 end
@@ -210,8 +214,8 @@ class Tile
       new_x = x + dx
       new_y = y + dy
       new_position = [new_x, new_y]
-      if new_position.all? { |pos| pos.between?(0, @board.grid_size - 1)}
-        neighbor = Tile.new(new_position, @board, self)
+      if new_position.all? { |pos| pos.between?(0, board.grid_size - 1)}
+        neighbor = Tile.new(new_position, board, self)
         neighbors << neighbor unless neighbor.revealed?
       end
     end
@@ -229,11 +233,11 @@ class Tile
   end
 
   def bomb?
-    @board.bombs.include?(self.position)
+    board.bombs.include?(self.position)
   end
 
   def revealed?
-    !@board[position].nil?
+    !board[position].nil?
   end
 
 end
