@@ -57,19 +57,20 @@ class Board
   def reveal(pos)
 
     root_tile = Tile.new(pos, self)
-    if root_tile.bomb?
-      # END GAME (probably just return and handle in Game loop)
+
+    unless root_tile.bomb?
+      tile_queue = [root_tile]
+
+      until tile_queue.empty?
+        current_tile = tile_queue.shift
+        bomb_count = current_tile.neighbor_bomb_count
+
+        board[current_tile.position] = bomb_count
+        tile_queue.concat(current_tile.neighbors) if bomb_count < 1
+      end
     end
-    tile_queue = [root_tile]
 
-    until tile_queue.empty?
-      current_tile = tile_queue.shift
-      bomb_count = current_tile.neighbor_bomb_count
-
-      board[current_tile.position] = bomb_count
-      tile_queue.concat(current_tile.neighbors) if bomb_count < 1
-    end
-
+    root_tile
   end
 
   def [](pos)
