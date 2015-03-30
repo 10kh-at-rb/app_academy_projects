@@ -29,15 +29,28 @@ class Board
 
 
   GRID_SIZE = 9
+  BOMBS = 10
+
 
   def self.default_board
     Array.new(GRID_SIZE) {Array.new(GRID_SIZE)}
   end
 
+  def self.place_bombs
+    until bombs.count == BOMBS
+      row = (0...GRID_SIZE).to_a.sample
+      col = (0...GRID_SIZE).to_a.sample
+      pos = row, col
+      bombs << pos unless bombs.include?(pos)
+    end
+    nil
+  end
 
-  def initialize(board=self.class.default_board)
+
+
+  def initialize(board=self.class.default_board,bombs = self.class.place_bombs)
     @board = board
-    @bombs = []
+    @bombs = bombs
     @flags = []
   end
   #array of arrays that = board state
@@ -74,7 +87,6 @@ class Tile
     [-1,-1]
   ]
 
-  #initialize (parent = nil)
   def initialize(position, board, parent = nil)
     @position = position
     @parent = parent
@@ -82,11 +94,6 @@ class Tile
     @board = board
   end
 
-  #neighbor bomb count - integer
-    #loop through neighbors array, bomb? generates neighbor bomb count
-  #bomb?
-  #revealed?
-  #flagged?
 
   def find_neighbors(board)
     [].tap do |nearby|
@@ -106,6 +113,7 @@ class Tile
     neighbors.each do |neighbor|
       count += 1 if neighbor.bomb?
     end
+    count
   end
 
   def flagged?
