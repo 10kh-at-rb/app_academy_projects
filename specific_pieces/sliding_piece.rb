@@ -4,7 +4,7 @@ class SlidingPiece < Piece
 
   BOARD_SIZE = Board::BOARD_SIZE
 
-  ORTHOGONAL - [
+  ORTHOGONAL = [
     [1, 0],
     [0, 1],
     [-1, 0],
@@ -29,11 +29,24 @@ class SlidingPiece < Piece
       while true
         times = 1
         new_x, new_y = direction[0] * times, direction[1] * times
-        new_dir = [new_x, new_y]
-        break if blocked?(new_dir) || !board.valid_pos?(new_dir)
-        @moves << new_dir
+        new_move = [new_x + self.pos[0], new_y + self.pos[1]]
+
+        if filled?(new_move) && board[new_move].color == self.color
+          break
+        elsif filled?(new_move) && board[new_move].color != self.color
+          @moves << new_move
+          break
+        else
+          @moves << new_move
+        end
+
         times += 1
       end
+    end
+  end
+
+  def filled?(pos)
+    !board[pos].empty?
   end
 
 
