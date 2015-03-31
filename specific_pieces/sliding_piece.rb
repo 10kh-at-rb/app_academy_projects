@@ -4,9 +4,9 @@ class SlidingPiece < Piece
 
   BOARD_SIZE = Board::BOARD_SIZE
 
-  VERTICAL_HORIZONTAL = self.delta_horizontal_vertical
+  STRAIGHT = self.delta_horizontal_vertical
 
-  DIAGONAL_HORIZONTAL = self.delta_diagonal
+  DIAGONAL = self.delta_diagonal
 
   def delta_horizontal_vertical
     possible = []
@@ -30,18 +30,8 @@ class SlidingPiece < Piece
 
 
   def initialize
-    #location = [3,4]
-    @move_straight = false
-    @move_diagonal = false
-  end
 
-  def moves
-    #depending on move dirs fills the @move array
   end
-
-  def move_dirs
-  end
-  #move dirs
 
 
 
