@@ -1,3 +1,5 @@
+require './specific_pieces/stepping_piece.rb'
+
 class King < SteppingPiece
   KING_MOVES = [
     [0,1],

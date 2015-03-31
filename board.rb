@@ -1,3 +1,5 @@
+require './chess.rb'
+
 class Board
 
   BOARD_SIZE = 8
@@ -9,5 +11,6 @@ class Board
 
   def initialize
     @board_size = size
+  end
 
 end

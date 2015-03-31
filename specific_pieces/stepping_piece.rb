@@ -1,8 +1,8 @@
 require './piece.rb'
 
-def SteppingPiece < Piece
+class SteppingPiece < Piece
 
-  
+
   def move
   end
 

@@ -1,4 +1,7 @@
-def Knight < SteppingPiece
+require './specific_pieces/stepping_piece.rb'
+
+
+class Knight < SteppingPiece
   KNIGHT_MOVES = [
     [-2, -1],
     [-2,  1],

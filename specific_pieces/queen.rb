@@ -1,3 +1,5 @@
+require './specific_pieces/sliding_piece.rb'
+
 class Queen < SlidingPieces
 
   def initialize
@@ -6,7 +8,7 @@ class Queen < SlidingPieces
   end
 
   def move_dirs
-    DIAGONAL + HORIZONTAL
+    DIAGONAL + ORTHOGONAL
   end
 
 end

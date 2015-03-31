@@ -1,7 +1,9 @@
+require './specific_pieces/sliding_piece.rb'
+
 class Rook < SlidingPiece
 
   def move_dirs
-    STRAIGHT
+    ORTHOGONAL
   end
 
 end
