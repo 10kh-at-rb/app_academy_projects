@@ -5,6 +5,8 @@ class Queen < SlidingPieces
     @move_diagonal = true
   end
 
-  
+  def move_dirs
+    DIAGONAL + HORIZONTAL
+  end
 
 end
