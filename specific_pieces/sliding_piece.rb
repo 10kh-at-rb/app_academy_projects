@@ -19,34 +19,32 @@ class SlidingPiece < Piece
   ]
 
 
-
-  def initialize
-
-  end
-
-  def moves
+  def generate_moves
+    # byebug
     move_dirs.each do |direction|
+      times = 1
       while true
-        times = 1
-        new_x, new_y = direction[0] * times, direction[1] * times
+        new_x, new_y = (direction[0] * times), (direction[1] * times)
         new_move = [new_x + self.pos[0], new_y + self.pos[1]]
 
-        if filled?(new_move) && board[new_move].color == self.color
+        if !@board.valid_move?(new_move)
           break
-        elsif filled?(new_move) && board[new_move].color != self.color
+        elsif filled?(new_move) && @board.grid[new_move[0]][new_move[1]].color == self.color
+          break
+        elsif filled?(new_move) && @board.grid[new_move[0]][new_move[1]].color != self.color
           @moves << new_move
           break
         else
           @moves << new_move
         end
-
         times += 1
       end
     end
+    nil
   end
 
   def filled?(pos)
-    !board[pos].empty?
+    !@board.grid[pos[0]][pos[1]].nil?
   end
 
 

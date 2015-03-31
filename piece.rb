@@ -2,7 +2,7 @@ require './board.rb'
 require 'byebug'
 class Piece
 
-  attr_reader :color
+  attr_reader :color, :pos, :moves, :board
 
   def initialize(board, pos, color)
     @board = board
@@ -14,6 +14,7 @@ class Piece
   def moves #override for pawn
     @moves
   end
+
 
 
 
