@@ -18,6 +18,17 @@ class Piece
     [self.class, self.color].inspect
   end
 
+  def move
+  end
+
+  def dup(board = @board)
+    self.class.new(board,self.pos.dup,self.color)
+  end
+
+  def moves_into_check?(move)
+  end
+
+
 
 
 

@@ -125,5 +125,20 @@ class Board
     pos.all? { |coord| coord.between?(0, BOARD_SIZE-1) }
   end
 
+  def dup
+    new_grid = self.default_grid
+    new_board = Board.new(new_grid)
+    # byebug
+
+    BOARD_SIZE.times do |row|
+      BOARD_SIZE.times do |col|
+        next if self[row,col].nil?
+        new_board[row,col] = self[row,col].dup(new_board)
+      end
+    end
+    new_board
+  end
+
+
 
 end
