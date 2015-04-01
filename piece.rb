@@ -20,7 +20,7 @@ class Piece
   end
 
   def move(finish)
-    raise "Can't move!" if self.moves_into_check?(finish) || !self.moves.include?(finish)
+    raise ArgumentError if self.moves_into_check?(finish) || !self.moves.include?(finish)
 
     old_pos = self.pos.dup
     @board[*finish] = self

@@ -1,6 +1,6 @@
 require './chess.rb'
 require './piece.rb'
-require 'byebug'
+require 'colorize'
 
 class Board
 
@@ -38,19 +38,15 @@ class Board
 
   def royalty_row(color, row)
     arr = [Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook]
-
     arr.each_with_index do |piece, col|
-
       self[row,col] = piece.new(self, [row, col], color)
     end
 
   end
 
   def in_check?(color)
-    # byebug
     opponent = other_color(color)
     moves = collect_moves(opponent)
-
     moves.include?(king_position(color))
   end
 
@@ -132,19 +128,25 @@ class Board
 
   def render
     render = ""
+    check = false
     @grid.each do |rows|
-      rows.each_with_index do |el, index|
+      rows.each do |el|
         if el.nil?
-          render << "  "
+          render << "  ".on_white if check
+          render << "  ".on_light_white if !check
         else
-          render << "#{el.render} "
+          render << "#{el.render} ".on_white if check
+          render << "#{el.render} ".on_light_white if !check
         end
+        check == false ? check = true : check = false
       end
+      check == false ? check = true : check = false
       render << "\n"
     end
 
     render
   end
+
 
   def display
     puts render
