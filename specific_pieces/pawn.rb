@@ -1,6 +1,7 @@
 require './piece.rb'
 
 class Pawn < Piece
+  attr_accessor :moved
 
   #all deltas are defaulted to black, for white row needs to be multiplied by -1
   TAKE_DELTAS = [
@@ -35,8 +36,10 @@ class Pawn < Piece
     end
 
     move_deltas.each do |(dx, dy)|
+      # byebug
       new_move = [pos[0] + dx, pos[1] + dy]
-      break if !@board.valid_move?(new_move) || !@board[*new_move].nil?
+      break if !@board.valid_move?(new_move)
+      break if !@board[*new_move].nil?
       moves << new_move
     end
 
@@ -51,7 +54,7 @@ class Pawn < Piece
     if !self.is_white?
       TAKE_DELTAS
     else
-      TAKE_DELTAS.map{|d| d[0]*-1}
+      TAKE_DELTAS.map{|(dx,dy)| [dx * -1, dy]}
     end
   end
 
@@ -62,7 +65,7 @@ class Pawn < Piece
       move_deltas = MOVE_DELTAS.map { |(dx,dy)| [dx*-1,dy] }
     end
 
-    return move_deltas.first if self.moved?
+    return [move_deltas.first] if self.moved?
     move_deltas
   end
 

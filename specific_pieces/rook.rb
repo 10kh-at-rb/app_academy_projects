@@ -6,4 +6,12 @@ class Rook < SlidingPiece
     ORTHOGONAL
   end
 
+  def render
+    if self.color == COLORS[1]
+      "\u2656"
+    else
+      "\u265c"
+    end
+  end
+
 end

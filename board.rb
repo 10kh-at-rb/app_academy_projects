@@ -5,7 +5,7 @@ require 'byebug'
 class Board
 
   BOARD_SIZE = 8
-  COLORS = [:black, :yellow]
+  COLORS = [:black, :white]
 
 
   def default_grid
@@ -13,6 +13,7 @@ class Board
   end
 
   attr_accessor :grid
+
 
 
   def initialize(grid = nil)
@@ -48,18 +49,12 @@ class Board
   def in_check?(color)
     # byebug
     opponent = other_color(color)
-    moves = collect_moves(opponent)
+    moves = collect_opp_moves(opponent)
 
     moves.include?(king_position(color))
   end
 
-  def move(start,end_pos)
-    # checks to make sure the move doesn't put the player in check
-    # board[end_pos] = board[start_pos]
-    # board[start_pos] = nil
-  end
-
-  def collect_moves(color)
+  def collect_opp_moves(color)
 
     all_possible_moves = []
     BOARD_SIZE.times do |row|
