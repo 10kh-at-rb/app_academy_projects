@@ -18,14 +18,26 @@ class Piece
     [self.class, self.color].inspect
   end
 
-  def move
+  def move(start, finish)
+    raise "Can't move!" if self.moves_into_check?(start, finish) || !self.moves.include?(finish)
+
+    @board[*start] = @board[*finish]
+    @board[*start] = nil
+
+
   end
 
   def dup(board = @board)
     self.class.new(board,self.pos.dup,self.color)
   end
 
-  def moves_into_check?(move)
+  def moves_into_check?(start,finish)
+    new_board = @board.dup
+    new_board[*start] = new_board[*finish]
+    new_board[*start] = nil
+
+    new_board.in_check?(self.color)
+
   end
 
 

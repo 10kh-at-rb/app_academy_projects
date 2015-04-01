@@ -25,11 +25,12 @@ class Pawn < Piece
   def moves
     moves = []
     #
-    take_deltas = self.take_deltas(color)
-    move_deltas = self.move_deltas(color)
+    take_deltas = self.take_deltas
+    move_deltas = self.move_deltas
 
     take_deltas.each do |(dx, dy)|
       new_move = [pos[0] + dx, pos[1] + dy]
+      next if !@board.valid_move?(new_move)
       moves << new_move if can_take?(new_move)
     end
 
@@ -46,7 +47,7 @@ class Pawn < Piece
     !@board[*pos].nil? && @board[*pos].color != self.color
   end
 
-  def take_deltas(color)
+  def take_deltas
     if !self.is_white?
       TAKE_DELTAS
     else
@@ -54,11 +55,11 @@ class Pawn < Piece
     end
   end
 
-  def move_deltas(color)
+  def move_deltas
     if !self.is_white?
       move_deltas = MOVE_DELTAS
     else
-      move_deltas = MOVE_DELTAS.map{|d| d[0]*-1}
+      move_deltas = MOVE_DELTAS.map { |(dx,dy)| [dx*-1,dy] }
     end
 
     return move_deltas.first if self.moved?
