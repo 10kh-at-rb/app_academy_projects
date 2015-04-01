@@ -15,6 +15,10 @@ class Piece
     @moves
   end
 
+  def inspect
+    print [self.class, self.color]
+  end
+
 
 
 

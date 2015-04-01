@@ -29,9 +29,9 @@ class SlidingPiece < Piece
 
         if !@board.valid_move?(new_move)
           break
-        elsif filled?(new_move) && @board.grid[new_move[0]][new_move[1]].color == self.color
+        elsif filled?(new_move) && @board[new_move].color == self.color
           break
-        elsif filled?(new_move) && @board.grid[new_move[0]][new_move[1]].color != self.color
+        elsif filled?(new_move) && @board[new_move].color != self.color
           @moves << new_move
           break
         else
@@ -44,7 +44,7 @@ class SlidingPiece < Piece
   end
 
   def filled?(pos)
-    !@board.grid[pos[0]][pos[1]].nil?
+    !@board[pos].nil?
   end
 
 
