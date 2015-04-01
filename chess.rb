@@ -1,4 +1,4 @@
-require 'board.rb'
+require './board.rb'
 require 'yaml'
 
 
@@ -37,6 +37,7 @@ class Player
 
 
   def play_turn
+    
   end
 
 end

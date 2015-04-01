@@ -79,9 +79,6 @@ class Board
     color == COLORS[0] ? COLORS[1] : COLORS[0]
   end
 
-
-
-
   def pawn_row(color, row)
     BOARD_SIZE.times do |column|
       pos = [row,column]
@@ -109,10 +106,11 @@ class Board
 
   def winner
     if checkmate?(COLOR[0])
-      return COLOR[1]
+      COLOR[1]
     else
       COLOR[0]
     end
+  end
 
   def valid_move?(pos)
     pos.all? { |coord| coord.between?(0, BOARD_SIZE-1) }
@@ -132,7 +130,25 @@ class Board
     new_board
   end
 
+  def render
+    render = ""
+    @grid.each do |rows|
+      rows.each_with_index do |el, index|
+        if el.nil?
+          render << "  "
+        else
+          render << "#{el.render} "
+        end
+      end
+      render << "\n"
+    end
 
+    render
+  end
+
+  def display
+    puts render
+  end
 
 
 

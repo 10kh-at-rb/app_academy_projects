@@ -1,3 +1,4 @@
+load './chess.rb'
 load './board.rb'
 load './piece.rb'
 load './specific_pieces/sliding_piece.rb'
