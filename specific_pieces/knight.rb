@@ -18,5 +18,13 @@ class Knight < SteppingPiece
     KNIGHT_MOVES
   end
 
+  def render
+    if self.color == COLORS[1]
+      "\u2658"
+    else
+      "\u265e"
+    end
+  end
+
 
 end

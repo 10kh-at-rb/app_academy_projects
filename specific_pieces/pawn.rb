@@ -73,6 +73,14 @@ class Pawn < Piece
     self.color == Board::COLORS[1]
   end
 
+  def render
+    if self.color == COLORS[1]
+      "\u2659"
+    else
+      "\u265f"
+    end
+  end
+
 
 
 end

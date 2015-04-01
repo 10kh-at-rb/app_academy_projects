@@ -6,4 +6,12 @@ class Queen < SlidingPiece
     DIAGONAL + ORTHOGONAL
   end
 
+  def render
+    if self.color == COLORS[1]
+      "\u2655"
+    else
+      "\u265b"
+    end
+  end
+
 end

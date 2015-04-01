@@ -16,5 +16,13 @@ class King < SteppingPiece
     KING_MOVES
   end
 
+  def render
+    if self.color == COLORS[1]
+      "\u2654"
+    else
+      "\u265a"
+    end
+  end
+
 
 end
