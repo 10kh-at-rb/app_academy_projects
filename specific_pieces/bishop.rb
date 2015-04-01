@@ -8,7 +8,7 @@ class Bishop < SlidingPiece
   end
 
   def render
-    if self.color == COLORS[1]
+    if self.color == Board::COLORS[1]
       "\u2657"
     else
       "\u265d"

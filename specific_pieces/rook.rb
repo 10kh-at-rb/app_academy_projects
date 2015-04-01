@@ -7,7 +7,7 @@ class Rook < SlidingPiece
   end
 
   def render
-    if self.color == COLORS[1]
+    if self.color == Board::COLORS[1]
       "\u2656"
     else
       "\u265c"

@@ -19,7 +19,7 @@ class Knight < SteppingPiece
   end
 
   def render
-    if self.color == COLORS[1]
+    if self.color == Board::COLORS[1]
       "\u2658"
     else
       "\u265e"

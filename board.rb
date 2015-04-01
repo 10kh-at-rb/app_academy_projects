@@ -49,12 +49,12 @@ class Board
   def in_check?(color)
     # byebug
     opponent = other_color(color)
-    moves = collect_opp_moves(opponent)
+    moves = collect_moves(opponent)
 
     moves.include?(king_position(color))
   end
 
-  def collect_opp_moves(color)
+  def collect_moves(color)
 
     all_possible_moves = []
     BOARD_SIZE.times do |row|
@@ -99,22 +99,20 @@ class Board
     @grid[row][col] = piece
   end
 
+  def checkmate?(color)
+    self.in_check?(color) && self.collect_moves(color).empty?
+  end
 
+  def over?
+    COLORS.any? {|color| checkmate?(color) }
+  end
 
-
-    # grid.times do |row|
-    #   case row
-    #   when 0,1
-    #     color = "black"
-    #   when 2..5
-    #     next
-    #   when 6,7
-    #     color = "yellow"
-    #   end
-    #   grid.times do |column|
-    #
-    #
-
+  def winner
+    if checkmate?(COLOR[0])
+      return COLOR[1]
+    else
+      COLOR[0]
+    end
 
   def valid_move?(pos)
     pos.all? { |coord| coord.between?(0, BOARD_SIZE-1) }
@@ -133,6 +131,8 @@ class Board
     end
     new_board
   end
+
+
 
 
 
