@@ -19,8 +19,9 @@ class SlidingPiece < Piece
   ]
 
 
-  def generate_moves
+  def moves
     # byebug
+    moves = []
     move_dirs.each do |direction|
       times = 1
       while true
@@ -29,22 +30,22 @@ class SlidingPiece < Piece
 
         if !@board.valid_move?(new_move)
           break
-        elsif filled?(new_move) && @board[new_move].color == self.color
+        elsif filled?(new_move) && @board[*new_move].color == self.color
           break
-        elsif filled?(new_move) && @board[new_move].color != self.color
-          @moves << new_move
+        elsif filled?(new_move) && @board[*new_move].color != self.color
+          moves << new_move
           break
         else
-          @moves << new_move
+          moves << new_move
         end
         times += 1
       end
     end
-    nil
+    moves.uniq
   end
 
   def filled?(pos)
-    !@board[pos].nil?
+    !@board[*pos].nil?
   end
 
 

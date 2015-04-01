@@ -18,21 +18,21 @@ class Board
   def initialize(grid = nil)
     if grid.nil?
       @grid = default_grid
-      # build_grid
+      build_grid
     else
       @grid = grid
     end
-    @colors = COLORS
+
   end
 
 
   def build_grid
     # byebug
-    self.royalty_row(@colors[0],0)
+    self.royalty_row(COLORS[0],0)
 
-    pawn_row(@colors[0],1)
-    pawn_row(@colors[1],6)
-    self.royalty_row(@colors[1],7)
+    pawn_row(COLORS[0],1)
+    pawn_row(COLORS[1],6)
+    self.royalty_row(COLORS[1],7)
   end
 
   def royalty_row(color, row)
@@ -46,8 +46,10 @@ class Board
   end
 
   def in_check?(color)
+    # byebug
+    opponent = other_color(color)
+    moves = collect_moves(opponent)
 
-    moves = collect_moves()
     moves.include?(king_position(color))
   end
 
@@ -58,9 +60,11 @@ class Board
   end
 
   def collect_moves(color)
+
     all_possible_moves = []
     BOARD_SIZE.times do |row|
       BOARD_SIZE.times do |col|
+        next if self[row,col].nil?
         all_possible_moves.concat(self[row,col].moves) if self[row,col].color == color
       end
     end
@@ -73,6 +77,11 @@ class Board
         return [row,col] if self[row,col].is_a?(King) && self[row,col].color == color
       end
     end
+  end
+
+  def other_color(color)
+    # byebug
+    color == COLORS[0] ? COLORS[1] : COLORS[0]
   end
 
 

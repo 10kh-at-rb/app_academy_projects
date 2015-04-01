@@ -2,12 +2,11 @@ require './board.rb'
 require 'byebug'
 class Piece
 
-  attr_reader :color, :pos, :moves, :board
+  attr_reader :color, :pos, :board
 
   def initialize(board, pos, color)
     @board = board
     @pos = pos
-    @moves = []
     @color = color
   end
 
@@ -16,7 +15,7 @@ class Piece
   end
 
   def inspect
-    print [self.class, self.color]
+    [self.class, self.color].inspect
   end
 
 
