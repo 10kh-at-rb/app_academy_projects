@@ -35,26 +35,25 @@ class Piece
     #moves the piece on the from the from spot to the to space
   end
 
-  def perform_jump(from,to)
+  def perform_jump(to)
+
   end
 
-  def move_diffs
-  end
 
-  def all_legal_jumps
-    #checks if delta * 2 is empty & delta * 1 has a piece of the opposite color
-    jumps = []
-    row,col = self.pos
-    self.deltas.each do |(dx, dy)|
-      if @board[row+dx*2, col+dy*2].nil? && !@board[row+dx,col+dy].nil?
-        if @board[row+dx,col+dy].color != self.color
-          new_pos = [row+(dx*2), col+(dx*2)]
-          jumps << new_pos if @board.on_board?(new_pos)
-        end
-      end
-      jumps
-    end
+  def legal_jump?(to)
+    #checks if to position is on the board
+    on_board = @board.on_board?(to)
 
+    #checks if to position is empty
+    to_empty = @board[*to].nil?
+
+    #checks if there is an opponent between from & to positions
+    x_from, y_from = self.pos
+    x_to, y_to = to
+    opponent_pos = (x_from - x_to) / 2, (y_from - y_to) / 2
+    opponent = !@board[*opponent_pos].nil? && @board[*opponent_pos].color != self.color
+
+    [on_board, to_empty, opponent].all? { |condition| condition }
   end
 
   def legal_slide?(to)
