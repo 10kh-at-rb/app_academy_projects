@@ -1,7 +1,12 @@
 class Piece
   DELTAS = [
-    [1, 0],
-    [-1, 0]
+    [1, 1],
+    [1, -1]
+  ]
+
+  KING_DELTAS = [
+    [-1, 1],
+    [-1, -1]
   ]
 
   def initialize(color, board, pos)
@@ -40,15 +45,14 @@ end
 class Board
   BOARD = 8
 
-  def self.default_grid
-    Array.new(BOARD) {Array.new(BOARD)}
+  attr_reader :grid
+
+
+  def initalize
+    make_starting_grid
   end
 
-  def initalize(grid = self.class.default_grid)
-    @grid = grid
-  end
-
-  def [](pos)
+  def [](*pos)
     i,j = pos
     @grid[i][j]
   end
@@ -57,6 +61,50 @@ class Board
     i,j = pos
     @grid[i][j] = piece
   end
+
+  def valid_pos?(pos)
+    pos.all? { |coord| coord.between?(0,7) }
+  end
+
+  def make_starting_grid
+    @grid = Array.new(BOARD) {Array.new(BOARD)}
+    # fill_rows
+  end
+
+  def fill_rows
+    8.times do |i|
+      case i
+      when 0, 2
+        color = :red
+        start = 0
+      when 1
+        color = :red
+        start = 1
+      when 5, 7
+        color = :black
+        start = 1
+      when 6
+        color = :black
+        start = 0
+      else
+        start = 0
+      end
+
+      8.times do |j|
+        j += start
+        pos = [i,j]
+        @grid[*i,j] = Piece.new(color, self, [i, j]) if j.even?
+      end
+    end
+  end
+
+  # def fill_odd_row(color, row)
+  #   (0..7).each_with_object([]) do |num, odd_row|
+  #     odd_row << Piece.new(color, self, [row, num]) if num.odd?
+  #   end
+  # end
+
+
 
 end
 
