@@ -28,7 +28,7 @@ class Piece
     if valid_move_seq?(move_sequence)
       perform_moves!(move_sequence)
     else
-      raise InvalidMoveError "You can't perform this move!"
+      raise InvalidMoveError.new "You can't perform this move!"
     end
   end
 
@@ -43,12 +43,12 @@ class Piece
       elsif legal_jump?(move_sequence[0])
         self.perform_jump(move_sequence[0])
       else
-        raise InvalidMoveError "You can't perform this move!"
+        raise InvalidMoveError.new "You can't perform this move!"
       end
 
     else
       move_sequence.each_with_index do |move, index|
-        raise InvalidMoveError "Invalid move, move no. #{index}." if !self.legal_jump?(move)
+        raise InvalidMoveError.new "Invalid move, move no. #{index}." if !self.legal_jump?(move)
         self.perform_jump(move)
       end
     end
@@ -129,7 +129,7 @@ class Piece
       self.pos = to
       maybe_promote
     else
-      raise InvalidMoveError "Illegal jump!"
+      raise InvalidMoveError.new "Illegal jump!"
     end
   end
 

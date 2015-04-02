@@ -9,12 +9,11 @@ class HumanPlayer
     board.display
     puts "It's your turn #{color.to_s.capitalize}"
     from = get_input("Which Piece do you want to move?")
-    moves = []
-    count = 1
+
     to = to_input("Where to? If its multiple moves, seperate them by a space")
     board[*from].perform_moves(to)
 
-    rescue InvalidMoveError => e
+  rescue InvalidMoveError => e
       puts "Error: #{e.message}"
       retry
     end
