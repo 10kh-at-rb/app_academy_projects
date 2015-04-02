@@ -26,8 +26,71 @@ class Piece
     @king
   end
 
-  # def perform_moves!(move_sequence)
-  #   if
+  def perform_moves(move_sequence)
+    perform_moves!(move_sequence) if valid_move_seq?(move_sequence)
+
+
+  def perform_moves!(move_sequence)
+    if move_sequence[0].is_a?(Fixnum)
+      if legal_slide?(move_sequence[0])
+        self.perform_slide(move_sequence[0])
+      elsif legal_jump?(move_sequence[0])
+        self.perform_jump(move_sequence[0])
+      else
+        raise InvalidMoveError "You can't perform this move!"
+      end
+
+    else
+      move_sequence.each_with_index do |move, index|
+        raise InvalidMoveError "Invalid move, move no. #{index}." if !self.legal_jump?(move)
+        self.perform_jump(move)
+      end
+    end
+  end
+
+  def valid_move_seq?(move_seq)
+    begin
+        new_board = @board.dup
+        current_pos = self.pos.dup
+        new_board[*current_pos].perform_moves!(move_seq)
+    rescue InvalidMoveError
+      false
+
+    else
+      true
+    end
+
+
+  end
+
+
+
+    # dup_board = @board.dup
+    # new_self = self.dup(dup_board)
+    # return new_self.legal_jump?(move_seq[0]) if move_seq.count == 1
+    # result = valid_move_seq?(move_seq[0...-1])
+    # dup_board[*new_self.pos].
+    # result = false if result = false || new_self.legal_jump?(move_seq.last)
+    #
+    #
+    # # move_seq.each_with_index do |move, index|
+    # #   p "#{new_self.pos}"
+    #   dup_board = dup_board.dup
+    #   new_self = new_self.dup(dup_board)
+    #   current_pos = new_self.pos.dup
+    #   p "test #{dup_board[*current_pos]}"
+    #   return false if !dup_board[*current_pos].legal_jump?(move)
+    #   # raise index if !dup_board[*current_pos].legal_jump?(move)
+    #   dup_board[*current_pos].perform_jump(move)
+    #   p "#{new_self.pos}"
+    # end
+  # rescue StandardError => e
+  #   puts "Error at #{e}"
+
+
+
+
+
 
   def maybe_promote
     return if king?
@@ -57,7 +120,7 @@ class Piece
       self.pos = to
       maybe_promote
     else
-      raise InvalidMoveError
+      raise InvalidMoveError "Illegal slide!"
     end
   end
 
@@ -88,7 +151,7 @@ class Piece
       self.pos = to
       maybe_promote
     else
-      raise InvalidMoveError
+      raise InvalidMoveError "Illegal jump!"
     end
   end
 

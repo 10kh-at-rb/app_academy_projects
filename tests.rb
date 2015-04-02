@@ -1,14 +1,10 @@
 load 'checkers.rb'
 
 board = Board.new
-board.make_starting_grid
-p1 = Piece.new(:black, board, [3,1])
-p2 = Piece.new(:black, board, [4,3])
-board[3,1] = p1
-board[4,3] = p2
-board[2,0].legal_jump?([4,2])
-board[2,0].perform_jump([4,2])
-
-
-board.grid = Array.new(8) {Array.new(8)}
-board.odd_row(:black, 4)
+a = board[5,5]
+a.perform_slide([4,4])
+a.perform_slide([3,3])
+b = board[6,6]
+b.perform_slide([5,5])
+c = board[2,2]
+c.valid_move_seq?([[4,4],[6,6]])
