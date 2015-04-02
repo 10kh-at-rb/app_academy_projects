@@ -323,16 +323,6 @@ class Checkers
     current_player == :red ? current_player = :black : current_player = :red
   end
 
-
-
-
-    #loop begins
-    #board displays
-    #current_player plays turn
-    #switch turns
-
-    #check win conditio
-
 end
 
 
@@ -345,8 +335,27 @@ class HumanPlayer
   def play_turn(board)
     board.display
     puts "It's your turn #{color.to_s.capitalize}"
+    from = get_input("Which Piece")
+    moves = []
+    count = 1
+    to = get_input("For move #{count}, where does your piece go. Type 's' when thats the furthest move.")
+    until to == 's'
+      to = get_input("For move #{count}, where does your piece go. Type 's' when thats the furthest move.")
+      moves << to
+      count += 1
+    end
+    moves.pop
 
+    board[*from].perform_moves(moves)
+
+  rescue InvalidMoveError => e
+    puts "Error: #{e.message}"
+    retry
   end
+
+  def get_input(prompt)
+    puts prompt
+    gets.chomp.split(',').map {|coord_s| Integer(coord_s) }
 
 end
 
