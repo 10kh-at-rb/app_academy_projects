@@ -11,10 +11,10 @@ class Piece
     [-1, -1]
   ]
 
-  attr_accessor :color, :board, :pos
+  attr_accessor :color, :board, :pos, :king
 
   def initialize(color, board, pos)
-    @king_piece = false
+    @king = false
     @color, @board, @pos = color, board, pos
   end
 
@@ -23,7 +23,7 @@ class Piece
   end
 
   def deltas
-    @king_piece == true ? DELTAS + KING_DELTAS : forward(DELTAS)
+    @king == true ? DELTAS + KING_DELTAS : forward(DELTAS)
   end
 
   def forward(deltas)
@@ -32,14 +32,31 @@ class Piece
     end
   end
 
+
   def perform_slide(to)
-    #moves the piece on the from the from spot to the to space
-    raise "invalid move" if !@board.on_board?(to) || !@board[*to].nil?
+    if legal_slide?(to)
+      from = self.pos
+      board[*to] = self
+      board[*from] = nil
+      self.pos = to
+    else
+      raise 'invalid move'
+    end
+  end
+
+  def legal_slide?(to)
+
+    #checks if to place is empty & on board
+    on_board = @board.on_board?(to)
+    to_empty = @board[*to].nil?
+    #checks if move is in the available moves for that position
     x_from, y_from = self.pos
     x_to, y_to = to
+    delta = x_to - x_from, y_to - y_from
+    valid = self.deltas.include?(delta)
+    # byebug
 
-
-
+    [on_board, to_empty, valid].all? { |condition| condition }
   end
 
   def perform_jump(to)
@@ -76,11 +93,6 @@ class Piece
     [on_board, to_empty, opponent].all? { |condition| condition }
   end
 
-  def legal_slide?(to)
-    @board[*to].nil?
-  end
-
-
   def maybe_promote
     #checks to see if the piece is on the backrow
   end
@@ -106,9 +118,8 @@ class Board
 
   attr_accessor :grid
 
-
-  def initalize
-    @grid = make_starting_grid
+  def initialize
+    make_starting_grid
   end
 
   def on_board?(pos)
@@ -162,14 +173,13 @@ class Board
   end
 
   def render
-    render_str = "    a b c d e f g h\n"
+    render_str = "      0 1 2 3 4 5 6 7\n"
     @grid.each_with_index do |row, index|
       count = index
-      render_str << "   #{index + 1}"
+      render_str << "   #{index} "
       row.each do |el|
         count.even? ? background = :white : background = :light_white
         el.nil? ? r = "  ".colorize(:background => background) : r = "#{el.render} ".colorize(:background => background) #if count.even?
-        #el.nil? ? r = "  ".on_light_white : r = "#{el.render} ".on_light_white if count.odd?
         render_str << r
         count += 1
       end
