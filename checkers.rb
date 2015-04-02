@@ -26,6 +26,9 @@ class Piece
     @king
   end
 
+  # def perform_moves!(move_sequence)
+  #   if
+
   def maybe_promote
     return if king?
     current_row = self.pos[0]
@@ -117,6 +120,10 @@ class Piece
     end
   end
 
+  def dup(board)
+    new_piece = Piece.new(self.color, board, self.pos.dup)
+  end
+
 
 
 end
@@ -127,8 +134,12 @@ class Board
 
   attr_accessor :grid
 
-  def initialize
-    make_starting_grid
+  def initialize(grid = nil)
+    if grid
+      @grid = grid
+    else
+      @grid = make_starting_grid
+    end
   end
 
   def on_board?(pos)
@@ -151,34 +162,40 @@ class Board
   end
 
   def make_starting_grid
-    @grid = Array.new(BOARD) {Array.new(BOARD)}
+    grid = Array.new(BOARD) {Array.new(BOARD)}
+    p "test 1"
     8.times do |row|
       case row
       when 0, 2
-        even_row(:red, row)
+        grid[row] = even_row(:red, row)
+        p "test 2"
       when 1
-        odd_row(:red, row)
+        grid[row] = odd_row(:red, row)
       when 5, 7
-        odd_row(:black, row)
+        grid[row] = odd_row(:black, row)
       when 6
-        even_row(:black, row)
+        grid[row] = even_row(:black, row)
       end
     end
+    grid
   end
 
   def odd_row(color, row)
-    # byebug
+    new_row = Array.new(BOARD)
     (0..7).each do |col|
-      pos = [row, col]
-      self[*pos] = Piece.new(color, self, [row, col]) if col.odd?
+      new_row[col] = Piece.new(color, self, [row, col]) if col.odd?
+      new_row[col] = nil if col.even?
     end
+    new_row
   end
 
   def even_row(color, row)
+    new_row = Array.new(BOARD)
     (0..7).each do |col|
-      pos = [row, col]
-      self[*pos] = Piece.new(color, self, [row, col]) if col.even?
+      new_row[col] = Piece.new(color, self, [row, col]) if col.even?
+      new_row[col] = nil if col.odd?
     end
+    new_row
   end
 
   def render
@@ -201,9 +218,18 @@ class Board
     puts render
   end
 
-
-
-
+  def dup
+    new_grid = Array.new(BOARD) { Array.new(BOARD) }
+    dup_board = Board.new(new_grid)
+    BOARD.times do |row|
+      BOARD.times do |col|
+        pos = [row, col]
+        # byebug
+        self[*pos].nil? ? dup_board[*pos] = nil : dup_board[*pos] = self[*pos].dup(dup_board)
+      end
+    end
+    dup_board
+  end
 end
 
 class Checkers
@@ -216,4 +242,5 @@ class Checkers
 end
 
 class InvalidMoveError < StandardError
+
 end
