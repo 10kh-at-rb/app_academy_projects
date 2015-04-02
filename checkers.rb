@@ -27,11 +27,19 @@ class Piece
   end
 
   def perform_moves(move_sequence)
-    perform_moves!(move_sequence) if valid_move_seq?(move_sequence)
+    if valid_move_seq?(move_sequence)
+      perform_moves!(move_sequence)
+    else
+      raise InvalidMoveError "You can't perform this move!"
+    end
+  end
+
+
 
 
   def perform_moves!(move_sequence)
-    if move_sequence[0].is_a?(Fixnum)
+    if move_sequence.flatten.count < 3
+      # byebug
       if legal_slide?(move_sequence[0])
         self.perform_slide(move_sequence[0])
       elsif legal_jump?(move_sequence[0])
@@ -262,10 +270,10 @@ class Board
   end
 
   def render
-    render_str = "      0 1 2 3 4 5 6 7\n"
+    render_str = "          0 1 2 3 4 5 6 7 <==== columns\n"
     @grid.each_with_index do |row, index|
       count = index
-      render_str << "   #{index} "
+      render_str << "   row: #{index} "
       row.each do |el|
         count.even? ? background = :white : background = :light_white
         el.nil? ? r = "  ".colorize(:background => background) : r = "#{el.render} ".colorize(:background => background) #if count.even?
@@ -298,8 +306,46 @@ end
 class Checkers
 
   def initialize
-    @players = { white: HumanPlayer.new(:white),
+    @players = { white: HumanPlayer.new(:red),
                 black: HumanPlayer.new(:black) }
+    @current_player = :red
+    @board = Board.new
+  end
+
+  def play
+    loop do
+      players[current_player].play_turn(board)
+      switch_turns
+    end
+  end
+
+  def switch_turns
+    current_player == :red ? current_player = :black : current_player = :red
+  end
+
+
+
+
+    #loop begins
+    #board displays
+    #current_player plays turn
+    #switch turns
+
+    #check win conditio
+
+end
+
+
+class HumanPlayer
+
+  def initialize(color)
+    @color = color
+  end
+
+  def play_turn(board)
+    board.display
+    puts "It's your turn #{color.to_s.capitalize}"
+
   end
 
 end
