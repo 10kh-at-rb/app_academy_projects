@@ -21,6 +21,16 @@ class Piece
     self.render
   end
 
+  def deltas
+    @king_piece == true ? DELTAS + KING_DELTAS : forward(DELTAS)
+  end
+
+  def forward(deltas)
+    deltas.map do |(dx, dy)|
+      self.color == :red ? [dx,dy] : [dx*-1,dy]
+    end
+  end
+
   def perform_slide(from,to)
     #moves the piece on the from the from spot to the to space
   end
@@ -31,13 +41,26 @@ class Piece
   def move_diffs
   end
 
-  def legal_jump?(from,to)
-    @board[*to].nil?
+  def all_legal_jumps
+    #checks if delta * 2 is empty & delta * 1 has a piece of the opposite color
+    jumps = []
+    row,col = self.pos
+    self.deltas.each do |(dx, dy)|
+      if @board[row+dx*2, col+dy*2].nil? && !@board[row+dx,col+dy].nil?
+        if @board[row+dx,col+dy].color != self.color
+          new_pos = [row+(dx*2), col+(dx*2)]
+          jumps << new_pos if @board.on_board?(new_pos)
+        end
+      end
+      jumps
+    end
+
   end
 
   def legal_slide?(to)
     @board[*to].nil?
   end
+
 
   def maybe_promote
     #checks to see if the piece is on the backrow
@@ -67,6 +90,11 @@ class Board
 
   def initalize
     @grid = make_starting_grid
+  end
+
+  def on_board?(pos)
+    row, col = pos
+    pos.all? { |coord| coord.between?(0,7) }
   end
 
   def [](*pos)
