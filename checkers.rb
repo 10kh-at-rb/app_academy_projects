@@ -1,3 +1,4 @@
+require 'byebug'
 class Piece
   DELTAS = [
     [1, 1],
@@ -9,9 +10,15 @@ class Piece
     [-1, -1]
   ]
 
+  attr_accessor :color, :board, :pos
+
   def initialize(color, board, pos)
     @king_piece = false
-    @pos, @board = board, pos
+    @color, @board, @pos = color, board, pos
+  end
+
+  def inspect
+    self.color.inspect
   end
 
   def perform_slide(from,to)
@@ -45,7 +52,7 @@ end
 class Board
   BOARD = 8
 
-  attr_reader :grid
+  attr_accessor :grid
 
 
   def initalize
@@ -57,7 +64,7 @@ class Board
     @grid[i][j]
   end
 
-  def []=(pos, piece)
+  def []=(*pos, piece)
     i,j = pos
     @grid[i][j] = piece
   end
@@ -68,41 +75,63 @@ class Board
 
   def make_starting_grid
     @grid = Array.new(BOARD) {Array.new(BOARD)}
-    # fill_rows
-  end
-
-  def fill_rows
-    8.times do |i|
-      case i
+    8.times do |row|
+      case row
       when 0, 2
-        color = :red
-        start = 0
+        even_row(:red, row)
       when 1
-        color = :red
-        start = 1
+        odd_row(:red, row)
       when 5, 7
-        color = :black
-        start = 1
+        odd_row(:black, row)
       when 6
-        color = :black
-        start = 0
-      else
-        start = 0
-      end
-
-      8.times do |j|
-        j += start
-        pos = [i,j]
-        @grid[*i,j] = Piece.new(color, self, [i, j]) if j.even?
+        even_row(:black, row)
       end
     end
   end
 
-  # def fill_odd_row(color, row)
-  #   (0..7).each_with_object([]) do |num, odd_row|
-  #     odd_row << Piece.new(color, self, [row, num]) if num.odd?
+  def odd_row(color, row)
+    # byebug
+    (0..7).each do |col|
+      pos = [row, col]
+      self[*pos] = Piece.new(color, self, [row, col]) if col.odd?
+      end
+    end
+  end
+
+  def even_row(color, row)
+    (0..7).each do |col|
+      pos = [row, col]
+      self[*pos] = Piece.new(color, self, [row, col]) if col.even?
+    end
+  end
+
+  # def fill_rows
+  #   8.times do |i|
+  #     case i
+  #     when 0, 2
+  #       color = :red
+  #       start = 0
+  #     when 1
+  #       color = :red
+  #       start = 1
+  #     when 5, 7
+  #       color = :black
+  #       start = 1
+  #     when 6
+  #       color = :black
+  #       start = 0
+  #     else
+  #       start = 0
+  #     end
+  #
+  #     8.times do |j|
+  #       j += start
+  #       pos = [i,j]
+  #       @grid[*i,j] = Piece.new(color, self, [i, j]) if j.even?
+  #     end
   #   end
   # end
+
 
 
 
