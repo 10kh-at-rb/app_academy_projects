@@ -22,13 +22,26 @@ class Piece
     self.render
   end
 
+  def king?
+    @king
+  end
+
+  def maybe_promote
+    return if king?
+    current_row = self.pos[0]
+    self.color == :red ? back_row = 7 : back_row = 0
+
+    @king = true if current_row == back_row
+  end
+
+
   def deltas
     @king == true ? DELTAS + KING_DELTAS : forward(DELTAS)
   end
 
   def forward(deltas)
     deltas.map do |(dx, dy)|
-      self.color == :red ? [dx,dy] : [dx*-1,dy]
+      self.color == :red ? [dx, dy] : [dx * -1, dy]
     end
   end
 
@@ -39,13 +52,13 @@ class Piece
       board[*to] = self
       board[*from] = nil
       self.pos = to
+      maybe_promote
     else
-      raise 'invalid move'
+      raise InvalidMoveError
     end
   end
 
   def legal_slide?(to)
-
     #checks if to place is empty & on board
     on_board = @board.on_board?(to)
     to_empty = @board[*to].nil?
@@ -56,7 +69,7 @@ class Piece
     valid = self.deltas.include?(delta)
     # byebug
 
-    [on_board, to_empty, valid].all? { |condition| condition }
+    [on_board, to_empty, valid].all?
   end
 
   def perform_jump(to)
@@ -70,8 +83,9 @@ class Piece
       @board[*opponent_pos] = nil
       @board[*self.pos] = nil
       self.pos = to
+      maybe_promote
     else
-      raise "not a legal jump"
+      raise InvalidMoveError
     end
   end
 
@@ -88,17 +102,12 @@ class Piece
     x_from, y_from = self.pos
     x_to, y_to = to
     opponent_pos = (x_from + x_to) / 2, (y_from + y_to) / 2
-    opponent = !@board[*opponent_pos].nil? && @board[*opponent_pos].color != self.color
+    has_opponent = !@board[*opponent_pos].nil? && @board[*opponent_pos].color != self.color
 
-    [on_board, to_empty, opponent].all? { |condition| condition }
+    [on_board, to_empty, has_opponent].all?
   end
 
-  def maybe_promote
-    #checks to see if the piece is on the backrow
-  end
 
-  def moves
-  end
 
   def render
     if @king_piece
@@ -204,4 +213,7 @@ class Checkers
                 black: HumanPlayer.new(:black) }
   end
 
+end
+
+class InvalidMoveError < StandardError
 end
