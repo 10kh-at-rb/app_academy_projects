@@ -18,7 +18,7 @@ class Piece
   end
 
   def inspect
-    self.color.inspect
+    self.render
   end
 
   def perform_slide(from,to)
@@ -29,21 +29,31 @@ class Piece
   end
 
   def move_diffs
-
   end
 
-  def available_jump?
-    #checks to see if there is a piece at the delta & if the delta *2
-    #is empty
+  def legal_jump?(from,to)
+    @board[*to].nil?
   end
 
-  def legal_move?(from,to)
-    #determines whether the player can go from one spot & to another
+  def legal_slide?(to)
+    @board[*to].nil?
   end
 
   def maybe_promote
     #checks to see if the piece is on the backrow
   end
+
+  def moves
+  end
+
+  def render
+    if @king_piece
+      color == :red ? "☆" : "★"
+    else
+      color == :red ? "◎" : "◉"
+    end
+  end
+
 
 
 end
@@ -56,7 +66,7 @@ class Board
 
 
   def initalize
-    make_starting_grid
+    @grid = make_starting_grid
   end
 
   def [](*pos)
@@ -94,7 +104,6 @@ class Board
     (0..7).each do |col|
       pos = [row, col]
       self[*pos] = Piece.new(color, self, [row, col]) if col.odd?
-      end
     end
   end
 
