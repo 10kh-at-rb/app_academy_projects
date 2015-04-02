@@ -31,12 +31,24 @@ class Piece
     end
   end
 
-  def perform_slide(from,to)
+  def perform_slide(to)
     #moves the piece on the from the from spot to the to space
   end
 
   def perform_jump(to)
+    if legal_jump?(to)
 
+      x_from, y_from = self.pos
+      x_to, y_to = to
+      opponent_pos = (x_from - x_to) / 2, (y_from - y_to) / 2
+
+      @board[*to] = self
+      @board[*opponent_pos] = nil
+      @board[*self.pos] = nil
+      self.pos = to
+    else
+      raise "not a legal jump"
+    end
   end
 
 
@@ -51,6 +63,7 @@ class Piece
     x_from, y_from = self.pos
     x_to, y_to = to
     opponent_pos = (x_from - x_to) / 2, (y_from - y_to) / 2
+
     opponent = !@board[*opponent_pos].nil? && @board[*opponent_pos].color != self.color
 
     [on_board, to_empty, opponent].all? { |condition| condition }
@@ -140,33 +153,6 @@ class Board
       self[*pos] = Piece.new(color, self, [row, col]) if col.even?
     end
   end
-
-  # def fill_rows
-  #   8.times do |i|
-  #     case i
-  #     when 0, 2
-  #       color = :red
-  #       start = 0
-  #     when 1
-  #       color = :red
-  #       start = 1
-  #     when 5, 7
-  #       color = :black
-  #       start = 1
-  #     when 6
-  #       color = :black
-  #       start = 0
-  #     else
-  #       start = 0
-  #     end
-  #
-  #     8.times do |j|
-  #       j += start
-  #       pos = [i,j]
-  #       @grid[*i,j] = Piece.new(color, self, [i, j]) if j.even?
-  #     end
-  #   end
-  # end
 
 
 
