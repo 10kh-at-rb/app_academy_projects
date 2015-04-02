@@ -1,4 +1,5 @@
 require 'byebug'
+require 'colorize'
 class Piece
   DELTAS = [
     [1, 1],
@@ -33,6 +34,12 @@ class Piece
 
   def perform_slide(to)
     #moves the piece on the from the from spot to the to space
+    raise "invalid move" if !@board.on_board?(to) || !@board[*to].nil?
+    x_from, y_from = self.pos
+    x_to, y_to = to
+
+
+
   end
 
   def perform_jump(to)
@@ -40,7 +47,7 @@ class Piece
 
       x_from, y_from = self.pos
       x_to, y_to = to
-      opponent_pos = (x_from - x_to) / 2, (y_from - y_to) / 2
+      opponent_pos = (x_from + x_to) / 2, (y_from + y_to) / 2
 
       @board[*to] = self
       @board[*opponent_pos] = nil
@@ -53,6 +60,7 @@ class Piece
 
 
   def legal_jump?(to)
+    # byebug
     #checks if to position is on the board
     on_board = @board.on_board?(to)
 
@@ -62,8 +70,7 @@ class Piece
     #checks if there is an opponent between from & to positions
     x_from, y_from = self.pos
     x_to, y_to = to
-    opponent_pos = (x_from - x_to) / 2, (y_from - y_to) / 2
-
+    opponent_pos = (x_from + x_to) / 2, (y_from + y_to) / 2
     opponent = !@board[*opponent_pos].nil? && @board[*opponent_pos].color != self.color
 
     [on_board, to_empty, opponent].all? { |condition| condition }
@@ -83,9 +90,9 @@ class Piece
 
   def render
     if @king_piece
-      color == :red ? "☆" : "★"
+      color == :red ? "☆".red : "★".black
     else
-      color == :red ? "◎" : "◉"
+      color == :red ? "◎".red : "◉".black
     end
   end
 
@@ -152,6 +159,27 @@ class Board
       pos = [row, col]
       self[*pos] = Piece.new(color, self, [row, col]) if col.even?
     end
+  end
+
+  def render
+    render_str = "    a b c d e f g h\n"
+    @grid.each_with_index do |row, index|
+      count = index
+      render_str << "   #{index + 1}"
+      row.each do |el|
+        count.even? ? background = :white : background = :light_white
+        el.nil? ? r = "  ".colorize(:background => background) : r = "#{el.render} ".colorize(:background => background) #if count.even?
+        #el.nil? ? r = "  ".on_light_white : r = "#{el.render} ".on_light_white if count.odd?
+        render_str << r
+        count += 1
+      end
+      render_str << "\n"
+    end
+    render_str
+  end
+
+  def display
+    puts render
   end
 
 
