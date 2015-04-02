@@ -110,7 +110,7 @@ class Piece
 
 
   def render
-    if @king_piece
+    if king?
       color == :red ? "☆".red : "★".black
     else
       color == :red ? "◎".red : "◉".black
