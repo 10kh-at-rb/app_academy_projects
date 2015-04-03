@@ -29,19 +29,41 @@ class Hand
     deuce: 22
   }
 
-  def initialize(deck)
+  def initialize(deck, cards = nil)
     @deck = deck
-    @cards = default_deal
+    if cards.nil?
+      @cards = default_deal
+    else
+      @cards = cards
+    end
   end
 
   def default_deal
     deck.deal(5)
   end
 
-  def evaluate
+  def best_in_hand
     values = []
+    values << :straight_flush if flush? && straight?
+    values << :four_of_a_kind if four_of_a_kind?
+    values << :full_house if full_house?
     values << :flush if flush?
     values << :straight if straight?
+    values << :three_of_a_kind if three_of_a_kind?
+    values << :two_pair if two_pair?
+    values << :pair if pair?
+
+    cards.each do |card|
+      values << card.value
+    end
+
+    values.sort_by! { |value| HAND_VALUES[value] }.first
+  end
+
+  def card_count
+    count = Hash.new { |h,k| h[k] = 0 }
+    cards.each { |card| count[card.value] += 1 }
+    count
   end
 
   def flush?
@@ -49,10 +71,28 @@ class Hand
     cards.all? { |card| card.suit == suit }
   end
 
-  def card_count
-    count = Hash.new { |h,k| h[k] = 0 }
-    cards.each { |card| count[card.value] += 1 }
-    count
+  def four_of_a_kind?
+    card_count.any? {|k, count| count == 4 }
+  end
+
+  def three_of_a_kind?
+    card_count.any? {|k, count| count == 3 }
+  end
+
+  def pair?
+    card_count.any? {|k, count| count == 2 }
+  end
+
+  def two_pair?
+    new_hand = card_count.select { |k, v| v == 2 }
+    new_hand.count == 2
+  end
+
+  def full_house?
+    return false unless three_of_a_kind?
+
+    new_hand = card_count.select { |k, v| v == 2 }
+    new_hand.count == 1
   end
 
   def straight?
