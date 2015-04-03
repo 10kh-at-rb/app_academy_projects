@@ -33,17 +33,17 @@ describe Hand do
   let(:pair_hand) do
     cards = [Card.new(:spades, :four)]
     cards << Card.new(:clubs, :king)
-    cards << Card.new(:spades, :queen)
-    cards << Card.new(:diamonds, :queen)
+    cards << Card.new(:spades, :jack)
+    cards << Card.new(:diamonds, :jack)
     cards << Card.new(:spades, :eight)
     Hand.new(Deck.new, cards)
   end
 
   let(:three_of_a_kind_hand) do
     cards = [Card.new(:spades, :four)]
-    cards << Card.new(:clubs, :queen)
-    cards << Card.new(:spades, :queen)
-    cards << Card.new(:diamonds, :queen)
+    cards << Card.new(:clubs, :seven)
+    cards << Card.new(:spades, :seven)
+    cards << Card.new(:diamonds, :seven)
     cards << Card.new(:spades, :eight)
     Hand.new(Deck.new, cards)
   end
@@ -157,7 +157,6 @@ describe Hand do
     end
   end
 
-
   describe '#two_pair?' do
     it "can tell you if the hand has a two pair" do
       expect(two_pair_hand.two_pair?).to be true
@@ -181,8 +180,36 @@ describe Hand do
       expect(ace_high_hand.best_in_hand).to eq(:ace)
     end
   end
-  
-  it "can compare its value to other hands"
 
+  describe '#compare' do
+    it "returns 1 for winning hands" do
+      expect(two_pair_hand.compare(pair_hand)).to eq(1)
+      expect(four_of_a_kind_hand.compare(pair_hand)).to eq(1)
+      expect(straight_hand.compare(three_of_a_kind_hand)).to eq(1)
+    end
+    it "returns -1 for losing hands" do
+      expect(ace_high_hand.compare(full_house_hand)).to eq(-1)
+      expect(two_pair_hand.compare(full_house_hand)).to eq(-1)
+      expect(three_of_a_kind_hand.compare(flush_hand)).to eq(-1)
+    end
 
+    it "returns 0 for ties" do
+      expect(ace_high_hand.compare(ace_high_hand)).to eq(0)
+    end
+  end
+
+  describe '#most_common_card' do
+    it "gives you the most common card" do
+      expect(four_of_a_kind_hand.most_common_card).to eq(:queen)
+      expect(three_of_a_kind_hand.most_common_card).to eq(:seven)
+      expect(full_house_hand.most_common_card).to eq(:four)
+      expect(pair_hand.most_common_card).to eq(:jack)
+    end
+  end
+
+  describe '#highest_card' do
+    it "gives you the highest valued card" do
+      expect(ace_high_hand.highest_card).to eq(:ace)
+    end
+  end
 end

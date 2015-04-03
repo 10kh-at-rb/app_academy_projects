@@ -112,4 +112,26 @@ class Hand
     values == straight_check
   end
 
+  def compare(other_hand)
+    HAND_VALUES[other_hand.best_in_hand] <=> HAND_VALUES[best_in_hand]
+  end
+
+  def most_common_card
+    highest_count = 0
+    most_common_card = nil
+
+    self.card_count.each do |card, count|
+      if count > highest_count
+        highest_count = count
+        most_common_card = card
+      end
+    end
+
+    most_common_card
+  end
+
+  def highest_card
+    cards.sort_by! {|card| HAND_VALUES[card.value]}.first
+  end
+
 end
