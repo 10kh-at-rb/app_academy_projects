@@ -9,4 +9,6 @@ describe Card do
   it "can you tell its value" do
     expect(card.value).to eq(9)
   end
+
+  it "can render itself"
 end
