@@ -40,6 +40,10 @@ class Question
     QuestionFollow::most_followed_questions(n)
   end
 
+  def self.most_liked(n)
+    QuestionLike::most_liked_questions(n)
+  end
+
   attr_reader :id, :title, :body, :user_id
 
   def initialize(options = {})
