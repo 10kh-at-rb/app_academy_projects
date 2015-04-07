@@ -35,6 +35,23 @@ class QuestionFollow
     results.map { |result| User.new(result) }
   end
 
+  def self.followed_questions_for_user_id(user_id)
+    results = QuestionDatabase.instance.execute(<<-SQL, user_id)
+    SELECT
+      questions.*
+    FROM
+      question_follows AS qf
+    JOIN
+      questions ON questions.id = qf.question_id
+    WHERE
+      qf.user_id = ?
+
+    SQL
+
+    results.map { |result| Question.new(result) }
+  end
+
+
 
   attr_reader :id, :question_id, :user_id
 
