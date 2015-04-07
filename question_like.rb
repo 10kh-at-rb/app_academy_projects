@@ -32,6 +32,24 @@ class QuestionLike
     result[0]['count']
   end
 
+  def self.liked_questions_for_user_id(user_id)
+    results = QuestionDatabase.instance.execute(<<-SQL, user_id)
+
+    SELECT
+      questions.*
+    FROM
+      question_likes
+    JOIN
+      users ON users.id = question_likes.user_id
+    JOIN
+      questions ON questions.id = question_likes.id
+    WHERE
+      user_id = ?
+
+    SQL
+    results.map { |result| Question.new(result) }
+  end
+
   def self.likers_for_question_id(question_id)
     results = QuestionDatabase.instance.execute(<<-SQL, question_id)
     SELECT
