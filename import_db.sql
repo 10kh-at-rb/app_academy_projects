@@ -43,6 +43,7 @@ CREATE TABLE question_likes (
   FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+--seed data
 
 INSERT INTO
   users (fname, lname)
@@ -52,4 +53,41 @@ VALUES
 
 
 INSERT INTO
-  questions ()
+  questions (title, body, user_id)
+VALUES
+  ('Quick Question', 'Where am I?', (SELECT id FROM users WHERE fname = 'Eric')),
+  ('Sup', 'Whats the meaning of life?', (SELECT id FROM users WHERE fname = 'Rhoen'));
+
+INSERT INTO
+  question_follows (question_id, user_id)
+VALUES
+  (
+    (SELECT id FROM questions WHERE title = 'Sup'),
+    (SELECT id FROM users WHERE fname = 'Eric')
+
+    );
+
+INSERT INTO
+  replies(question_id, user_id, body, parent_id)
+VALUES
+  (
+    (SELECT id FROM questions WHERE title = 'Quick Question'),
+    (SELECT id FROM users WHERE fname = 'Rhoen'),
+    'You are in app academy!',
+    NULL
+  ),
+  (
+    (SELECT id FROM questions WHERE title = 'Quick Question'),
+    (SELECT id FROM users WHERE fname = 'Eric'),
+    'Cool, thanks.',
+    (SELECT id FROM replies WHERE body = 'You are in app academy!')
+  );
+
+
+INSERT INTO
+  -- question_likes(question_id, user_id)
+VALUES
+(
+  (SELECT id FROM questions WHERE title = 'Sup'),
+  (SELECT id FROM users WHERE fname = 'Eric')
+);
