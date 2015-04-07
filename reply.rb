@@ -47,7 +47,8 @@ class Reply
     results.map {|result| Reply.new(result)}
   end
 
-  attr_reader :id, :question_id, :user_id, :body, :parent_id
+  attr_accessor :question_id, :user_id, :body, :parent_id
+  attr_reader :id
 
   def initialize(options = {})
     @id = options['id']
@@ -56,6 +57,31 @@ class Reply
     @body = options['body']
     @parent_id = options['parent_id']
   end
+
+  def save
+    if id.nil?
+      QuestionDatabase.instance.execute(<<-SQL, question_id, user_id, body, parent_id)
+        INSERT INTO
+          replies(question_id, user_id, body, parent_id)
+        VALUES
+          (?,?,?,?)
+      SQL
+      @id = QuestionDatabase.instance.last_insert_row_id
+    else
+      QuestionDatabase.instance.execute(<<-SQL, question_id, user_id, body, parent_id, self.id)
+        UPDATE
+          replies
+        SET
+          question_id = ?,
+          user_id = ?,
+          body = ?,
+          parent_id = ?
+        WHERE
+          id = ?
+      SQL
+    end
+  end
+
 
   def author
     User::find_by_id(self.user_id)

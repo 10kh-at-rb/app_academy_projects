@@ -44,13 +44,39 @@ class Question
     QuestionLike::most_liked_questions(n)
   end
 
-  attr_reader :id, :title, :body, :user_id
+  attr_accessor :title, :body
+  attr_reader :id, :user_id
 
   def initialize(options = {})
     @id = options['id']
     @title = options['title']
     @body = options['body']
     @user_id = options['user_id']
+  end
+
+  def save
+    if id.nil?
+      QuestionDatabase.instance.execute(<<-SQL, title, body, user_id)
+        INSERT INTO
+          questions(title, body, user_id)
+        VALUES
+          (?, ?, ?)
+      SQL
+
+      @id = QuestionDatabase.instance.last_insert_row_id
+    else
+      QuestionDatabase.instance.execute(<<-SQL, title, body, user_id, self.id)
+        UPDATE
+          questions
+        SET
+          title = ?,
+          body = ?,
+          user_id = ?
+        WHERE
+          id = ?
+      SQL
+    end
+
   end
 
   def author
