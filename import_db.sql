@@ -75,7 +75,11 @@ VALUES
     (SELECT id FROM users WHERE fname = 'Rhoen'),
     'You are in app academy!',
     NULL
-  ),
+  );
+
+INSERT INTO
+  replies(question_id, user_id, body, parent_id)
+VALUES
   (
     (SELECT id FROM questions WHERE title = 'Quick Question'),
     (SELECT id FROM users WHERE fname = 'Eric'),
@@ -85,7 +89,7 @@ VALUES
 
 
 INSERT INTO
-  -- question_likes(question_id, user_id)
+  question_likes(question_id, user_id)
 VALUES
 (
   (SELECT id FROM questions WHERE title = 'Sup'),
