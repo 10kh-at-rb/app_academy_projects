@@ -1,0 +1,6 @@
+load './question.rb'
+load './user.rb'
+load './reply.rb'
+load './question_like.rb'
+load './question_follow.rb'
+load './question_db.rb'
