@@ -15,6 +15,7 @@ class ShortenedUrl < ActiveRecord::Base
             primary_key: :id)
 
   has_many( :visitors,
+            Proc.new { distinct },
             through: :visits,
             source: :visitor)
 
@@ -37,11 +38,10 @@ class ShortenedUrl < ActiveRecord::Base
   end
 
   def num_uniques
-    self.visits.select(:visitor_id).distinct.count
+    self.visitors.count
   end
 
   def num_recent_uniques
-    self.visits.select(:visitor_id).distinct
-    .where({created_at: (10.minutes.ago..Time.now)}).count
+    self.visitors.where({created_at: (10.minutes.ago..Time.now)}).count
   end
 end
