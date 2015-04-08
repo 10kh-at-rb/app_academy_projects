@@ -13,7 +13,7 @@ class Visit < ActiveRecord::Base
             primary_key: :id)
 
   def self.record_visit!(user, shortened_url)
-    Visit.new(visitor_id: user.id,
-              shortenedurl_id: shortened_url.id).save!
+    Visit.create!(visitor_id: user.id,
+              shortenedurl_id: shortened_url.id)
   end
 end

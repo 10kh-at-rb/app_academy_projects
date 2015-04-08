@@ -15,6 +15,16 @@ if choice == 0
   ShortenedUrl.create_for_user_and_long_url!(user, long_url)
 
   puts "Short url is: #{ShortenedUrl.last.short_url}"
+
+  puts "Select a Tag for your link:"
+  TagTopic::TAGS.each_with_index do |tag, i|
+    puts "#{i}. #{tag}"
+  end
+
+  tag_index= gets.chomp.to_i
+  topic = TagTopic.find_by_topic(TagTopic::TAGS[tag_index])
+  Tagging.record_tag!(ShortenedUrl.last, topic)
+
 elsif choice == 1
   puts "Type in the shortened URL"
   short_url = gets.chomp

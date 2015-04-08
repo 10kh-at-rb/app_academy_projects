@@ -15,9 +15,18 @@ class ShortenedUrl < ActiveRecord::Base
             primary_key: :id)
 
   has_many( :visitors,
-            Proc.new { distinct },
+            -> { distinct },
             through: :visits,
             source: :visitor)
+
+  has_many( :tags,
+            class_name: "Tagging",
+            foreign_key: :url_id,
+            primary_key: :id)
+
+  has_many( :tag_topics,
+            through: :tags,
+            source: :tag_topic)
 
   def self.random_code
     secure = SecureRandom.urlsafe_base64
@@ -28,9 +37,9 @@ class ShortenedUrl < ActiveRecord::Base
   end
 
   def self.create_for_user_and_long_url!(user, long_url)
-    ShortenedUrl.new(submitter_id: user.id,
+    ShortenedUrl.create!(submitter_id: user.id,
                      long_url: long_url,
-                     short_url: random_code).save!
+                     short_url: random_code)
   end
 
   def num_clicks
