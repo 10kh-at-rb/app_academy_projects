@@ -1,6 +1,7 @@
 class Response < ActiveRecord::Base
   validates :respondent_id, :answer_choice_id, presence: true
-  validate :respondent_has_not_already_answered_question
+  validate :respondent_has_not_already_answered_question,
+    :author_cannot_respond_to_own_poll
 
   belongs_to :respondent,
     class_name: "User",
@@ -20,11 +21,18 @@ class Response < ActiveRecord::Base
     self.question.responses.where.not(id: id)
   end
 
-  def respondent_has_not_already_answered_question
-    if sibling_responses.exists?(respondent_id: respondent_id)
-      errors[:respondent_id] << "has already answered question."
+  private
+    def respondent_has_not_already_answered_question
+      if sibling_responses.exists?(respondent_id: respondent_id)
+        errors[:respondent_id] << "has already answered question."
+      end
     end
-  end
+
+    def author_cannot_respond_to_own_poll
+      if respondent_id == self.question.poll.author_id
+        errors[:respondent_id] << "can't answer their own poll."
+      end
+    end
 
 
 end
