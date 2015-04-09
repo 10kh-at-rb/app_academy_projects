@@ -5,5 +5,7 @@ class CreateAnswerChoices < ActiveRecord::Migration
       t.string :text
       t.timestamps
     end
+
+    add_index :answer_choices, :question_id
   end
 end
