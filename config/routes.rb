@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   resources :users, only: [:create, :destroy, :index, :show, :update] do
     resources :contacts, only: [:index]
-    resources :comments, only: [:show]
+    resources :comments, only: [:index]
+    get 'favorite', on: :member
   end
   resources :contacts, only: [:create, :destroy, :show, :update] do
-    resources :comments, only: [:show]
+    resources :comments, only: [:index]
   end
   resources :contact_shares, only: [:create, :destroy]
 
