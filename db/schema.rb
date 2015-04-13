@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413211240) do
+ActiveRecord::Schema.define(version: 20150413215215) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "commenter_id"
@@ -47,6 +47,25 @@ ActiveRecord::Schema.define(version: 20150413211240) do
 
   add_index "contacts", ["email", "user_id"], name: "index_contacts_on_email_and_user_id", unique: true
   add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"
+
+  create_table "groupings", force: :cascade do |t|
+    t.integer  "group_id",   null: false
+    t.integer  "contact_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groupings", ["contact_id"], name: "index_groupings_on_contact_id"
+  add_index "groupings", ["group_id"], name: "index_groupings_on_group_id"
+
+  create_table "groups", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groups", ["user_id"], name: "index_groups_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at"

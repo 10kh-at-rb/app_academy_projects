@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :contacts, only: [:index]
     resources :comments, only: [:index]
     get 'favorite', on: :member
+    get 'groups', on: :member
   end
   resources :contacts, only: [:create, :destroy, :show, :update] do
     resources :comments, only: [:index]

@@ -41,7 +41,12 @@ class UsersController < ApplicationController
 
   def favorites
     user = User.find(params[:id])
-    contacts = user.contacts.where("favorite = ?", true)                  
+    contacts = user.contacts.where("favorite = ?", true)
+  end
+
+  def groups
+    user = User.find(params[:id])
+    user.groups
   end
 
 
