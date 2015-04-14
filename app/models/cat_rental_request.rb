@@ -3,26 +3,31 @@ class CatRentalRequest < ActiveRecord::Base
   validates_inclusion_of :status, in: STATUSES
   validates :cat_id, :start_date, :end_date, :status, presence: true
   validate :valid_range
+  after_initialize :set_defaults
 
   belongs_to :cat
 
-  scope :approved_requests, -> { where(status: "Approved") }
-
-  def range
-    (self.start_date.to_date..self.end_date.to_date)
-  end
+  private
 
   def valid_range
-    errors.add(:base, "Cat is already rented then") if !open_range
+    unless overlapping_approved_requests.none?
+      errors.add(:base, "Cat is already rented then")
+    end
   end
 
-  private
-  def open_range
-    self.class.approved_requests
-      .where(cat_id: self.cat_id)
-      .any? do |a_r|
-      self.range.cover?(a_r)
-    end
+  def overlapping_requests
+    CatRentalRequest
+      .where(cat_id: cat_id)
+      .where("NOT (end_date < :start OR start_date > :end)", start: start_date, end: end_date)
+  end
+
+  def overlapping_approved_requests
+    overlapping_requests
+      .where(status: "Approved")
+  end
+
+  def set_defaults
+    self.status ||= 'Pending'
   end
 
 end
