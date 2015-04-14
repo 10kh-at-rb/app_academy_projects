@@ -4,6 +4,8 @@ class Cat < ActiveRecord::Base
   validates_inclusion_of :sex, in: %w( m f t )
   validates_inclusion_of :color, in: COLORS
 
+  has_many :cat_rental_requests
+
   def age
     (Time.now.utc.to_date.year - self.birth_date.year)
   end
