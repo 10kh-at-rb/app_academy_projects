@@ -41,3 +41,10 @@
     </tr>
   </tr>
 </table>
+
+<h2>Current requests</h2>
+  <ul>
+    <% @requests.each do |request| %>
+      <li> <%= request.start_date %> through <%= request.end_date %> status: <%= request.status %></li>
+    <% end %>
+  </ul>
