@@ -2,6 +2,7 @@ class CatsController < ApplicationController
   before_action :verify_ownership, only: [:edit, :update]
 
   def show
+    @owner = current_cat.owner
     @requests = current_cat.cat_rental_requests
   end
 

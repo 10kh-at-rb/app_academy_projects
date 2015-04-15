@@ -7,7 +7,7 @@ SEX = %w( m f t )
     birth_date: num.years.ago,
     sex: SEX.sample,
     description: "This is the #{num}th cat.",
-    user_id: num
+    user_id: num + 1
   )
 end
 

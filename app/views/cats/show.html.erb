@@ -45,7 +45,7 @@
       Owner
     </td>
     <td>
-      <%= @cat.owner.username %>
+      <%= @owner.username %>
     </td>
   </tr>
 </table>
@@ -56,12 +56,16 @@
       <li> <%= request.start_date %> through <%= request.end_date %> status: <%= request.status %>
         <% if request.pending? %>
           <br />
-          <form action="<%= approve_cat_rental_request_url(request) %>" method="post">
+          <form
+            action="<%= approve_cat_rental_request_url(request) %>"
+            method="post">
             <input type="hidden" name="_method" value="patch">
+            <%= auth_token %>
             <button>Approve</button>
           </form>
           <form action="<%= deny_cat_rental_request_url(request) %>" method="post">
             <input type="hidden" name="_method" value="patch">
+            <%= auth_token %>
             <button>Deny</button>
           </form>
         <% end %>
