@@ -6,7 +6,8 @@ SEX = %w( m f t )
     color: COLORS.sample,
     birth_date: num.years.ago,
     sex: SEX.sample,
-    description: "This is the #{num}th cat."
+    description: "This is the #{num}th cat.",
+    user_id: num
   )
 end
 

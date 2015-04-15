@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :redirect_if_signed_in, only: [:create, :new]
 
   def create
     log_in!

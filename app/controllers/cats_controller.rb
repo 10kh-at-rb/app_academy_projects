@@ -1,8 +1,8 @@
 class CatsController < ApplicationController
+  before_action :verify_ownership, only: [:edit, :update]
 
   def show
-    @cat = Cat.find(params[:id])
-    @requests = @cat.cat_rental_requests
+    @requests = current_cat.cat_rental_requests
   end
 
   def index
@@ -14,24 +14,34 @@ class CatsController < ApplicationController
   end
 
   def create
-    @cat = Cat.create!(cat_params)
+    @cat = current_user.cats.create!(cat_params)
     redirect_to cat_url(@cat)
   end
 
   def edit
-    @cat = Cat.find(params[:id])
+    current_cat
   end
 
   def update
-    @cat = Cat.find(params[:id])
-    @cat.update!(cat_params)
-    redirect_to cat_url(@cat)
+    current_cat.update!(cat_params)
+    redirect_to cat_url(current_cat)
+  end
+
+  def current_cat
+    @cat ||= Cat.find(params[:id])
   end
 
 
 private
   def cat_params
     params.require(:cat).permit(:name, :color, :description, :sex, :birth_date)
+  end
+
+  def verify_ownership
+    unless current_user == current_cat.owner
+      flash[:errors] = "Not your cat, buddy"
+      redirect_to cats_url
+    end
   end
 
 end

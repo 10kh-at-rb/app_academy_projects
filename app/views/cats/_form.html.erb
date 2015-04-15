@@ -4,12 +4,13 @@
 <% else %>
     <form action="<%= cats_url %>" method="post">
 <% end %>
+  <%= auth_token %>
   <label>Name
     <input type="text" name="cat[name]" value="<%= @cat.name %>">
   </label><br />
   <label>Color
     <select name="cat[color]" value=""<%= @cat.color %>>
-      <% Cat::COLOR.each do |color| %>
+      <% Cat::COLORS.each do |color| %>
         <option value="<%= color %>"><%= color %></option>
       <% end %>
     </select>
