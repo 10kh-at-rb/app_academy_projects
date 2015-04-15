@@ -3,7 +3,7 @@ class CatsController < ApplicationController
 
   def show
     @owner = current_cat.owner
-    @requests = current_cat.cat_rental_requests
+    @requests = current_cat.cat_rental_requests.includes(:user)
   end
 
   def index
@@ -33,14 +33,14 @@ class CatsController < ApplicationController
   end
 
 
-private
+  private
   def cat_params
     params.require(:cat).permit(:name, :color, :description, :sex, :birth_date)
   end
 
   def verify_ownership
     unless current_user == current_cat.owner
-      flash[:errors] = "Not your cat, buddy"
+      flash[:errors] = ["Not your cat, buddy"]
       redirect_to cats_url
     end
   end

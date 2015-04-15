@@ -1,11 +1,12 @@
 class CatRentalRequest < ActiveRecord::Base
   STATUSES = %w(Pending Approved Denied)
   validates_inclusion_of :status, in: STATUSES
-  validates :cat_id, :start_date, :end_date, :status, presence: true
+  validates :cat_id, :start_date, :end_date, :status, :user_id,  presence: true
   validate :valid_range
   after_initialize :set_defaults
 
   belongs_to :cat
+  belongs_to :user
 
   def approve!
     CatRentalRequest.transaction do

@@ -4,10 +4,12 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   validates :username, presence: true, uniqueness: true
   validates :session_token, presence: true, uniqueness: true
-
+  validates :password, length: { minimum: 7, allow_nil: true }
   before_validation :ensure_session_token
-
+  has_many :cat_rental_requests
   has_many :cats
+
+  attr_reader :password
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

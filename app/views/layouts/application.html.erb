@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<p style="color:red">
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <%= error %><br/>
+    <% end %>
+  <% end %>
+</p>
   <h1>99 CATS</h1>
 <% if current_user %>
   <h2>Hi <%= current_user.username %></h2>

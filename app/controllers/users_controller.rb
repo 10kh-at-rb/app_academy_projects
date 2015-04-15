@@ -2,8 +2,13 @@ class UsersController < ApplicationController
   before_action :redirect_if_signed_in, only: [:new, :create]
 
   def create
-    @user = User.create!(user_params)
-    log_in!
+    @user = User.create(user_params)
+    if @user.valid?
+      log_in!
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      render 'new'
+    end
   end
 
   def new

@@ -7,7 +7,8 @@ class CatRentalRequestsController < ApplicationController
   end
 
   def create
-    CatRentalRequest.create!(request_params)
+    current_user.cat_rental_requests
+    .create!(request_params)
     @cat = Cat.find(request_params[:cat_id])
     redirect_to cat_url(@cat)
   end
@@ -33,7 +34,7 @@ class CatRentalRequestsController < ApplicationController
 
   def verify_cat_ownership
     unless current_request.cat.owner == current_user
-      flash[:errors] = "You do not own this cat."
+      flash[:errors] = ["You do not own this cat."]
       redirect_to cat_url(current_request.cat)
     end
   end
