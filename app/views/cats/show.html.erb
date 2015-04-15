@@ -45,6 +45,18 @@
 <h2>Current requests</h2>
   <ul>
     <% @requests.each do |request| %>
-      <li> <%= request.start_date %> through <%= request.end_date %> status: <%= request.status %></li>
+      <li> <%= request.start_date %> through <%= request.end_date %> status: <%= request.status %>
+        <% if request.pending? %>
+          <br />
+          <form action="<%= approve_cat_rental_request_url(request) %>" method="post">
+            <input type="hidden" name="_method" value="patch">
+            <button>Approve</button>
+          </form>
+          <form action="<%= deny_cat_rental_request_url(request) %>" method="post">
+            <input type="hidden" name="_method" value="patch">
+            <button>Deny</button>
+          </form>
+        <% end %>
+      </li>
     <% end %>
   </ul>

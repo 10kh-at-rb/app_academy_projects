@@ -51,4 +51,8 @@ class CatRentalRequest < ActiveRecord::Base
     self.status ||= 'Pending'
   end
 
+  def current_cat
+    @current_cat ||= Cat.find(cat_id)
+  end
+
 end
