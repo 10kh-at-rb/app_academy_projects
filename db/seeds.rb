@@ -9,3 +9,16 @@ SEX = %w( m f t )
     description: "This is the #{num}th cat."
   )
 end
+
+CatRentalRequest.create!(cat_id: 1, start_date: 10.days.ago, end_date: 1.day.ago)
+CatRentalRequest.create!(cat_id: 1, start_date: 10.days.ago, end_date: 3.day.ago)
+CatRentalRequest.create!(cat_id: 4, start_date: 10.days.ago, end_date: 1.day.ago)
+CatRentalRequest.create!(cat_id: 8, start_date: 10.days.ago, end_date: 1.day.ago)
+
+
+10.times do |num|
+  User.create!(
+    username: "user_#{num}",
+    password: "password"
+  )
+end
