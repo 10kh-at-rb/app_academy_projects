@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   def create
-    @user = User.new(user_params)
-    redirect_to user_url(@user)
+    @user = User.create!(user_params)
+    log_in!
   end
 
   def new

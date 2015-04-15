@@ -1,4 +1,4 @@
-<h1><%= @cat.name %></h1>
+<h2><%= @cat.name %></h2>
 <table>
   <tr>
     <td>
@@ -42,7 +42,7 @@
   </tr>
 </table>
 
-<h2>Current requests</h2>
+<h3>Current requests</h3>
   <ul>
     <% @requests.each do |request| %>
       <li> <%= request.start_date %> through <%= request.end_date %> status: <%= request.status %>

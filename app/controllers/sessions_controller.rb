@@ -1,20 +1,17 @@
 class SessionsController < ApplicationController
 
   def create
-    username = params[:user][:username]
-    password = params[:user][:password]
-    user = User.find_by_credentials(username, password)
-    if user
-      session[:session_token] = user.reset_session_token!
-      redirect_to cats_url
-    else
-      flash.now[:errors] << "Incorrect combo"
-      render :new
-    end
+    log_in!
   end
 
   def new
     @user = User.new
+  end
+
+  def destroy
+    current_user.reset_session_token!
+    session[:session_token] = nil
+    redirect_to root_url
   end
 
 
