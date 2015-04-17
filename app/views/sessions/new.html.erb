@@ -4,9 +4,31 @@
 
 <form action=" <%= session_url %> " method="post">
   <%= auth_token %>
-  <label for="user_username">Username:</label>
-  <input type="text" name="user[username]" value="">
-  <label for="user_password">Password:</label>
-  <input type="password" name="user[password]">
-  <input type="submit" name="Submit">
+  <table>
+  <tr>
+    <td>
+      <label for="user_username">Username:</label>
+    </td>
+    <td>
+      <input type="text" name="user[username]" value="">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label for="user_password">Password:</label>
+    </td>
+    <td>
+      <input type="password" name="user[password]">
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+    </td>
+    <td>
+      <input type="submit" name="Submit">
+    </td>
+  </tr>
+
+  </table>
 </form>
