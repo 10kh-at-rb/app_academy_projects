@@ -1,4 +1,5 @@
 class SubsController < ApplicationController
+  before_action :redirect_nonmoderator, only: [:edit, :update]
 
   def new
     @sub = Sub.new

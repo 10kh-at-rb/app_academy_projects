@@ -2,12 +2,12 @@ class PostsController < ApplicationController
   before_action :redirect_nonauthor, only: [:update, :edit]
 
   def new
-    @post = Post.new
+    @post = Post.new(sub_id: params[:sub_id])
     render :new
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
     if @post.save
       redirect_to sub_url(@post.sub_id)
     else

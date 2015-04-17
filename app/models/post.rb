@@ -5,15 +5,15 @@ class Post < ActiveRecord::Base
   validate :url_or_content
 
 
-  private
+  # private
 
   def url_or_content
-    if url.nil? && content.nil?
-      flash[:errors] = ["Please provide a URL or Content"]
-    elsif !url.nil? && !content.nil?
-      flash[:errors] = ["Please provide either a URL or Content, not both"]
+    if url.blank? && content.blank?
+      errors[:error] << "Please provide a URL or Content"
+    elsif !url.blank? && !content.blank?
+      errors[:error] << "Please provide either a URL or Content, not both"
     end
-  end 
+  end
 
 
 
