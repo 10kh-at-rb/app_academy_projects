@@ -23,6 +23,8 @@ class SubsController < ApplicationController
   end
 
   def index
+    @subs = Sub.all.includes(:moderator)
+    render :index
   end
 
 

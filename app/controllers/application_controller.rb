@@ -5,6 +5,14 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :logged_in?
 
+  def redirect_nonauthor
+    if params[:author_id] != current_user.id
+      flash[:errors] = ["You are not the author of this post"]
+      redirect_to post_url(params[:id])
+    end
+    nil
+  end
+
   def current_user
     @current_user ||= User.find_by(session_token: session[:session_token])
   end
