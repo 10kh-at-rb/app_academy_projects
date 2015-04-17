@@ -1,4 +1,15 @@
 class User < ActiveRecord::Base
+  has_many :subs,
+    class_name: "Sub",
+    foreign_key: :moderator_id,
+    primary_key: :id,
+    dependent: :destroy
+  has_many :posts,
+    class_name: "Post",
+    foreign_key: :author_id,
+    primary_key: :id,
+    dependent: :destroy
+
   validates :username, presence: true, uniqueness: true
   validates :password_digest, presence: true, uniqueness: true
   validates :session_token, presence: true, uniqueness: true
