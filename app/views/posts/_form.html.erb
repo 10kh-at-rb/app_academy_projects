@@ -5,6 +5,13 @@
   <%= auth_token %>
   <input type="hidden" name="_method" value="<%= method %>">
 
+
+  <input type="hidden" name="post[sub_ids][]" value="">
+  <% @subs.each do |sub| %>
+  <input type="checkbox" name="post[sub_ids][]" id="post_sub_id_<%= sub.title %>" value="<%= sub.id %>">
+    <label for="post_sub_id_<%= sub.title %>"><%= sub.title %></label>
+  <% end %>
+
   <table>
     <tr>
       <td>
@@ -22,12 +29,12 @@
         <input type="text" name="post[url]" value="<%= post.url %>">
       </td>
     </tr>
+
   </table>
 
   <label for="post_content">Content</label>
   <textarea name="post[content]" rows="8" cols="40"><%= post.content %></textarea>
 
-  <input type="hidden" name="post[sub_id]" value="<%= post.sub_id %>">
 
   <input type="submit" name="submit">
 </form>

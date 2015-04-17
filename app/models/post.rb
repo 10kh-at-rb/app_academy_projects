@@ -1,7 +1,12 @@
 class Post < ActiveRecord::Base
-  belongs_to :sub
+  # belongs_to :sub
   belongs_to :author, class_name: "User"
-  validates :title, :sub_id, :author_id, presence: true
+  has_many :post_subs
+  has_many :subs,
+    through: :post_subs,
+    source: :sub
+
+  validates :title, :author_id, presence: true
   validate :url_or_content
 
 

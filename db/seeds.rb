@@ -13,3 +13,12 @@ Post.create!(title: "here is a cool dog", sub_id: 1, url: "http://google.com", a
 Post.create!(title: "new iPod", sub_id: 2, url: "http://apple.com", author_id: 8)
 Post.create!(title: "fun things to do", sub_id: 3, content: "hiking, biking, more!", author_id: 7)
 Post.create!(title: "home page", sub_id: 4, url: "http://appacademy.io", author_id: 5)
+
+PostSub.create!(post_id: 1, sub_id: 1)
+PostSub.create!(post_id: 1, sub_id: 2)
+PostSub.create!(post_id: 1, sub_id: 3)
+PostSub.create!(post_id: 2, sub_id: 1)
+PostSub.create!(post_id: 3, sub_id: 1)
+PostSub.create!(post_id: 4, sub_id: 2)
+PostSub.create!(post_id: 5, sub_id: 3)
+PostSub.create!(post_id: 6, sub_id: 4)

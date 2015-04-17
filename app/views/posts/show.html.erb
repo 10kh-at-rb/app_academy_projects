@@ -1,7 +1,7 @@
 <h2><%= @post.title %></h2>
 <%= render 'shared/errors' %>
 
-<h3>Posted in <a href="<%= sub_url(@post.sub_id) %>"><%= @post.sub.title %></a>
+<h3>
    by <%= @post.author.username %></h3>
 
 <h4>Content</h4>
