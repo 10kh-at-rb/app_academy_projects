@@ -7,8 +7,18 @@
 
 
   <input type="hidden" name="post[sub_ids][]" value="">
+
+    <% chk = (checked="checked") %>
   <% @subs.each do |sub| %>
-  <input type="checkbox" name="post[sub_ids][]" id="post_sub_id_<%= sub.title %>" value="<%= sub.id %>">
+  <input type="checkbox"
+    name="post[sub_ids][]"
+    id="post_sub_id_<%= sub.title %>"
+    value="<%= sub.id %>"
+    <% if params[:sub_id].to_i == sub.id %>
+    <%= chk %>
+    <% elsif post.sub_ids.include?(sub.id) %>
+    <%= chk %>
+    <% end %>>
     <label for="post_sub_id_<%= sub.title %>"><%= sub.title %></label>
   <% end %>
 
@@ -32,9 +42,9 @@
 
   </table>
 
-  <label for="post_content">Content</label>
+  <label for="post_content">Content</label><br>
   <textarea name="post[content]" rows="8" cols="40"><%= post.content %></textarea>
-
+  <br>
 
   <input type="submit" name="submit">
 </form>

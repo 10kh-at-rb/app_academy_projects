@@ -9,3 +9,8 @@
 <p>
   <%= @post.content %>
 </p>
+
+<h4>Comments</h4>
+<% @comments.each do |comment| %>
+<%= render comment %>
+<% end %>

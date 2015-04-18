@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   has_many :subs,
     through: :post_subs,
     source: :sub
+  has_many :comments
 
   validates :title, :author_id, presence: true
   validate :url_or_content
