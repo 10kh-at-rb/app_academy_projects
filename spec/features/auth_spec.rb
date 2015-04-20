@@ -44,6 +44,11 @@ end
       expect(page).to have_content 'Sign Out'
     end
 
+    scenario "redirects to user show page at login" do
+      sign_in_as_tester
+      expect(page).to have_content "testing_username's Goals"
+    end
+
   end
 
   feature "logging out" do

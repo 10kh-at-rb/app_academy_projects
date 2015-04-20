@@ -16,6 +16,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    @goal = Goal.new
+
+    @complete_goals = @user.complete_goals
+    @incomplete_goals = @user.incomplete_goals
+  end
+
   def index
   end
 

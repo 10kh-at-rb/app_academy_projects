@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     user = User.find_by_credentials(*user_params)
     if user
       login! user
-      redirect_to :back
+      redirect_to user_url(user)
     else
       flash[:errors] = ["Incorrect username and/or password"]
       redirect_to :back
