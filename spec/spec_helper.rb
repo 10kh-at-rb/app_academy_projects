@@ -57,4 +57,29 @@ RSpec.configure do |config|
     click_on 'Sign In'
   end
 
+  def tester_makes_private_goal
+    fill_in "Title", with: "private_goal"
+    choose('private')
+    click_button 'Submit New Goal'
+  end
+
+  def tester_makes_public_goal
+    fill_in "Title", with: "public_goal"
+    choose('private')
+    click_button 'Submit New Goal'
+  end
+
+  def tester_makes_dated_goal1
+    fill_in "Title", with: "public_goal"
+    choose('private')
+    fill_in "goal_due_date", with: "08/27/1980"
+    click_button 'Submit New Goal'
+  end
+
+  def tester
+    User.find_by(username: "testing_username")
+  end
+
+
+
 end

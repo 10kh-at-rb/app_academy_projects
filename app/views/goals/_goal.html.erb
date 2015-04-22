@@ -1,0 +1,19 @@
+<% opp_status = (goal.completed ? 'incomplete' : 'complete') %>
+
+<li><%= goal.title %>
+  <br><%= "Due: #{goal.due_date.to_s} <br>".html_safe if !goal.due_date.nil? %>
+  <% if !goal.completed %>
+  <a href="<%= edit_goal_url %>">Edit This Goal<br></a>
+  <% end %>
+<form action="<%= goal_url(goal) %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="_method" value="Patch">
+  <input type="checkbox"
+    name="goal[completed]"
+    value="<%= !goal.completed %>"
+    id="check_<%= goal.title %>">
+
+  <button>mark goal as <%= opp_status %></button>
+</form>
+
+</li>
