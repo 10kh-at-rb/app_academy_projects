@@ -15,7 +15,6 @@
     var game = this;
     $(".grid").on("click", "li", function(event) {
       var $li = $(event.currentTarget);
-      console.log(game)
       game.makeMove($li)
     })
   };
@@ -24,7 +23,7 @@
     // take the pos info from the $square
     // and call this.game.playMove(pos)
     var row = $square.attr("data-row");
-    var col = parseInt($square.attr("data-col"));
+    var col = $square.attr("data-col");
     var mark = this.game.currentPlayer;
     try {
       this.game.playMove([row, col]);
@@ -34,7 +33,6 @@
     $square.attr("data-mark", mark);
     $square.addClass("marked");
     if (this.game.isOver()){
-      console.log("test")
       if (this.game.winner()) {
         var winner = this.game.winner();
         alert("Game Over! " + winner.toUpperCase() + " wins!");
