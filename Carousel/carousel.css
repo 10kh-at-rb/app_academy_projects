@@ -1,0 +1,67 @@
+html, body, header, ul, li, div, p, h1, a {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  text-decoration: inherit;
+  background: transparent;
+  text-align: inherit;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body{
+  background: #ccc;
+  font-family: sans-serif;
+}
+
+
+.carousel {
+  height: 240px;
+  width: 320px;
+  background: white;
+  border: 5px solid black;
+  margin: auto;
+}
+
+.items {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+
+.items li {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+
+.items .active {
+  display: block;
+  left: 0%
+}
+
+.items .active.right {
+  left: -100%;
+}
+
+.items .active.left {
+  left: 100%;
+}
+
+.items li img {
+  height: 100%;
+  width: 100%;
+}

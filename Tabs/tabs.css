@@ -1,0 +1,96 @@
+html, body, header, ul, li, div, p, h1, a {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  text-decoration: inherit;
+  background: transparent;
+  text-align: inherit;
+  color: inherit;
+}
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body{
+  background: #ccc;
+  font-family: sans-serif;
+
+}
+
+.header {
+  /*display: block;*/
+  font-size: 50px;
+  text-align: center;
+  margin: 50px;
+}
+
+.tabs {
+  margin: auto;
+  width: 700px;
+}
+
+.tabs li {
+  float: left;
+  margin: 10px 0 0 0;
+}
+
+.tabs li a {
+
+  padding: 10px 50px 10px 50px;
+  background: #eee;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 50px;
+}
+
+.content-tabs {
+  margin: 10px auto;
+  display: block;
+  border-radius: 10px;
+  width: 700px;
+  border-radius: 0 10px 10px 10px;
+  background: white;
+}
+
+
+.content-tabs article {
+  margin: auto;
+  display: none;
+  opacity: 0;
+  padding: 20px;
+
+  transition: opacity .5s;
+
+  /*position:absolute;*/
+}
+
+.content-tabs .active {
+  opacity: 1;
+  display: block;
+
+}
+
+.content-tabs .transition {
+  opacity: 0;
+  display: block;
+}
+
+
+
+
+.tabs li .selected {
+  font-weight: bold;
+  background: white;
+}
+
+.breed1{
+  background: grey;
+}
+.breed2{
+  background: purple;
+}
+.breed3{
+  background: blue;
+}
