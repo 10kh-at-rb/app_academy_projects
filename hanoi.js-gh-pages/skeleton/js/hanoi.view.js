@@ -14,7 +14,7 @@
 
   View.prototype.clickTower = function() {
     var that = this;
-    $(".TOH").on("click", "ul", function(event) {
+    this.$el.on("click", "ul", function(event) {
       if (that.towerNumber > -1) {
         var startTower = that.towerNumber;
         var $tower = $(event.currentTarget);
@@ -60,7 +60,7 @@
   };
 
   View.prototype.render = function () {
-    var $lis = $("li");
+    var $lis = this.$el.find("li");
     $lis.removeClass("d1 d2 d3");
     for (var i = 0; i < 3; i++) {
       for (var j = 0; j < 3; j++) {
@@ -74,7 +74,7 @@
         } else {
           towerIdx = j
         }
-        $slot = $($currentTower.children()[towerIdx])
+        var $slot = $($currentTower.children()[towerIdx])
         if(currentEl) {
           $slot.addClass("d" + currentEl);
         }
