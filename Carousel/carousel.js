@@ -8,25 +8,61 @@
 
   $.Carousel.prototype.clickHandlers = function() {
     that = this;
+    var oldActiveMoveDir
     this.$el.on("click", "a", function(event) {
-
-      $("li").eq(that.activeIdx).removeClass("active");
-      if (event.currentTarget.currentName === "slide-left") {
-        that.activeIdx--
+      var $oldActive = $("li").eq(that.activeIdx);
+      if (event.currentTarget.className === "slide-left") {
+        $oldActive.addClass("right");
+        that.slide(1);
+        console.log("old picture index", $oldActive.index())
       } else {
-        that.activeIdx++
+        $oldActive.addClass("left");
+        that.slide(-1);
+        console.log("old picture index", $oldActive.index())
       }
-      that.activeIdx = that.activeIdx % that.numItems;
-      if (that.activeIdx < 0) {
-        that.activeIdx += that.numItems;
-      }
-      $("li").eq(that.activeIdx).addClass("active");
+      console.log(that.activeIdx)
 
+      $oldActive.on("transitionend", function() {
+        $oldActive.removeClass("active")
+          .removeClass("right")
+          .removeClass("left")
+          // .removeClass(oldActiveMoveDir);
+      })
     })
   };
 
-  $.Carousel.prototype.slide = function(dir) {
+  $.Carousel.prototype.slideLeft = function() {
+    this.slide(1);
+  }
 
+  $.Carousel.prototype.slideRight = function() {
+    this.slide(-1);
+  }
+
+  $.Carousel.prototype.slide = function(num) {
+    this.activeIdx += num;
+    this.activeIdx = this.activeIdx % this.numItems;
+    if (this.activeIdx < 0) {
+      this.activeIdx += this.numItems;
+    }
+
+
+    if (num === 1) {
+      $newPic = $("li").eq(this.activeIdx)
+        .addClass("active")
+        .addClass("left");
+        console.log("new picture index", $newPic.index())
+
+    } else {
+      $newPic = $("li").eq(this.activeIdx)
+        .addClass("active")
+        .addClass("right");
+        console.log("new picture index", $newPic.index())
+    }
+
+    setTimeout(function() {
+      $newPic.removeClass("left").removeClass("right");
+    }, 0);
   }
 
   $.fn.carousel = function () {
