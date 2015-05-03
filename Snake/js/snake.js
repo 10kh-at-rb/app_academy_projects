@@ -4,19 +4,20 @@
   }
 
 
-  var DIM_X = 10;
-  var DIM_Y = 10;
+  var DIM_X = 40;
+  var DIM_Y = 40;
   var DELTAS = {
-    N: [-1, 0],
-    S: [1, 0],
-    E: [0, -1],
-    W: [0, 1]
+    "N": [-1, 0],
+    "S": [1, 0],
+    "E": [0, -1],
+    "W": [0, 1]
   };
 
   var Snake = window.Snake.Snake = function(board) {
     var startPos = [Math.floor(Math.random() * DIM_X), Math.floor(Math.random() * DIM_Y)];
     this.direction = "N";
-    this.segments = [startPos];
+    this.segments = []
+    this.segments.push(startPos);
     this.board = board;
   };
 
@@ -24,7 +25,7 @@
 
   Snake.prototype.nextCoord = function () {
     var nextCoord = new Coord(this.segments[0])
-    return nextCoord.plus(DELTAS[this.dir]);
+    return nextCoord.plus(DELTAS[this.direction]);
   };
 
   Snake.prototype.move = function() {
@@ -33,7 +34,7 @@
   };
 
   Snake.prototype.turn = function(dir) {
-    this.dir = dir;
+    this.direction = dir;
   };
 
 
@@ -46,10 +47,18 @@
   Coord.prototype.plus = function (delta) {
     this.x += delta[0];
     this.y += delta[1];
+    return [this.x, this.y]
   };
+
+  Coord.prototype.pos = function() {
+    return [this.x, this.y];
+  }
 
   var Board = window.Snake.Board = function () {
     this.snake = new window.Snake.Snake();
+    this.grid = this.newGrid();
+    this.dimX = DIM_X;
+    this.dimY = DIM_Y;
 
   };
 
@@ -58,7 +67,7 @@
     for (var i = 0; i < DIM_X; i++) {
       var row = [];
       for (var j = 0; j < DIM_Y; j++) {
-        row.push(["."]);
+        row.push(".");
       }
       grid.push(row);
     }
@@ -67,25 +76,26 @@
 
 
   Board.prototype.render = function() {
-    var grid = this.newGrid();
-    console.log(this.snake.segments);
+    this.grid = this.newGrid();
     for (var i = 0; i < this.snake.segments.length; i++) {
       var x = this.snake.segments[i][0];
       var y = this.snake.segments[i][1];
-      console.log(x);
-      console.log(y);
-      grid[x][y] = ["S"];
-      console.log(grid[x][y]);
+      this.grid[x][y] = "S";
     }
+    return this.display();
+  };
+
+  Board.prototype.display = function() {
+    // debugger
     var display = ""
-    for (var j = 0; j < grid.length; j++) {
-      for (var k = 0; k < grid[j].length; k++) {
-        display += " " + grid[j][k];
+    for (var j = 0; j < this.grid.length; j++) {
+      for (var k = 0; k < this.grid[j].length; k++) {
+        display += " " + this.grid[j][k];
       }
       display += "\n";
     }
     return display;
-  };
+  }
 
 
 

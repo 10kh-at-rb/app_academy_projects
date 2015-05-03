@@ -1,0 +1,40 @@
+html, ul, li, h1, div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  text-decoration: inherit;
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+.group:after {
+  content="";
+  display: block;
+  clear: both;
+}
+
+.snake-game {
+  width: 480px;
+  height: 480px;
+  margin: auto;
+}
+
+.game {
+
+}
+
+.snake-square {
+  display: block;
+  float: left;
+  height: 10px;
+  width: 10px;
+  border: 1px solid black;
+}
+
+.snake {
+  background: green;
+}
