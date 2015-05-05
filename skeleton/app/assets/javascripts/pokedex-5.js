@@ -107,6 +107,27 @@ Pokedex.Views.ToyDetail = Backbone.View.extend({
   initialize: function (options) {
     this.toyModel = options["toy"];
     this.collection = options["pokes"];
+  },
+
+  events: {
+    "change .pokemon-selector": "reassignToy"
+  },
+
+  reassignToy: function (event) {
+    var $currentTarget = $(event.currentTarget);
+
+    var pokemon = this.collection.get($currentTarget.data("pokemon-id"));
+    var toy = pokemon.toys().get($currentTarget.data("toy-id"));
+
+    toy.set("pokemon_id", $currentTarget.val());
+    toy.save({}, {
+      success: (function () {
+        pokemon.toys().remove(toy);
+        var url = ("pokemon/" + pokemon.id);
+        Backbone.history.navigate(url, { trigger : true })
+        // this.renderToysList(pokemon.toys());
+      }).bind(this)
+    });
   }
 });
 
