@@ -18,6 +18,7 @@ Pokedex.Router = Backbone.Router.extend({
       if (this._toyDetailView){
         this._toyDetailView.remove();
       }
+      $("#pokedex .pokemon-detail").html(this._pokemonDetail.$el);
     }
   },
 

@@ -32,6 +32,7 @@ Pokedex.Views.PokemonIndex = Backbone.View.extend({
   render: function () {
     this.$el.empty();
     this.collection.forEach(this.addPokemonToList.bind(this));
+    return this;
   },
 
   selectPokemonFromList: function (event) {
@@ -50,20 +51,15 @@ Pokedex.Views.PokemonDetail = Backbone.View.extend({
     "click .toys li": "selectToyFromList"
   },
 
-  initialize: function (options) {
-    this.model = options["model"];
-  },
-
   refreshPokemon: function (options) {
 
     this.model.fetch({
       success: function() {
-        $("#pokedex .pokemon-detail").html(this.$el);
         this.render();
 
         this.model.toys().forEach( function (toy) {
           var content = JST["toyListItem"]({ toy: toy });
-          var $toysUl = $("ul.toys");
+          var $toysUl = this.$("ul.toys")//$("ul.toys");
           $toysUl.append(content);
         })
         if (options.callback){
@@ -74,15 +70,9 @@ Pokedex.Views.PokemonDetail = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.empty();
     var content = JST['pokemonDetail']({ pokemon: this.model });
-    this.$el.append(content);
-    // pokemon.fetch( {
-    //   success: function(){
-    //     pokemon.toys().forEach(this.addToyToList.bind(this))
-    //   }.bind(this)
-    // });
-
+    this.$el.html(content);
+    return this;
   },
 
   selectToyFromList: function (event) {
@@ -91,17 +81,18 @@ Pokedex.Views.PokemonDetail = Backbone.View.extend({
     var pokemonId = $currentTarget.data("pokemon-id");
 
     Backbone.history.navigate("pokemon/" + pokemonId + "/toys/" + toyId, { trigger: true });
-    // var toyDetailView = new Pokedex.Views.ToyDetail({toy: toy, pokes: []})
-    // $("#pokedex .toy-detail").html(toyDetailView.$el);
-    //
-    // toyDetailView.render();
   }
 });
 
 Pokedex.Views.ToyDetail = Backbone.View.extend({
   render: function (options) {
-    var content = JST["toyDetail"]({ toy: this.toyModel, pokes: this.collection});
+    var content = JST["toyDetail"]({
+      toy: this.toyModel,
+      pokes: this.collection
+    });
+
     this.$el.html(content);
+    return this;
   },
 
   initialize: function (options) {
@@ -124,7 +115,7 @@ Pokedex.Views.ToyDetail = Backbone.View.extend({
       success: (function () {
         pokemon.toys().remove(toy);
         var url = ("pokemon/" + pokemon.id);
-        Backbone.history.navigate(url, { trigger : true })
+        Backbone.history.navigate(url, { trigger : true });
         // this.renderToysList(pokemon.toys());
       }).bind(this)
     });

@@ -42,7 +42,7 @@ body {
 #pokedex > * {
 	height: 100%;
 	width: 33.33333333333%;
-	border: thin solid blue;
+	border: 3px outset blue;
   display:  inline-block;
 	overflow: auto;
 }
@@ -74,7 +74,7 @@ body {
 
 .new-pokemon, .detail {
   padding: 10px;
-  border: thick yellow dotted;
+  border: 10px green outset;
 }
 
 .flavor {
@@ -115,4 +115,9 @@ body {
   margin: auto;
   max-width: 300px;
   max-height: 200px;
+}
+
+ul {
+  margin: 10px;
+  list-style: diamond inside;
 }
