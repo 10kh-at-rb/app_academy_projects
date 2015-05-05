@@ -1,13 +1,95 @@
 <script type="text/template" id="pokemon-list-item-template">
+
+  <li class="poke-list-item" data-id="<%%= pokemon.get('id') %>">
+
+  <%% var shortInfo = ['name', 'poke_type']; %>
+  <%% shortInfo.forEach(function (attr) { %>
+    <%%= attr %>: <%%= pokemon.get(attr) %>
+    <br>
+  <%% }) %>
+
+  </li>
+
 </script>
 
 <script type="text/template" id="pokemon-detail-template">
+  <section class="detail">
+    <img src="<%%= pokemon.get('image_url') %>" />
+    <ul>
+      <%% var attrs = ["name", "poke_type", "attack", "defense", "moves"] %>
+      <%% attrs.forEach(function (attr){ %>
+        <li><strong><%%= attr %>:</strong>
+
+          <%% if (attr === "moves") { %>
+              <ul>
+                <%% pokemon.get(attr).forEach(function(move) { %>
+                  <li><%%= move %></li>
+                <%% }) %>
+              </ul>
+
+          <%% } else { %>
+              <%%= pokemon.get(attr) %>
+        </li>
+      <%% } }); %>
+
+    </ul>
+
+    <ul class="toys"></ul>
+
+  </section>
+
 </script>
 
 <script type="text/template" id="toy-list-item-template">
+  <li
+    class="toy-list-item"
+    data-pokemon-id="<%%= toy.get('pokemon_id') %>"
+    data-id="<%%= toy.get('id') %>">
+
+    <%% var shortInfo = ['name', 'happiness', 'price'] %>
+    <%% shortInfo.forEach(function (attr) { %>
+      <%%= attr %>: <%%= toy.get(attr) %>
+      <br>
+    <%% }); %>
+
+  </li>
 </script>
 
 <script type="text/template" id="toy-detail-template">
+
+  <section class="detail">
+    <img src="<%%= toy.escape('image_url') %>">
+    <ul>
+      <%% var toyAttrs = ["name", "happiness", "price"] %>
+      <%% toyAttrs.forEach(function (attr) { %>
+        <li>
+          <strong><%%= attr %>: </strong>
+          <%%= toy.get(attr) %>
+        </li>
+      <%% }) %>
+    </ul>
+
+
+    <select
+      class="pokemon-selector"
+      name="pokemon-selector"
+      data-pokemon-id="<%%= toy.get('pokemon_id') %>"
+      data-toy-id="<%%= toy.get('id') %>">
+
+      <%% pokes.each(function (pokemon) { %>
+        <option
+          value="<%%= pokemon.id %>"
+
+          <%% if (pokemon.id === toy.get("pokemon_id")){ %>
+            selected
+          <%% } %>>
+
+          <%%= pokemon.get("name") %>
+        </option>
+      <%% }) %>
+    </select>
+
+  </section>
 </script>
 
 <script type="text/template" id="pokemon-form-template">
