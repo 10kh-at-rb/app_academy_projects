@@ -22,7 +22,9 @@ Pokedex.Views.PokemonIndex = Backbone.View.extend({
 
     this.collection.fetch({
       success: function () {
-        callback();
+        if (callback){
+          callback();
+        }
       }
     });
   },
