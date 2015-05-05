@@ -7,6 +7,7 @@ Pokedex.Views.PokemonForm = Backbone.View.extend({
   },
 
   events: {
+    "submit .new-pokemon" : "savePokemon"
   },
 
   render: function () {
@@ -15,5 +16,18 @@ Pokedex.Views.PokemonForm = Backbone.View.extend({
   },
 
   savePokemon: function (event) {
+    event.preventDefault();
+    var $currentTarget = $(event.currentTarget);
+    var pokemonParams = $currentTarget.serializeJSON();
+    var pokemon = new Pokedex.Models.Pokemon(pokemonParams);
+    pokemon.save({}, {
+      success: function () {
+        this.collection.add(pokemon);
+        event.currentTarget.reset();
+        var url = ("pokemon/" + pokemon.id);
+        Backbone.history.navigate(url, { trigger : true })
+      }.bind(this)
+    })
+
   }
 });
