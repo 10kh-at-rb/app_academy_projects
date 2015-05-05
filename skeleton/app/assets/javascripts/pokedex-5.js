@@ -6,11 +6,10 @@ Pokedex.Views.PokemonIndex = Backbone.View.extend({
   },
 
   initialize: function () {
-    this.pokes = new Pokedex.Collections.Pokemon();
-    this.pokes.fetch();
-    this.listenToOnce(this.pokes, "sync", function() {
+    this.collection = new Pokedex.Collections.Pokemon();
+    this.listenToOnce(this.collection, "sync", function() {
       this.render();
-      this.listenTo(this.pokes, "add", this.render);
+      this.listenTo(this.collection, "add", this.render);
     })
   },
 
@@ -19,22 +18,25 @@ Pokedex.Views.PokemonIndex = Backbone.View.extend({
     this.$el.append(content)
   },
 
-  refreshPokemon: function (options) {
+  refreshPokemon: function (callback) {
+
+    this.collection.fetch({
+      success: callback
+    });
   },
 
   render: function () {
     this.$el.empty();
-    this.pokes.forEach(this.addPokemonToList.bind(this));
+    this.collection.forEach(this.addPokemonToList.bind(this));
   },
 
   selectPokemonFromList: function (event) {
     var $target = $(event.currentTarget);
 
     var pokeId = $target.data('id');
-    var pokemon = this.pokes.get(pokeId);
+    var pokemon = this.collection.get(pokeId);
 
-    var view = new Pokedex.Views.PokemonDetail({model: pokemon});
-    view.refreshPokemon();
+    Backbone.history.navigate("pokemon/" + pokeId, { trigger: true })
 
   }
 });
@@ -49,6 +51,7 @@ Pokedex.Views.PokemonDetail = Backbone.View.extend({
   },
 
   refreshPokemon: function (options) {
+
     this.model.fetch({
       success: function() {
         $("#pokedex .pokemon-detail").html(this.$el);
@@ -86,20 +89,19 @@ Pokedex.Views.PokemonDetail = Backbone.View.extend({
 
 Pokedex.Views.ToyDetail = Backbone.View.extend({
   render: function (options) {
-    console.log("hi")
-    var content = JST["toyDetail"]({ toy: this.toyModel, pokes: this.pokes});
+    var content = JST["toyDetail"]({ toy: this.toyModel, pokes: this.collection});
     this.$el.html(content);
   },
 
   initialize: function (options) {
     this.toyModel = options["toy"];
-    this.pokes = options["pokes"];
+    this.collection = options["pokes"];
   }
 });
 
 
-$(function () {
-  var pokemonIndex = new Pokedex.Views.PokemonIndex();
-  pokemonIndex.refreshPokemon();
-  $("#pokedex .pokemon-list").html(pokemonIndex.$el);
-});
+// $(function () {
+//   var pokemonIndex = new Pokedex.Views.PokemonIndex();
+//   pokemonIndex.refreshPokemon();
+//   $("#pokedex .pokemon-list").html(pokemonIndex.$el);
+// });
