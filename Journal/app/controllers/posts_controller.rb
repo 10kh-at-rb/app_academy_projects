@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      render :json
+      render "index"
     else
       render json: @post.errors.full_messages, status: 422
     end
@@ -23,6 +23,17 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     render 'index'
+  end
+
+  def update
+    @post = Post.find(params[:id])
+
+    if @post.update(post_params)
+      render 'index'
+    else
+      render json: @post.errors.full_messages, status: 422
+    end
+
   end
 
   def post_params
