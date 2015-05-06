@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+  def index
+    @posts = Post.all
+    render "index"
+  end
 
   def create
     @post = Post.new(post_params)
@@ -8,6 +12,12 @@ class PostsController < ApplicationController
     else
       render json: @post.errors.full_messages, status: 422
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    render 'index'
   end
 
   def post_params
