@@ -22,7 +22,7 @@ Journal.Routers.PostsRouter = Backbone.Router.extend({
 
   show: function (id) {
     var currentPost = this.posts.getOrFetch(id);
-    var showView = new Journal.Views.PostShow({model: currentPost});
+    var showView = new Journal.Views.PostShow({model: currentPost, collection: this.posts});
     this._swapView(showView);
   },
 

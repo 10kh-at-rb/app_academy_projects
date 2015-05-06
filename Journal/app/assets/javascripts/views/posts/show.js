@@ -19,12 +19,14 @@ Journal.Views.PostShow = Backbone.View.extend({
   },
 
   editTitle: function (event) {
-    var newView = new Journal.Views.PostTitleBodyForm({model: this.model});
+    var newView = new Journal.Views.PostTitleBodyForm({model: this.model, collection: this.collection});
     $(event.currentTarget).html(newView.render("title").$el);
+    $(".title").focus().select();
   },
 
   editBody: function (event) {
-    var newView = new Journal.Views.PostTitleBodyForm({model: this.model});
+    var newView = new Journal.Views.PostTitleBodyForm({model: this.model, collection: this.collection});
     $(event.currentTarget).html(newView.render("body").$el);
+    $(".body").focus().select();
   }
 });

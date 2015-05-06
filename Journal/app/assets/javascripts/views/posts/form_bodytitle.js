@@ -11,7 +11,6 @@ Journal.Views.PostTitleBodyForm = Backbone.View.extend({
     target === "body" ? template = this.templateBody : template = this.templateTitle;
     var content = template({ post: this.model });
     this.$el.html(content);
-    $(event.currentTarget).focus();
     return this;
   },
 
@@ -22,9 +21,7 @@ Journal.Views.PostTitleBodyForm = Backbone.View.extend({
     this.model.set(params);
     this.model.save({}, {
       success: function () {
-        if (this.collection) {
-          this.collection.add(this.model, { merge: true });
-        }
+        this.collection.fetch();
         var url = "posts/" + this.model.get("id");
         Backbone.history.navigate(url, {trigger: true});
       }.bind(this),
