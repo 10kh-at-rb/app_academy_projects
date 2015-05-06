@@ -1,14 +1,14 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
-    render "index"
+    render 'index'
   end
 
   def create
     @post = Post.new(post_params)
 
     if @post.save
-      render "index"
+      render 'show'
     else
       render json: @post.errors.full_messages, status: 422
     end
@@ -22,14 +22,14 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    render 'index'
+    render json: @post
   end
 
   def update
     @post = Post.find(params[:id])
 
     if @post.update(post_params)
-      render 'index'
+      render 'show'
     else
       render json: @post.errors.full_messages, status: 422
     end

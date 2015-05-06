@@ -1,7 +1,6 @@
 Journal.Views.PostsIndexItem = Backbone.View.extend({
   events: {
-    "click .delete-button": "removeItem",
-    "click .edit-button": "editItem"
+    "click .delete-button": "removeItem"
   },
   tagName: 'li',
   template: JST["posts/index_item"],
@@ -14,10 +13,5 @@ Journal.Views.PostsIndexItem = Backbone.View.extend({
 
   removeItem: function () {
     this.model.destroy({wait: true});
-  },
-
-  editItem: function() {
-    var url = "posts/" + this.model.get("id") + "/edit";
-    Backbone.history.navigate(url, { trigger: true });
   }
 });

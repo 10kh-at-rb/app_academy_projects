@@ -1,17 +1,17 @@
-Journal.Views.PostForm = Backbone.View.extend({
-  initialize: function() {
-    this.listenTo(this.model, "error", this.render);
-  },
+Journal.Views.PostTitleBodyForm = Backbone.View.extend({
+  templateTitle: JST['posts/title_form'],
+  templateBody: JST['posts/body_form'],
 
   events: {
-    "submit form": "submit"
+    "blur form": "submit"
   },
 
-  template: JST['posts/form'],
-
-  render: function() {
-    var content = this.template({ post: this.model });
+  render: function(target) {
+    var template;
+    target === "body" ? template = this.templateBody : template = this.templateTitle;
+    var content = template({ post: this.model });
     this.$el.html(content);
+    $(event.currentTarget).focus();
     return this;
   },
 
@@ -30,6 +30,7 @@ Journal.Views.PostForm = Backbone.View.extend({
       }.bind(this),
       error: function (a, b) {
         var errorMessage = b.responseJSON[0];
+        this.render();
         this.$el.prepend(errorMessage);
       }.bind(this)
     });
