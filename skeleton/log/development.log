@@ -5547,3 +5547,1735 @@ Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:02:30 -0400
 Processing by Api::FeedsController#index as JSON
   [1m[36mFeed Load (7.3ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
 Completed 200 OK in 13ms (Views: 5.0ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:20:35 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 403ms (Views: 402.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:20:36 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[35mFeed Load (0.8ms)[0m  SELECT "feeds".* FROM "feeds"
+Completed 200 OK in 28ms (Views: 11.9ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/api/feeds/4" for 127.0.0.1 at 2015-05-07 16:20:37 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1[0m  [["id", "4"]]
+  [1m[35mSQL (0.8ms)[0m  UPDATE "feeds" SET "updated_at" = '2015-05-07 20:20:37.902784' WHERE "feeds"."id" = 4
+  [1m[36m (0.8ms)[0m  [1mSELECT "entries"."guid" FROM "entries"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:20:38 UTC +00:00], ["feed_id", 4], ["guid", "http://qz.com/?p=400397"], ["json", "{\"title\":\"Spotify getting into video?  Makes sense, but that doesn\\u0026#8217;t mean it will work\",\"link\":\"http://qz.com/400397/spotify-getting-into-video-makes-sense-but-that-doesnt-mean-it-will-work/\",\"description\":\"So it looks like Spotify wants to take on YouTube in video. This morning the Swedish based streaming music company sent out an invite to reporters for what looks like a major product announcement in a couple of weeks time. Shortly after, a report surfaced on the Wall Street Journal (paywall) stating that the company is about to unveil plans to enter [\\u0026#8230;]\\u003Cimg alt=\\\"\\\" border=\\\"0\\\" src=\\\"http://pixel.wp.com/b.gif?host=qz.com\\u0026#038;blog=39587363\\u0026#038;post=400397\\u0026#038;subd=qzprod\\u0026#038;ref=\\u0026#038;feed=1\\\" width=\\\"1\\\" height=\\\"1\\\" /\\u003E\",\"content\":\"\",\"content_encoded\":\"\\u003Cimg width=\\\"640\\\" height=\\\"362\\\" src=\\\"https://qzprod.files.wordpress.com/2014/03/rtx19148.jpg?w=640\\\" class=\\\"attachment-medium_10 wp-post-image\\\" alt=\\\"Spotify sign reflecting on a surface\\\" /\\u003E\\u003Cp\\u003ESo it looks like Spotify wants to take on YouTube in video.\\u003C/p\\u003E\\n\\u003Cp\\u003EThis morning the Swedish based streaming music company sent out an invite to reporters for what looks like a major product announcement in a couple of weeks time. Shortly after, a report surfaced on the \\u003Ca href=\\\"http://www.wsj.com/articles/spotify-laying-plans-to-enter-web-video-business-1431012726?mod=WSJ_TechWSJD_NeedToKnow\\\" target=\\\"_blank\\\"\\u003EWall Street Journal\\u003C/a\\u003E (paywall) stating that the company is about to unveil plans to enter the online video business.\\u003C/p\\u003E\\n\\u003Cfigure id=\\\"image-400556\\\" class=\\\"inline-image  alignright zoomable size-small\\\"\\u003E\\u003Cdiv class=\\\"inline-image-tools\\\"\\u003E\\u003Ca href=\\\"#\\\" class=\\\"share-button\\\" data-image-id=\\\"400556\\\"\\u003EShare\\u003C/a\\u003E\\n\\t\\t\\t\\u003Cdiv class=\\\"share-icons desaturated\\\"\\u003E\\u003Ca href=\\\"https://twitter.com/intent/tweet?url=http%3A%2F%2Fqz.com%2F400397%2Fspotify-getting-into-video-makes-sense-but-that-doesnt-mean-it-will-work%2Fi%2F400556%2F\\u0026text=Spotify+getting+into+video%3F++Makes+sense%2C+but+that+doesn%26%238217%3Bt+mean+it+will+work\\u0026via=qz\\\" target=\\\"_blank\\\" class=\\\"icon-twitter\\\"\\u003E\\u003C/a\\u003E\\u003Ca href=\\\"https://www.facebook.com/sharer.php?u=http%3A%2F%2Fqz.com%2F400397%2Fspotify-getting-into-video-makes-sense-but-that-doesnt-mean-it-will-work%2Fi%2F400556%2F\\\" target=\\\"_blank\\\" class=\\\"icon-facebook\\\"\\u003E\\u003C/a\\u003E\\u003C/div\\u003E\\u003Cspan class=\\\"help-text\\\"\\u003E\\u003Ci class=\\\"icon-zoom\\\"\\u003E\\u003C/i\\u003ETap image to zoom\\u003C/span\\u003E\\u003C/div\\u003E\\u003Cimg src=\\\"https://qzprod.files.wordpress.com/2015/05/screen-shot-2015-05-07-at-12-48-19-pm.png?w=237\\\" data-retina=\\\"https://qzprod.files.wordpress.com/2015/05/screen-shot-2015-05-07-at-12-48-19-pm.png?w=237\\\" alt=\\\"\\\" title=\\\"\\\"/\\u003E\\u003C/figure\\u003E\\n\\u003Cp\\u003EIt\\u0026#8217;s been talking to YouTube creators,  digital outlets and even traditional media companies about original content partnerships, according to the report. The Swedish streaming music provider, which just raised a \\u003Ca href=\\\"http://www.cnbc.com/id/102631432\\\" target=\\\"_blank\\\"\\u003Ebig wad of cash\\u003C/a\\u003E from investors, isn\\u0026#8217;t responding to calls and emails from Quartz.  CEO Daniel Ek did send out this cryptic tweet, which, for what it\\u0026#8217;s worth, seems to presage a move into online poetry.\\u003C/p\\u003E\\n\\u003Cdiv class=\\\"embed-twitter\\\"\\u003E\\n\\u003Cblockquote class=\\\"twitter-tweet\\\" width=\\\"500\\\"\\u003E\\n\\u003Cp lang=\\\"en\\\" dir=\\\"ltr\\\"\\u003EI see my path, but I don\\u0026#39;t know where it leads. Not knowing where I\\u0026#39;m going is what inspires me to travel it.\\u003C/p\\u003E\\n\\u003Cp\\u003E\\u0026mdash; Daniel Ek (@eldsjal) \\u003Ca href=\\\"https://twitter.com/eldsjal/status/596383708699058178\\\"\\u003EMay 7, 2015\\u003C/a\\u003E\\u003C/p\\u003E\\u003C/blockquote\\u003E\\n\\u003Cp\\u003E\\u003Cscript async src=\\\"//platform.twitter.com/widgets.js\\\" charset=\\\"utf-8\\\"\\u003E\\u003C/script\\u003E\\u003C/div\\u003E\\n\\u003Cp\\u003EAs others have \\u003Ca href=\\\"http://motherboard.vice.com/read/spotify-wants-to-become-netflix-because-no-one-can-make-money-streaming-music?utm_source=mbtwitter\\\" target=\\\"_blank\\\"\\u003Ecleverly pointed out\\u003C/a\\u003E, a move into video could make sense for Spotify, simply because it\\u0026#8217;s \\u003Ca href=\\\"http://qz.com/232834/streaming-music-has-become-a-pawn-in-a-high-stakes-chess-match-who-will-win-and-why/\\\" target=\\\"_blank\\\"\\u003Eso hard\\u003C/a\\u003E to make money in streaming music. Any media company worth its salt is exploring digital video at the moment. Online outlets can charge more for video ads than they can for traditional web (display or banner) ads. Spotify already has a \\u003Ca href=\\\"http://qz.com/261374/now-spotify-wants-to-pelt-you-with-video-ads/\\\" target=\\\"_blank\\\"\\u003Evideo advertising product\\u003C/a\\u003E, that gives users of its free service the ability to unlock blocks of free listening by watching them.\\u003C/p\\u003E\\n\\u003Cp\\u003EFree online video is a huge and \\u003Ca href=\\\"http://qz.com/365293/it-took-a-decade-but-mobile-video-is-finally-exploding/\\\" target=\\\"_blank\\\"\\u003Erapidly growing \\u003C/a\\u003Emarket. It is also an extremely crowded one. YouTube, is the dominant player, with 1 billion users, but the Google-owned video upload site is facing stiff competition from Facebook and  Yahoo, all of which have far bigger audiences than Spotify. (It said it had 15 million subscribers and 60 million active users in January).\\u003C/p\\u003E\\n\\u003Cp\\u003ESpotify is primarily a subscription-based business. If it decided to go down that same path in online video it would be joining an equally crowded market, one currently dominated by Netflix. But it wouldn\\u0026#8217;t be the first streaming music provider to attempt this. Rdio had a shortlived online video service, offering downloads and streaming subscriptions. It lasted \\u003Ca href=\\\"http://techcrunch.com/2013/12/27/rdio-shuts-down-vdio/\\\" target=\\\"_blank\\\"\\u003Ebarely six months. \\u003C/a\\u003E\\u003C/p\\u003E\\n\\u003Cp\\u003ESo Spotify\\u0026#8217;s (apparent) plans to jump into video  seem a little bit hazy right now. But at least we won\\u0026#8217;t have to wait long for its plans to come into focus.\\u003C/p\\u003E\\u003Cimg alt=\\\"\\\" border=\\\"0\\\" src=\\\"http://pixel.wp.com/b.gif?host=qz.com\\u0026#038;blog=39587363\\u0026#038;post=400397\\u0026#038;subd=qzprod\\u0026#038;ref=\\u0026#038;feed=1\\\" width=\\\"1\\\" height=\\\"1\\\" /\\u003E\",\"comments\":\"http://qz.com/400397/spotify-getting-into-video-makes-sense-but-that-doesnt-mean-it-will-work/#comments\",\"pubDate\":\"2015-05-07T16:00:23-04:00\",\"category\":\"Uncategorized\",\"guid\":\"http://qz.com/?p=400397\",\"dc_creator\":\"John McDuling\",\"media_content_url\":\"https://qzprod.files.wordpress.com/2014/03/rtx19148.jpg?w=640\",\"media_content_type\":\"html\",\"media_title\":\"Illustration picture of the logo of online music streaming service Spotify reflected in an audio music CD\",\"media_thumbnail_url\":\"https://qzprod.files.wordpress.com/2014/03/rtx19148.jpg?w=640\"}"], ["link", "http://qz.com/400397/spotify-getting-into-video-makes-sense-but-that-doesnt-mean-it-will-work/"], ["published_at", Thu, 07 May 2015 20:00:23 UTC +00:00], ["title", "Spotify getting into video?  Makes sense, but that doesn&#8217;t mean it will work"], ["updated_at", Thu, 07 May 2015 20:20:38 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:20:38 UTC +00:00], ["feed_id", 4], ["guid", "http://qz.com/?p=400319"], ["json", "{\"title\":\"Nintendo is coming to Universal theme parks\",\"link\":\"http://qz.com/400319/nintendo-is-coming-to-universal-theme-parks/\",\"description\":\"Nintendo\\u0026#8217;s earnings have been on a bit of a roller-coaster in recent years—the company announced it turned its first annual profit since 2011 yesterday—and it seems it wants its fans to share the experience. The videogame maker is partnering with Universal Studios to bring Nintendo-themed rides to its theme parks. Nintendo\\u0026#8217;s staying mum on precisely what those [\\u0026#8230;]\\u003Cimg alt=\\\"\\\" border=\\\"0\\\" src=\\\"http://pixel.wp.com/b.gif?host=qz.com\\u0026#038;blog=39587363\\u0026#038;post=400319\\u0026#038;subd=qzprod\\u0026#038;ref=\\u0026#038;feed=1\\\" width=\\\"1\\\" height=\\\"1\\\" /\\u003E\",\"content\":\"\",\"content_encoded\":\"\\u003Cimg width=\\\"640\\\" height=\\\"360\\\" src=\\\"https://qzprod.files.wordpress.com/2015/05/wiiu_mk8_screenshots_12.jpeg?w=640\\\" class=\\\"attachment-medium_10 wp-post-image\\\" alt=\\\"mario kart will always be fun\\\" /\\u003E\\u003Cp\\u003ENintendo\\u0026#8217;s earnings have been on a bit of a roller-coaster in recent years—\\u003Ca href=\\\"http://www.nintendo.co.jp/ir/pdf/2015/150507e.pdf\\\" target=\\\"_blank\\\"\\u003Ethe company announced\\u003C/a\\u003E it turned its first annual profit since 2011 yesterday—and it seems it wants its fans to share the experience. The videogame maker is partnering with Universal Studios to bring Nintendo-themed rides to \\u003Ca href=\\\"https://blog.universalorlando.com/whats-new/nintendo-partnership/\\\" target=\\\"_blank\\\"\\u003Eits theme parks\\u003C/a\\u003E.\\u003C/p\\u003E\\n\\u003Cp\\u003ENintendo\\u0026#8217;s staying mum on precisely what those rides will look like. But Nintendo\\u0026#8217;s most popular work these days is essentially selling nostalgia to fans of its characters, new and old. The Pokémon videogame franchise \\u003Ca href=\\\"http://en.wikipedia.org/wiki/Pok%C3%A9mon_Red_and_Blue\\\" target=\\\"_blank\\\"\\u003Ehas been running\\u003C/a\\u003E since 1996 in Japan, and \\u003Cem\\u003ESuper Smash Bros.\\u003C/em\\u003E is like the videogame equivalent of a greatest hits album, featuring most of Nintendo\\u0026#8217;s most popular characters duking it out in front of scenes from its most popular games. Out of the 25 \\u003Ca href=\\\"http://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_3DS_video_games\\\" target=\\\"_blank\\\"\\u003Ebest-selling titles\\u003C/a\\u003E for the 3DS, only one is not a continuation of an existing Nintendo franchise—like Mario, Zelda or Pokémon—or a sequel to another title on the list. Nintendo knows exactly which characters and types of games have worked in the past, and so do its customers.\\u003C/p\\u003E\\n\\u003Cp\\u003ENintendo told Quartz that \\u0026#8220;this is an exciting project that will be unlike any other either of our companies have ever done.\\u0026#8221; Universal currently operates parks in the US, Japan and Singapore, and is planning parks for China and Russia, \\u003Ca href=\\\"http://arstechnica.com/gaming/2015/05/nintendo-turns-a-profit-reveals-plans-for-real-life-theme-park/\\\" target=\\\"_blank\\\"\\u003EArs Technica reported\\u003C/a\\u003E.\\u003C/p\\u003E\\n\\u003Cp\\u003EThe move makes sense for both parties. Much of Universal studios\\u0026#8217; attractions also revolve around nostalgia. There are \\u003Ca href=\\\"https://www.universalorlando.com/Rides/25-Amazing-Rides.aspx\\\" target=\\\"_blank\\\"\\u003Eattractions for\\u003C/a\\u003E the Incredible Hulk, the Transformers, the Simpsons, Spider-Man—even Harry Potter is nearly two decades old now—and Super Mario or Donkey Kong would be a perfect addition. Children will look up from their 3DSes and yelp for joy when they see a life-size Mario plodding around the amusement park, as will their parents who grew up in the \\u003Ca href=\\\"http://vignette1.wikia.nocookie.net/nintendo/images/6/62/Dinosaur_Land_-_Super_Mario_World.png/revision/latest?cb=20120224033322\\u0026amp;path-prefix=en\\\" target=\\\"_blank\\\"\\u003Esame world\\u003C/a\\u003E decades earlier.\\u003C/p\\u003E\\n\\u003Cp\\u003EWhile it\\u0026#8217;s unclear just what Nintendo and Universal have in the works—though a real-life \\u003Cem\\u003EMario Kart\\u003C/em\\u003E sounds like \\u003Ca href=\\\"http://www.ew.com/article/2015/05/07/nintendo-and-universal-parks-theme-park-attractions-partnership\\\" target=\\\"_blank\\\"\\u003Ea great idea\\u003C/a\\u003E—it shows Nintendo is continuing to explore new ways to keep making money off its popular character franchises. In March, the company announced a \\u003Ca href=\\\"http://qz.com/363989/nintendo-is-finally-bringing-mario-to-your-smartphone/\\\" target=\\\"_blank\\\"\\u003Epartnership with DeNA\\u003C/a\\u003E to bring its characters to mobile devices.\\u003C/p\\u003E\\n\\u003Cp\\u003ENintendo\\u0026#8217;s diversification\\u003Cstrong\\u003E \\u003C/strong\\u003Ecomes after years of generally underwhelming console sales. The lone bright spot on the company\\u0026#8217;s hardware sales since 2006\\u0026#8217;s successful debut of the Nintendo Wii was the handheld 3DS console, which launched in 2011. But game sales, especially for the 3DS, have plugged along. Last quarter, Nintendo sold nearly 10 million copies of its most recent Pokémon sequels, and nearly 7 million copies of the reboot of \\u003Cem\\u003ESuper Smash Bros.\\u003C/em\\u003E\\u003C/p\\u003E\\n\\u003Cp\\u003EAs Nintendo looks to right the ship, it seems any idea to get its age-old characters in front of paying customers will be entertained. Thankfully, however, \\u003Ca href=\\\"http://www.imdb.com/title/tt0108255/\\\" target=\\\"_blank\\\"\\u003EBob Hoskins\\u003C/a\\u003E is still dead.\\u003C/p\\u003E\\u003Cimg alt=\\\"\\\" border=\\\"0\\\" src=\\\"http://pixel.wp.com/b.gif?host=qz.com\\u0026#038;blog=39587363\\u0026#038;post=400319\\u0026#038;subd=qzprod\\u0026#038;ref=\\u0026#038;feed=1\\\" width=\\\"1\\\" height=\\\"1\\\" /\\u003E\",\"comments\":\"http://qz.com/400319/nintendo-is-coming-to-universal-theme-parks/#comments\",\"pubDate\":\"2015-05-07T15:25:16-04:00\",\"category\":\"Uncategorized\",\"guid\":\"http://qz.com/?p=400319\",\"dc_creator\":\"Mike Murphy\",\"media_content_url\":\"https://qzprod.files.wordpress.com/2015/05/wiiu_mk8_screenshots_12.jpeg?w=640\",\"media_content_type\":\"html\",\"media_title\":\"WiiU_MK8_screenshots_12\",\"media_thumbnail_url\":\"https://qzprod.files.wordpress.com/2015/05/wiiu_mk8_screenshots_12.jpeg?w=640\"}"], ["link", "http://qz.com/400319/nintendo-is-coming-to-universal-theme-parks/"], ["published_at", Thu, 07 May 2015 19:25:16 UTC +00:00], ["title", "Nintendo is coming to Universal theme parks"], ["updated_at", Thu, 07 May 2015 20:20:38 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mEntry Load (3.0ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1  [["feed_id", 4]]
+Completed 200 OK in 534ms (Views: 521.7ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 61ms (Views: 60.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:20:59 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[36mFeed Load (1.8ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 11ms (Views: 8.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/feeds/1" for 127.0.0.1 at 2015-05-07 16:21:01 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mFeed Load (0.6ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "feeds" SET "updated_at" = '2015-05-07 20:21:01.760883' WHERE "feeds"."id" = 1[0m
+  [1m[35m (0.8ms)[0m  SELECT "entries"."guid" FROM "entries"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:21:02 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030060"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:21:00+00:00\",\"link\":\"http://example.com/test/1431030060\",\"description\":\"Voluptate occaecat duis enim anim labore proident proident ipsum anim est.\",\"pubDate\":\"2015-05-07T16:21:00-04:00\",\"guid\":\"http://example.com/test/1431030060\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030060"], ["published_at", Thu, 07 May 2015 20:21:00 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:21:00+00:00"], ["updated_at", Thu, 07 May 2015 20:21:02 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:21:02 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030050"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:20:50+00:00\",\"link\":\"http://example.com/test/1431030050\",\"description\":\"Cillum commodo veniam deserunt ad sunt fugiat occaecat fugiat nisi exercitation dolore.\",\"pubDate\":\"2015-05-07T16:20:50-04:00\",\"guid\":\"http://example.com/test/1431030050\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030050"], ["published_at", Thu, 07 May 2015 20:20:50 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:20:50+00:00"], ["updated_at", Thu, 07 May 2015 20:21:02 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:21:02 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030040"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:20:40+00:00\",\"link\":\"http://example.com/test/1431030040\",\"description\":\"Proident voluptate sit laborum excepteur aute pariatur officia sit labore.\",\"pubDate\":\"2015-05-07T16:20:40-04:00\",\"guid\":\"http://example.com/test/1431030040\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030040"], ["published_at", Thu, 07 May 2015 20:20:40 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:20:40+00:00"], ["updated_at", Thu, 07 May 2015 20:21:02 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:21:02 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030030"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:20:30+00:00\",\"link\":\"http://example.com/test/1431030030\",\"description\":\"Ex aliqua ad aliqua anim nulla consectetur in incididunt.\",\"pubDate\":\"2015-05-07T16:20:30-04:00\",\"guid\":\"http://example.com/test/1431030030\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030030"], ["published_at", Thu, 07 May 2015 20:20:30 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:20:30+00:00"], ["updated_at", Thu, 07 May 2015 20:21:02 UTC +00:00]]
+  [1m[35m (4.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:21:02 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030020"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:20:20+00:00\",\"link\":\"http://example.com/test/1431030020\",\"description\":\"Officia anim esse pariatur officia veniam aliqua ex laboris exercitation occaecat amet.\",\"pubDate\":\"2015-05-07T16:20:20-04:00\",\"guid\":\"http://example.com/test/1431030020\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030020"], ["published_at", Thu, 07 May 2015 20:20:20 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:20:20+00:00"], ["updated_at", Thu, 07 May 2015 20:21:02 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:21:02 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030010"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:20:10+00:00\",\"link\":\"http://example.com/test/1431030010\",\"description\":\"Voluptate ullamco irure duis cillum cupidatat ut enim dolore aute nisi in ex consequat eiusmod.\",\"pubDate\":\"2015-05-07T16:20:10-04:00\",\"guid\":\"http://example.com/test/1431030010\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030010"], ["published_at", Thu, 07 May 2015 20:20:10 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:20:10+00:00"], ["updated_at", Thu, 07 May 2015 20:21:02 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:21:02 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030000"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:20:00+00:00\",\"link\":\"http://example.com/test/1431030000\",\"description\":\"Deserunt quis consequat ad cillum nulla est nulla sit sint labore ea id irure.\",\"pubDate\":\"2015-05-07T16:20:00-04:00\",\"guid\":\"http://example.com/test/1431030000\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030000"], ["published_at", Thu, 07 May 2015 20:20:00 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:20:00+00:00"], ["updated_at", Thu, 07 May 2015 20:21:02 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:21:02 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431029990"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:19:50+00:00\",\"link\":\"http://example.com/test/1431029990\",\"description\":\"Minim eiusmod consequat nisi ipsum culpa fugiat.\",\"pubDate\":\"2015-05-07T16:19:50-04:00\",\"guid\":\"http://example.com/test/1431029990\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431029990"], ["published_at", Thu, 07 May 2015 20:19:50 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:19:50+00:00"], ["updated_at", Thu, 07 May 2015 20:21:02 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:21:02 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431029980"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:19:40+00:00\",\"link\":\"http://example.com/test/1431029980\",\"description\":\"Enim in qui nostrud nisi sit voluptate deserunt.\",\"pubDate\":\"2015-05-07T16:19:40-04:00\",\"guid\":\"http://example.com/test/1431029980\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431029980"], ["published_at", Thu, 07 May 2015 20:19:40 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:19:40+00:00"], ["updated_at", Thu, 07 May 2015 20:21:02 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:21:02 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431029970"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:19:30+00:00\",\"link\":\"http://example.com/test/1431029970\",\"description\":\"Enim est et fugiat reprehenderit nisi officia cupidatat.\",\"pubDate\":\"2015-05-07T16:19:30-04:00\",\"guid\":\"http://example.com/test/1431029970\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431029970"], ["published_at", Thu, 07 May 2015 20:19:30 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:19:30+00:00"], ["updated_at", Thu, 07 May 2015 20:21:02 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mEntry Load (1.8ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1[0m  [["feed_id", 1]]
+Completed 200 OK in 382ms (Views: 363.6ms | ActiveRecord: 17.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:22:29 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 60ms (Views: 60.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:22:29 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[35mFeed Load (1.9ms)[0m  SELECT "feeds".* FROM "feeds"
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/feeds/1" for 127.0.0.1 at 2015-05-07 16:22:30 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSQL (1.3ms)[0m  UPDATE "feeds" SET "updated_at" = '2015-05-07 20:22:30.171425' WHERE "feeds"."id" = 1
+  [1m[36m (0.8ms)[0m  [1mSELECT "entries"."guid" FROM "entries"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:22:30 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030150"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:22:30+00:00\",\"link\":\"http://example.com/test/1431030150\",\"description\":\"Nostrud occaecat pariatur culpa incididunt anim anim proident dolor.\",\"pubDate\":\"2015-05-07T16:22:30-04:00\",\"guid\":\"http://example.com/test/1431030150\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030150"], ["published_at", Thu, 07 May 2015 20:22:30 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:22:30+00:00"], ["updated_at", Thu, 07 May 2015 20:22:30 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:22:30 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030140"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:22:20+00:00\",\"link\":\"http://example.com/test/1431030140\",\"description\":\"Cillum dolore voluptate laboris fugiat cillum eu do dolor esse voluptate labore ut culpa.\",\"pubDate\":\"2015-05-07T16:22:20-04:00\",\"guid\":\"http://example.com/test/1431030140\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030140"], ["published_at", Thu, 07 May 2015 20:22:20 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:22:20+00:00"], ["updated_at", Thu, 07 May 2015 20:22:30 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:22:30 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030130"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:22:10+00:00\",\"link\":\"http://example.com/test/1431030130\",\"description\":\"Do amet pariatur commodo nulla dolor sit do excepteur aliquip officia sint.\",\"pubDate\":\"2015-05-07T16:22:10-04:00\",\"guid\":\"http://example.com/test/1431030130\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030130"], ["published_at", Thu, 07 May 2015 20:22:10 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:22:10+00:00"], ["updated_at", Thu, 07 May 2015 20:22:30 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:22:30 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030120"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:22:00+00:00\",\"link\":\"http://example.com/test/1431030120\",\"description\":\"Ut consequat dolore ullamco eu esse veniam in proident fugiat commodo duis ullamco laborum elit.\",\"pubDate\":\"2015-05-07T16:22:00-04:00\",\"guid\":\"http://example.com/test/1431030120\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030120"], ["published_at", Thu, 07 May 2015 20:22:00 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:22:00+00:00"], ["updated_at", Thu, 07 May 2015 20:22:30 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:22:30 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030110"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:21:50+00:00\",\"link\":\"http://example.com/test/1431030110\",\"description\":\"Elit ipsum duis laborum sit consequat nisi.\",\"pubDate\":\"2015-05-07T16:21:50-04:00\",\"guid\":\"http://example.com/test/1431030110\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030110"], ["published_at", Thu, 07 May 2015 20:21:50 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:21:50+00:00"], ["updated_at", Thu, 07 May 2015 20:22:30 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:22:30 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030100"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:21:40+00:00\",\"link\":\"http://example.com/test/1431030100\",\"description\":\"Est in dolore ea et cupidatat consectetur adipisicing enim minim id sint et nisi cupidatat.\",\"pubDate\":\"2015-05-07T16:21:40-04:00\",\"guid\":\"http://example.com/test/1431030100\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030100"], ["published_at", Thu, 07 May 2015 20:21:40 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:21:40+00:00"], ["updated_at", Thu, 07 May 2015 20:22:30 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:22:30 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030090"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:21:30+00:00\",\"link\":\"http://example.com/test/1431030090\",\"description\":\"Nisi fugiat cillum quis ut excepteur commodo excepteur esse occaecat.\",\"pubDate\":\"2015-05-07T16:21:30-04:00\",\"guid\":\"http://example.com/test/1431030090\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030090"], ["published_at", Thu, 07 May 2015 20:21:30 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:21:30+00:00"], ["updated_at", Thu, 07 May 2015 20:22:30 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:22:30 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030080"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:21:20+00:00\",\"link\":\"http://example.com/test/1431030080\",\"description\":\"Commodo dolore ipsum sit dolor eu quis incididunt nulla minim culpa in.\",\"pubDate\":\"2015-05-07T16:21:20-04:00\",\"guid\":\"http://example.com/test/1431030080\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030080"], ["published_at", Thu, 07 May 2015 20:21:20 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:21:20+00:00"], ["updated_at", Thu, 07 May 2015 20:22:30 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:22:30 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030070"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:21:10+00:00\",\"link\":\"http://example.com/test/1431030070\",\"description\":\"Ut cupidatat exercitation ad enim dolor occaecat consequat labore.\",\"pubDate\":\"2015-05-07T16:21:10-04:00\",\"guid\":\"http://example.com/test/1431030070\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030070"], ["published_at", Thu, 07 May 2015 20:21:10 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:21:10+00:00"], ["updated_at", Thu, 07 May 2015 20:22:30 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mEntry Load (2.8ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1[0m  [["feed_id", 1]]
+Completed 200 OK in 269ms (Views: 253.5ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:22:32 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[35mFeed Load (10.0ms)[0m  SELECT "feeds".* FROM "feeds"
+Completed 200 OK in 17ms (Views: 6.2ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/api/feeds/1" for 127.0.0.1 at 2015-05-07 16:22:33 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mFeed Load (0.6ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mEntry Load (5.2ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1  [["feed_id", 1]]
+Completed 200 OK in 96ms (Views: 89.3ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:25:25 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 332ms (Views: 331.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:25:25 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:25 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:25 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:25 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:25 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:25 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:25 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:25 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:25 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:25 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:26 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:26 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:26 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:26 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:26 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:26 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:26 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:26 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:26 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:25:26 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[36mFeed Load (0.8ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/feeds/1" for 127.0.0.1 at 2015-05-07 16:25:27 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "feeds" SET "updated_at" = '2015-05-07 20:25:27.623215' WHERE "feeds"."id" = 1[0m
+  [1m[35m (1.8ms)[0m  SELECT "entries"."guid" FROM "entries"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:25:27 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030320"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:25:20+00:00\",\"link\":\"http://example.com/test/1431030320\",\"description\":\"Velit irure sit tempor nisi non ex sit dolore labore sit Lorem sunt.\",\"pubDate\":\"2015-05-07T16:25:20-04:00\",\"guid\":\"http://example.com/test/1431030320\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030320"], ["published_at", Thu, 07 May 2015 20:25:20 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:25:20+00:00"], ["updated_at", Thu, 07 May 2015 20:25:27 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:25:27 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030310"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:25:10+00:00\",\"link\":\"http://example.com/test/1431030310\",\"description\":\"Dolore reprehenderit occaecat magna do nostrud dolor aliqua mollit est nulla commodo nisi pariatur nostrud.\",\"pubDate\":\"2015-05-07T16:25:10-04:00\",\"guid\":\"http://example.com/test/1431030310\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030310"], ["published_at", Thu, 07 May 2015 20:25:10 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:25:10+00:00"], ["updated_at", Thu, 07 May 2015 20:25:27 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:25:27 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030300"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:25:00+00:00\",\"link\":\"http://example.com/test/1431030300\",\"description\":\"Pariatur aliqua eu cillum in.\",\"pubDate\":\"2015-05-07T16:25:00-04:00\",\"guid\":\"http://example.com/test/1431030300\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030300"], ["published_at", Thu, 07 May 2015 20:25:00 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:25:00+00:00"], ["updated_at", Thu, 07 May 2015 20:25:27 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:25:27 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030290"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:24:50+00:00\",\"link\":\"http://example.com/test/1431030290\",\"description\":\"Dolore quis laborum exercitation ut amet velit pariatur.\",\"pubDate\":\"2015-05-07T16:24:50-04:00\",\"guid\":\"http://example.com/test/1431030290\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030290"], ["published_at", Thu, 07 May 2015 20:24:50 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:24:50+00:00"], ["updated_at", Thu, 07 May 2015 20:25:27 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:25:27 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030280"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:24:40+00:00\",\"link\":\"http://example.com/test/1431030280\",\"description\":\"Magna consectetur commodo mollit laborum id commodo duis labore reprehenderit culpa dolore anim officia.\",\"pubDate\":\"2015-05-07T16:24:40-04:00\",\"guid\":\"http://example.com/test/1431030280\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030280"], ["published_at", Thu, 07 May 2015 20:24:40 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:24:40+00:00"], ["updated_at", Thu, 07 May 2015 20:25:27 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:25:27 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030270"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:24:30+00:00\",\"link\":\"http://example.com/test/1431030270\",\"description\":\"Cupidatat aliquip magna sit non sunt sunt excepteur labore sit eu.\",\"pubDate\":\"2015-05-07T16:24:30-04:00\",\"guid\":\"http://example.com/test/1431030270\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030270"], ["published_at", Thu, 07 May 2015 20:24:30 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:24:30+00:00"], ["updated_at", Thu, 07 May 2015 20:25:27 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:25:27 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030260"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:24:20+00:00\",\"link\":\"http://example.com/test/1431030260\",\"description\":\"Proident cupidatat ut duis ea consectetur magna officia et ex minim laboris.\",\"pubDate\":\"2015-05-07T16:24:20-04:00\",\"guid\":\"http://example.com/test/1431030260\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030260"], ["published_at", Thu, 07 May 2015 20:24:20 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:24:20+00:00"], ["updated_at", Thu, 07 May 2015 20:25:27 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:25:27 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030250"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:24:10+00:00\",\"link\":\"http://example.com/test/1431030250\",\"description\":\"Pariatur sit ea ad ad culpa aliquip deserunt pariatur do.\",\"pubDate\":\"2015-05-07T16:24:10-04:00\",\"guid\":\"http://example.com/test/1431030250\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030250"], ["published_at", Thu, 07 May 2015 20:24:10 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:24:10+00:00"], ["updated_at", Thu, 07 May 2015 20:25:27 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:25:27 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030240"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:24:00+00:00\",\"link\":\"http://example.com/test/1431030240\",\"description\":\"Qui fugiat veniam amet ad duis exercitation ad commodo magna quis nisi laborum minim amet.\",\"pubDate\":\"2015-05-07T16:24:00-04:00\",\"guid\":\"http://example.com/test/1431030240\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030240"], ["published_at", Thu, 07 May 2015 20:24:00 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:24:00+00:00"], ["updated_at", Thu, 07 May 2015 20:25:27 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:25:27 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030230"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:23:50+00:00\",\"link\":\"http://example.com/test/1431030230\",\"description\":\"Occaecat et et ea aliquip voluptate sint tempor ut aliquip reprehenderit quis.\",\"pubDate\":\"2015-05-07T16:23:50-04:00\",\"guid\":\"http://example.com/test/1431030230\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030230"], ["published_at", Thu, 07 May 2015 20:23:50 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:23:50+00:00"], ["updated_at", Thu, 07 May 2015 20:25:27 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mEntry Load (3.7ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1[0m  [["feed_id", 1]]
+Completed 200 OK in 269ms (Views: 248.7ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/api/feeds/1" for 127.0.0.1 at 2015-05-07 16:25:29 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mFeed Load (0.7ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mEntry Load (2.4ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1[0m  [["feed_id", 1]]
+Completed 200 OK in 89ms (Views: 84.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/feeds/1" for 127.0.0.1 at 2015-05-07 16:25:30 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mEntry Load (3.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1[0m  [["feed_id", 1]]
+Completed 200 OK in 94ms (Views: 89.5ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:25:32 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[35mFeed Load (3.3ms)[0m  SELECT "feeds".* FROM "feeds"
+Completed 200 OK in 9ms (Views: 4.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/api/feeds/9" for 127.0.0.1 at 2015-05-07 16:25:33 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"9"}
+  [1m[36mFeed Load (0.6ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1[0m  [["id", "9"]]
+  [1m[35mSQL (0.7ms)[0m  UPDATE "feeds" SET "updated_at" = '2015-05-07 20:25:33.329648' WHERE "feeds"."id" = 9
+  [1m[36m (0.9ms)[0m  [1mSELECT "entries"."guid" FROM "entries"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:25:33 UTC +00:00], ["feed_id", 9], ["guid", "http://www.huffingtonpost.com/maya-rodale/who-is-the-the-romance-novel-reader_b_7192588.html"], ["json", "{\"title\":\"Who Is the Romance Novel Reader?\",\"link\":\"http://www.huffingtonpost.com/maya-rodale/who-is-the-the-romance-novel-reader_b_7192588.html?utm_hp_ref=books\\u0026amp;ir=Books\",\"author\":\"Maya Rodale\",\"description\":\"It is a truth universally acknowledged that romance readers are single women in possession of cats and in want of a man. Other \\\"true\\\" facts about the romance reader: They're \\\"nice people with bad taste in books\\\", uneducated, bored, stupid, \\\"lack romance in their lives.\\\" Or if we want to be really specific, they're \\\"middle aged women who are bored in their marriages and want to fantasize about hard, chiseled men.\\\" Or maybe they're \\\"younger women who are using them as emotional porn.\\\"***\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Ca href=\\\"http://www.dangerousbooksforgirls.com\\\"\\u003E\\u003Cimg alt=\\\"2015-05-05-1430840575-381096-DangerousBooksForGirlsbig.jpg\\\" src=\\\"http://images.huffingtonpost.com/2015-05-05-1430840575-381096-DangerousBooksForGirlsbig-thumb.jpg\\\" width=\\\"200\\\" height=\\\"300\\\" align=\\\"left\\\" style=\\\"margin: 9px\\\"/\\u003E\\u003C/a\\u003E\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\nThe romance industry is big -- it's the second largest category of fiction, outselling science fiction, fantasy and the classics -- which means there are a lot of readers, who may or may not fit the stereotype. It means that you or someone you know might be reading romances. \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\nThere are many myths about who reads romance novels and why -- something I explore in my book \\u003Ca href=\\\"http://www.dangerousbooksforgirls.com\\\" target=\\\"_hplink\\\"\\u003E\\u003Cem\\u003EDangerous Books For Girls: The Bad Reputation of Romance Novels Explained\\u003C/em\\u003E\\u003C/a\\u003E -- but here's the truth, based on research, \\u003Ca href=\\\"http://www.dangerousbooksforgirls.com/surveys\\\" target=\\\"_hplink\\\"\\u003Esurvey data \\u003C/a\\u003Eand common freaking sense: \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u0026nbsp; \\u003Cbr /\\u003E\\n\\u0026nbsp; \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EMYTH: The romance reader is likely to be a desperate housewife, lonely spinster or sorority sister.**\\u003C/strong\\u003E\\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EFACT: \\u003C/strong\\u003EContrary to popular perception, women do not make up 150% of romance readers. According to survey results from \\u003Ca href=\\\"https://www.rwa.org/p/cm/ld/fid=582\\\" target=\\\"_hplink\\\"\\u003ERomance Writers of America\\u003C/a\\u003E, 84 percent of romance readers are women and 16 percent are men -- up from 9 percent a few years ago. \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\nWhile 70% of romance readers discover the genre between the ages of 11 and 18, most romance readers tend to be older (the average age range is from 30 and 54 years-old.) She's also likely to be coupled up and has an average income of $55,000 per year. \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\nThe romance industry is large -- more than half of the mass market paperbacks sold in the U.S. are romance -- and it's readership is vast as well. So for every desperate housewife, there's a happily harried wife and/or mom taking a break with a romance novel. For every lonely spinster, there's an unapologetic single woman. And for every sorority sister, there's a proud geek girl who loves romance novels.  \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u0026nbsp; \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EMYTH: The address of the romance reader: Fly over state, USA\\u003C/strong\\u003E\\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EFACT: \\u003C/strong\\u003EThere is a grain of truth in this one. In the United States, romance readers are most highly represented in the south, followed by the midwest. But romance novels are read all over the world and translated into many different languages. \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n \\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EMYTH: Romance readers are stupid\\u003C/strong\\u003E\\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EFACT: \\u003C/strong\\u003EThere's a sense that romance novels are stupid books for stupid people. The non-romance readers I surveyed thought romance readers were less likely to have an advance degree than romance readers reported having attained. But the idea that women's fiction was frivolous and the readers were foolish goes way back to the 18th and 19th centuries, when the novel was gaining popularity and women were gaining literacy. General impressions of women's intelligence were hardly flattering, probably because no one thought to give girls an education. This is just an old, leftover association that is hardly relevant these days -- isn't stupid to keep perpetuating it?  \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Ca href=\\\"http://images.huffingtonpost.com/2015-05-05-1430840995-8423216-smartwomen.jpg\\\"\\u003E\\u003Cimg alt=\\\"2015-05-05-1430840995-8423216-smartwomen.jpg\\\" src=\\\"http://images.huffingtonpost.com/2015-05-05-1430840995-8423216-smartwomen-thumb.jpg\\\" width=\\\"380\\\" height=\\\"266\\\" align=\\\"center\\\"/\\u003E\\u003C/a\\u003E\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n \\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EMYTH: Romance readers lack romance in real life. \\u003C/strong\\u003E\\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EFACT:\\u003C/strong\\u003E \\\"I don't think people assume that people who read mystery novels are thwarted detectives,\\\"Esi Sogah, a senior editor at Kensington books, told me. \\\"But there's this idea that people who like romances don't actually have romance in their lives.\\\" Get some candles, soft music, wine, flowers, chocolate and a hunk of a man immediately.  Or just a romance novel. Because someone out there might not have enough romance in their life.\\u003Cbr /\\u003E\\n \\u003Cbr /\\u003E\\nWhat is enough romance anyway? What if we have candles but no wine? What if there are flowers but someone forgets the chocolate (that's really bad). What if there is no man? Can it still be romance?  What if you are not swept off your feet because that sounds like someone could get hurt, which would lead a night in the ER which I think we can all agree is not romantic (well -- unless it's McDreamy, RIP).\\u003Cbr /\\u003E\\n \\u003Cbr /\\u003E\\nAnd if someone doesn't have enough romance, and supplements with a novel, what's wrong with that? And if someone doesn't have a relationship that looks like the ones she reads about in romance novels -- where she is cherished, pleasured and respected -- and that gets her thinking about making some changes, is that so bad?\\u003Cbr /\\u003E\\n\\u0026nbsp; \\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EMYTH: Romance readers wear ugly sweaters\\u003C/strong\\u003E\\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EFACT:\\u003C/strong\\u003E So does Mr. Darcy.\\u003Cbr /\\u003E\\n\\u0026nbsp; \\u003Cbr /\\u003E\\n\\u003Ca href=\\\"http://images.huffingtonpost.com/2015-05-05-1430839981-7757695-darcy.jpg\\\"\\u003E\\u003Cimg alt=\\\"2015-05-05-1430839981-7757695-darcy.jpg\\\" src=\\\"http://images.huffingtonpost.com/2015-05-05-1430839981-7757695-darcy-thumb.jpg\\\" width=\\\"400\\\" height=\\\"281\\\" /\\u003E\\u003C/a\\u003E\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n \\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EMYTH: Romance readers are stay at home mothers and housewives, idling away the hours by reading trashy \\u003Ca href=\\\"http://www.dangerousbooksforgirls.com/fabio/\\\" target=\\\"_hplink\\\"\\u003EFabio books\\u003C/a\\u003E\\u003C/strong\\u003E\\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EFACT:\\u003C/strong\\u003E Well this is a fraught subject. Raising a family and keeping a house in order is a tough job and someone has to do it. For a long time, housewife and mother were the highest occupations women could aspire to (also, basically the only one). To claim romance readers aren't full time family caretakers is to suggest that there's something wrong with that, which is not something I want to do. \\u003Cbr /\\u003E\\n \\u003Cbr /\\u003E\\nIn the 1970s, when the bodice ripping boom happened, women were just starting to venture out into the workforce. In the early 1980s, Janice Radway wrote \\u003Cem\\u003EReading the Romance: Pop Culture and the Patriarchy\\u003C/em\\u003E based on her focus groups with \\\"The Smithton Women\\\" who were a group of avid romance readers and stay at home wives/mothers, and for a long time this was the only official study of romance readers. Given that the popular perception of the genre seems frozen from the 1970s (\\u003Ca href=\\\"http://www.dangerousbooksforgirls.com/fabio\\\" target=\\\"_hplink\\\"\\u003EDon't even get me started on Fabio\\u003C/a\\u003E), it makes a certain amount of sense that this is one of the stereotypes that might have been grounded in truth, and stuck around, even though attitudes and day-to-day realities have changed.\\u003Cbr /\\u003E\\n \\u003Cbr /\\u003E\\nMost women work at jobs. Many women work now for reasons ranging from because they can to because they have to either because they're single or because it's insanely difficult for a middle class family to get by without two salaries nowadays, which hasn't always been the case. \\u003Cbr /\\u003E\\n \\u003Cbr /\\u003E\\nWhether staying at home, working from home or working in an office, many women turn to romance novels for some entertainment, escape and relaxation at the end of the day. \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EMYTH: Romance readers are obsessed with wine, chocolate, and \\u003Cem\\u003EPride \\u0026 Prejudice\\u003C/em\\u003E.\\u003C/strong\\u003E\\u003Cbr /\\u003E\\nFACT: You say that like it's a bad thing.\\u003Cbr /\\u003E\\n \\u003Cbr /\\u003E\\n\\u003Ca href=\\\"http://images.huffingtonpost.com/2015-05-05-1430841025-7398117-heygirl.jpg\\\"\\u003E\\u003Cimg alt=\\\"2015-05-05-1430841025-7398117-heygirl.jpg\\\" src=\\\"http://images.huffingtonpost.com/2015-05-05-1430841025-7398117-heygirl-thumb.jpg\\\" width=\\\"400\\\" height=\\\"332\\\" /\\u003E\\u003C/a\\u003E\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u0026nbsp; \\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EMYTH: Romance readers can't distinguish between fact and fiction.\\u003C/strong\\u003E\\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EFACT: \\u003C/strong\\u003EAlong with decrying the genre as unrealistic, this is something we say to lessen the impact of ideas women get from romance novels. \\\"Crazy\\\" ideas like they can be the heroine of their own lives, that they can find fulfilling love, have orgasmic sex, or just be happy. It's shorthand for saying \\\"lower your expectations honey, your needs are taking a backseat to \\u003Cem\\u003ELaw \\u0026 Order\\u003C/em\\u003E reruns and no I'm not going to put my socks in the hamper. Also, can you get me a beer?\\\" Romance novels show an idealized -- but potentially attainable -- life of happiness and satisfaction for women and then they can inspire women to make that fiction a reality. \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n \\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EMYTH: Romance readers don't know good writing\\u003C/strong\\u003E\\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EFACT: \\u003C/strong\\u003E\\\"Easy reading is damn hard writing,\\\" said none other than esteemed and celebrated author \\u003Ca href=\\\"http://dangerousbooksforgirls.tumblr.com/post/67760906032/nationalbook-lastnightsreading-maya-angelou\\\" target=\\\"_hplink\\\"\\u003EMaya Angelou\\u003C/a\\u003E. When it comes to romance, it often seems like the entire genre has been written off as crap because of a few poorly written books. Even die hard romance fans, in defense of \\u003Cem\\u003E50 Shades of Grey\\u003C/em\\u003E will say \\\"it was terribly written\\\" or \\\"it really needed editing.\\\"\\u003Cbr /\\u003E\\n \\u003Cbr /\\u003E\\nBut romance readers appreciated a well crafted sentence or a lovely and surprising turn of phrase as much as the next reader. And romance authors strive to deliver, some with more success than others.\\u003Cbr /\\u003E\\n \\u003Cbr /\\u003E\\nRomance readers and writers do know good writing -- it's the kind that make you forget you are reading, that transports you to other worlds, make you feel all the feelings, and makes you want to pick up another book and repeat the experience.  \\u003Cbr /\\u003E\\n \\u0026nbsp; \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EMYTH: Romance readers are cat ladies\\u003C/strong\\u003E\\u003Cbr /\\u003E\\n\\u003Cstrong\\u003EFACT:\\u003C/strong\\u003E I think the Internet has proven that everyone is a cat lady.\\u003Cbr /\\u003E\\n \\u003Cbr /\\u003E\\n\\u0026nbsp; \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Ca href=\\\"http://images.huffingtonpost.com/2015-05-05-1430841078-9909489-romancenovelreader1.png\\\"\\u003E\\u003Cimg alt=\\\"2015-05-05-1430841078-9909489-romancenovelreader1.png\\\" src=\\\"http://images.huffingtonpost.com/2015-05-05-1430841078-9909489-romancenovelreader1-thumb.png\\\" width=\\\"350\\\" height=\\\"570\\\" /\\u003E\\u003C/a\\u003E\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n \\u003Cbr /\\u003E\\n\\u003Cem\\u003E**Sources: Romance Writer's of America, \\u003Ca href=\\\"http://www.dangerousbooksforgirls.com/surveys\\\" target=\\\"_hplink\\\"\\u003EThe Dangerous Books For Girls survey\\u003C/a\\u003E. \\u003C/em\\u003E \\u003Cp\\u003E-- This feed and its contents are the property of The Huffington Post, and use is subject to our \\u003Ca href='http://www.huffingtonpost.com/terms.html/'\\u003Eterms.\\u003C/a\\u003E It may be used for personal consumption, but may not be distributed on a website.\\u003C/p\\u003E\",\"pubDate\":\"2015-05-07T15:59:20-04:00\",\"guid\":\"http://www.huffingtonpost.com/maya-rodale/who-is-the-the-romance-novel-reader_b_7192588.html\"}"], ["link", "http://www.huffingtonpost.com/maya-rodale/who-is-the-the-romance-novel-reader_b_7192588.html?utm_hp_ref=books&amp;ir=Books"], ["published_at", Thu, 07 May 2015 19:59:20 UTC +00:00], ["title", "Who Is the Romance Novel Reader?"], ["updated_at", Thu, 07 May 2015 20:25:33 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mEntry Load (2.3ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1[0m  [["feed_id", 9]]
+Completed 200 OK in 434ms (Views: 426.3ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:29:31 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 345ms (Views: 344.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[35mFeed Load (3.3ms)[0m  SELECT "feeds".* FROM "feeds"
+Completed 200 OK in 9ms (Views: 4.7ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/api/feeds/9" for 127.0.0.1 at 2015-05-07 16:29:32 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"9"}
+  [1m[36mFeed Load (1.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1[0m  [["id", "9"]]
+  [1m[35mSQL (1.1ms)[0m  UPDATE "feeds" SET "updated_at" = '2015-05-07 20:29:32.489270' WHERE "feeds"."id" = 9
+  [1m[36m (0.8ms)[0m  [1mSELECT "entries"."guid" FROM "entries"[0m
+  [1m[35mEntry Load (2.3ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1  [["feed_id", 9]]
+Completed 200 OK in 408ms (Views: 401.4ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 7ms (Views: 7.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:29:34 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[36mFeed Load (5.9ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 13ms (Views: 6.9ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/api/feeds/4" for 127.0.0.1 at 2015-05-07 16:29:35 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[35mFeed Load (1.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1  [["id", "4"]]
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "feeds" SET "updated_at" = '2015-05-07 20:29:35.491120' WHERE "feeds"."id" = 4[0m
+  [1m[35m (1.0ms)[0m  SELECT "entries"."guid" FROM "entries"
+  [1m[36mEntry Load (4.4ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1[0m  [["feed_id", 4]]
+Completed 200 OK in 471ms (Views: 462.5ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:30:30 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 62ms (Views: 62.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:30:30 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:30 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:30 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:30 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:30 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:30 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:31 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:31 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:31 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:31 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:31 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:31 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:31 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:31 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:31 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:31 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:31 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:31 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:30:31 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:30:31 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[35mFeed Load (0.6ms)[0m  SELECT "feeds".* FROM "feeds"
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/feeds/4" for 127.0.0.1 at 2015-05-07 16:30:31 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1[0m  [["id", "4"]]
+  [1m[35mSQL (0.8ms)[0m  UPDATE "feeds" SET "updated_at" = '2015-05-07 20:30:31.125120' WHERE "feeds"."id" = 4
+  [1m[36m (0.9ms)[0m  [1mSELECT "entries"."guid" FROM "entries"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:30:31 UTC +00:00], ["feed_id", 4], ["guid", "http://qz.com/?p=400639"], ["json", "{\"title\":\"Fitbit is going public and it\\u0026#8217;s actually very profitable\",\"link\":\"http://qz.com/400639/fitbit-is-going-public-and-its-actually-very-profitable/\",\"description\":\"Fitbit, the maker of myriad step-tracking devices, has taken the first step to going public, lodging IPO documents with US regulators this afternoon. There have been a string of high profile IPOs lately involving loss-making companies. Think Twitter in 2013, cloud storage company Box  or most recently, Etsy. Fitbit, on the other hand, looks as [\\u0026#8230;]\\u003Cimg alt=\\\"\\\" border=\\\"0\\\" src=\\\"http://pixel.wp.com/b.gif?host=qz.com\\u0026#038;blog=39587363\\u0026#038;post=400639\\u0026#038;subd=qzprod\\u0026#038;ref=\\u0026#038;feed=1\\\" width=\\\"1\\\" height=\\\"1\\\" /\\u003E\",\"content\":\"\",\"content_encoded\":\"\\u003Cimg width=\\\"640\\\" height=\\\"360\\\" src=\\\"https://qzprod.files.wordpress.com/2015/05/simple-b-cssdisabled-jpg-h3f020c7e98bca25b96dc93c3b731b84d.jpeg?w=640\\\" class=\\\"attachment-medium_10 wp-post-image\\\" alt=\\\"First step.\\\" /\\u003E\\u003Cp\\u003EFitbit, the maker of myriad step-tracking devices, has taken the first step to going public, lodging \\u003Ca href=\\\"http://www.sec.gov/Archives/edgar/data/1447599/000119312515176980/d875679ds1.htm\\\" target=\\\"_blank\\\"\\u003EIPO documents\\u003C/a\\u003E with US regulators this afternoon.\\u003C/p\\u003E\\n\\u003Cp\\u003EThere have been a string of high profile IPOs lately involving loss-making companies. Think Twitter in 2013, cloud storage company Box  or \\u003Ca href=\\\"http://qz.com/356272/etsy-ipo-going-public-and-it-makes-no-money/\\\" target=\\\"_blank\\\"\\u003Emost recently\\u003C/a\\u003E, Etsy. Fitbit, on the other hand, looks as healthy as \\u003Ca href=\\\"http://qz.com/380634/this-is-how-fitbit-employees-monitor-each-others-health/\\\" target=\\\"_blank\\\"\\u003Eits own employees\\u003C/a\\u003E are.\\u003C/p\\u003E\\n\\u003Cp\\u003E\\u003Cimg class=\\\"wp-image-400640\\\" src=\\\"https://qzprod.files.wordpress.com/2015/05/g875679g89l02_colorcorrected.jpeg?w=501\\u0026#038;h=205\\\" alt=\\\"g875679g89l02_colorcorrected\\\" width=\\\"501\\\" height=\\\"205\\\" /\\u003E\\u003C/p\\u003E\\n\\u003Cp\\u003EThe company made a profit of $131 million in the last fiscal year, on $745 million in revenue. 2014 was the first profitable year for Fitbit, which according to an NPD Group report quoted in the IPO filing, now controls 68% of the US activity tracker market.\\u003C/p\\u003E\\n\\u003Cp\\u003EBut Fitbit warns that while device sales and the (very literal) number of active users are trending up, there is still some work to be done to ensure long-term success:\\u003C/p\\u003E\\n\\u003Cblockquote\\u003E\\u003Cp\\u003EWhile we achieved profitability in 2014, we have not consistently achieved profitability on a quarterly or annual basis. We expect expenses to increase substantially in the near term, particularly as we make significant investments in our research and development and sales and marketing organizations, expand our operations and infrastructure both domestically and internationally, develop new products and services, and enhance our existing products and services.\\u003C/p\\u003E\\u003C/blockquote\\u003E\\u003Cimg alt=\\\"\\\" border=\\\"0\\\" src=\\\"http://pixel.wp.com/b.gif?host=qz.com\\u0026#038;blog=39587363\\u0026#038;post=400639\\u0026#038;subd=qzprod\\u0026#038;ref=\\u0026#038;feed=1\\\" width=\\\"1\\\" height=\\\"1\\\" /\\u003E\",\"comments\":\"http://qz.com/400639/fitbit-is-going-public-and-its-actually-very-profitable/#comments\",\"pubDate\":\"2015-05-07T16:29:53-04:00\",\"category\":\"Uncategorized\",\"guid\":\"http://qz.com/?p=400639\",\"dc_creator\":\"Mike Murphy\",\"media_content_url\":\"https://qzprod.files.wordpress.com/2015/05/simple-b-cssdisabled-jpg-h3f020c7e98bca25b96dc93c3b731b84d.jpeg?w=640\",\"media_content_type\":\"html\",\"media_title\":\"simple.b-cssdisabled-jpg.h3f020c7e98bca25b96dc93c3b731b84d\",\"media_thumbnail_url\":\"https://qzprod.files.wordpress.com/2015/05/simple-b-cssdisabled-jpg-h3f020c7e98bca25b96dc93c3b731b84d.jpeg?w=640\"}"], ["link", "http://qz.com/400639/fitbit-is-going-public-and-its-actually-very-profitable/"], ["published_at", Thu, 07 May 2015 20:29:53 UTC +00:00], ["title", "Fitbit is going public and it&#8217;s actually very profitable"], ["updated_at", Thu, 07 May 2015 20:30:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mEntry Load (3.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1[0m  [["feed_id", 4]]
+Completed 200 OK in 571ms (Views: 563.1ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 59ms (Views: 58.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:32:53 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[35mFeed Load (2.5ms)[0m  SELECT "feeds".* FROM "feeds"
+Completed 200 OK in 9ms (Views: 5.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/api/feeds/2" for 127.0.0.1 at 2015-05-07 16:32:55 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35mSQL (0.8ms)[0m  UPDATE "feeds" SET "updated_at" = '2015-05-07 20:32:55.475827' WHERE "feeds"."id" = 2
+  [1m[36m (1.1ms)[0m  [1mSELECT "entries"."guid" FROM "entries"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:32:55 UTC +00:00], ["feed_id", 2], ["guid", "http://www.wired.com/?p=1778086"], ["json", "{\"title\":\"Forget the Click! New Interactive Ads Want to Talk With You\",\"link\":\"http://feeds.wired.com/c/35185/f/661370/s/461b44b3/sc/15/l/0L0Swired0N0C20A150C0A50Cforget0Eclick0Enew0Einteractive0Eads0Ewant0Etalk0C/story01.htm\",\"description\":\"\\u0026lt;div class=\\\"rss_thumbnail\\\"\\u0026gt;\\u0026lt;img src=\\\"http://www.wired.com/wp-content/uploads/2015/05/509644697-660x441.jpg\\\" alt=\\\"Forget the Click! New Interactive Ads Want to Talk With You\\\" /\\u0026gt;\\u0026lt;/div\\u0026gt;\\u0026lt;p\\u0026gt;Ads are always fighting to get your attention, creeping onto your feed and phone. That's not about to change, but you might soon like what you see. Maybe.\\u0026lt;/p\\u0026gt; \\u0026lt;p\\u0026gt;The post \\u0026lt;a rel=\\\"nofollow\\\" href=\\\"http://www.wired.com/2015/05/forget-click-new-interactive-ads-want-talk/\\\"\\u0026gt;Forget the Click! New Interactive Ads Want to Talk With You\\u0026lt;/a\\u0026gt; appeared first on \\u0026lt;a rel=\\\"nofollow\\\" href=\\\"http://www.wired.com\\\"\\u0026gt;WIRED\\u0026lt;/a\\u0026gt;.\\u0026lt;/p\\u0026gt;\\u0026lt;img width='1' height='1' src='http://feeds.wired.com/c/35185/f/661370/s/461b44b3/sc/15/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/228546601437/u/0/f/661370/c/35185/s/461b44b3/sc/15/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/228546601437/u/0/f/661370/c/35185/s/461b44b3/sc/15/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/228546601437/u/0/f/661370/c/35185/s/461b44b3/sc/15/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/228546601437/u/0/f/661370/c/35185/s/461b44b3/sc/15/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/228546601437/u/0/f/661370/c/35185/s/461b44b3/sc/15/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/228546601437/u/0/f/661370/c/35185/s/461b44b3/sc/15/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/228546601437/u/0/f/661370/c/35185/s/461b44b3/sc/15/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/228546601437/u/0/f/661370/c/35185/s/461b44b3/sc/15/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://adchoice.feedsportal.com/r/228546601437/u/0/f/661370/c/35185/s/461b44b3/sc/15/ach.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://adchoice.feedsportal.com/r/228546601437/u/0/f/661370/c/35185/s/461b44b3/sc/15/ach.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/228546601437/u/0/f/661370/c/35185/s/461b44b3/sc/15/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi2.feedsportal.com/r/228546601437/u/0/f/661370/c/35185/s/461b44b3/sc/15/a2t2.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"http://www.wired.com/2015/05/forget-click-new-interactive-ads-want-talk/#comments\",\"pubDate\":\"2015-05-07T15:24:02-04:00\",\"category\":\"Interaction Design\",\"guid\":\"http://www.wired.com/?p=1778086\",\"dc_creator\":\"Julia Greenberg\"}"], ["link", "http://feeds.wired.com/c/35185/f/661370/s/461b44b3/sc/15/l/0L0Swired0N0C20A150C0A50Cforget0Eclick0Enew0Einteractive0Eads0Ewant0Etalk0C/story01.htm"], ["published_at", Thu, 07 May 2015 19:24:02 UTC +00:00], ["title", "Forget the Click! New Interactive Ads Want to Talk With You"], ["updated_at", Thu, 07 May 2015 20:32:55 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:32:55 UTC +00:00], ["feed_id", 2], ["guid", "http://www.wired.com/?p=1777353"], ["json", "{\"title\":\"Aston Martin’s Best Bet for Survival? Build Some SUVs\",\"link\":\"http://feeds.wired.com/c/35185/f/661370/s/461adab4/sc/15/l/0L0Swired0N0C20A150C0A50Caston0Emartins0Ebest0Ebet0Esurvival0Ebuild0Esuvs0C/story01.htm\",\"description\":\"\\u0026lt;div class=\\\"rss_thumbnail\\\"\\u0026gt;\\u0026lt;img src=\\\"http://www.wired.com/wp-content/uploads/2015/05/overviewdynamic-660x370.jpg\\\" alt=\\\"Aston Martin\\u0026amp;#8217;s Best Bet for Survival? Build Some SUVs\\\" /\\u0026gt;\\u0026lt;/div\\u0026gt;\\u0026lt;p\\u0026gt;The company is a small-volume player, and small doesn't work in the modern car industry. So it's going bigger.\\u0026lt;/p\\u0026gt; \\u0026lt;p\\u0026gt;The post \\u0026lt;a rel=\\\"nofollow\\\" href=\\\"http://www.wired.com/2015/05/aston-martins-best-bet-survival-build-suvs/\\\"\\u0026gt;Aston Martin\\u0026amp;#8217;s Best Bet for Survival? Build Some SUVs\\u0026lt;/a\\u0026gt; appeared first on \\u0026lt;a rel=\\\"nofollow\\\" href=\\\"http://www.wired.com\\\"\\u0026gt;WIRED\\u0026lt;/a\\u0026gt;.\\u0026lt;/p\\u0026gt;\\u0026lt;img width='1' height='1' src='http://feeds.wired.com/c/35185/f/661370/s/461adab4/sc/15/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/228546577351/u/0/f/661370/c/35185/s/461adab4/sc/15/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/228546577351/u/0/f/661370/c/35185/s/461adab4/sc/15/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/228546577351/u/0/f/661370/c/35185/s/461adab4/sc/15/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/228546577351/u/0/f/661370/c/35185/s/461adab4/sc/15/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/228546577351/u/0/f/661370/c/35185/s/461adab4/sc/15/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/228546577351/u/0/f/661370/c/35185/s/461adab4/sc/15/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/228546577351/u/0/f/661370/c/35185/s/461adab4/sc/15/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/228546577351/u/0/f/661370/c/35185/s/461adab4/sc/15/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://adchoice.feedsportal.com/r/228546577351/u/0/f/661370/c/35185/s/461adab4/sc/15/ach.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://adchoice.feedsportal.com/r/228546577351/u/0/f/661370/c/35185/s/461adab4/sc/15/ach.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/228546577351/u/0/f/661370/c/35185/s/461adab4/sc/15/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi2.feedsportal.com/r/228546577351/u/0/f/661370/c/35185/s/461adab4/sc/15/a2t2.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"http://www.wired.com/2015/05/aston-martins-best-bet-survival-build-suvs/#comments\",\"pubDate\":\"2015-05-07T15:05:59-04:00\",\"category\":\"Aston Martin\",\"guid\":\"http://www.wired.com/?p=1777353\",\"dc_creator\":\"Sam Smith\"}"], ["link", "http://feeds.wired.com/c/35185/f/661370/s/461adab4/sc/15/l/0L0Swired0N0C20A150C0A50Caston0Emartins0Ebest0Ebet0Esurvival0Ebuild0Esuvs0C/story01.htm"], ["published_at", Thu, 07 May 2015 19:05:59 UTC +00:00], ["title", "Aston Martin’s Best Bet for Survival? Build Some SUVs"], ["updated_at", Thu, 07 May 2015 20:32:55 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mEntry Load (1.7ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1  [["feed_id", 2]]
+Completed 200 OK in 414ms (Views: 406.2ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 116ms (Views: 115.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[36mFeed Load (1.9ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/feeds/2" for 127.0.0.1 at 2015-05-07 16:33:13 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[35mFeed Load (0.8ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36mEntry Load (2.2ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1[0m  [["feed_id", 2]]
+Completed 200 OK in 40ms (Views: 35.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 55ms (Views: 54.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[35mFeed Load (3.4ms)[0m  SELECT "feeds".* FROM "feeds"
+Completed 200 OK in 8ms (Views: 4.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/api/feeds/2" for 127.0.0.1 at 2015-05-07 16:33:21 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mFeed Load (1.6ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35mEntry Load (3.2ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1  [["feed_id", 2]]
+Completed 200 OK in 44ms (Views: 36.2ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:33:23 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[36mFeed Load (1.3ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/feeds/8" for 127.0.0.1 at 2015-05-07 16:33:25 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"8"}
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1  [["id", "8"]]
+  [1m[36mSQL (0.9ms)[0m  [1mUPDATE "feeds" SET "updated_at" = '2015-05-07 20:33:25.114242' WHERE "feeds"."id" = 8[0m
+  [1m[35m (0.8ms)[0m  SELECT "entries"."guid" FROM "entries"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:33:25 UTC +00:00], ["feed_id", 8], ["guid", "http://www.huffingtonpost.com/maria-gabriela-brito/misaki-kawais-soulful-neo_b_7227948.html"], ["json", "{\"title\":\"Misaki Kawai's Soulful Neo Expressionism\",\"link\":\"http://www.huffingtonpost.com/maria-gabriela-brito/misaki-kawais-soulful-neo_b_7227948.html?utm_hp_ref=arts\\u0026amp;ir=Arts\",\"author\":\"Maria Gabriela Brito\",\"description\":\"\\u003Ca href=\\\"http://images.huffingtonpost.com/2015-05-06-1430956010-4284878-MariaBrito_MisakiKawai13.jpg\\\"\\u003E\\u003Cimg alt=\\\"2015-05-06-1430956010-4284878-MariaBrito_MisakiKawai13.jpg\\\" src=\\\"http://images.huffingtonpost.com/2015-05-06-1430956010-4284878-MariaBrito_MisakiKawai13-thumb.jpg\\\" width=\\\"570\\\" height=\\\"320\\\" /\\u003E\\u003C/a\\u003E\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\nI saw \\u003Ca href=\\\"http://misakikawai.com/\\\" target=\\\"_hplink\\\"\\u003EMisaki Kawai\\u003C/a\\u003E's work for the first time in 2004 when one of her pieces was part of a group show at Deitch Projects, the coolest New York City contemporary art gallery at the time.  I remember clearly that instinctive feeling I got of being in front of something that had a lot more raw talent, heart and humor than half the other things I had seen in that show, and perhaps elsewhere, in a long time.  Kawai's colorful and dynamic pieces have evolved but they continue to engage and move me while her career has calmly and steadily been on the rise.  Ever since that Deitch exhibit, her work has been included in a variety of solo and group shows around the world including the Institute of Contemporary Art ICA Boston, The Watarium Museum of Contemporary Art in Tokyo, P.S. 1 MOMA Contemporary Art Center in New York City, The Museum of Fine Arts in Houston, The Watermill Center in New York and The Children's Museum of Art in New York City.\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Ca href=\\\"http://images.huffingtonpost.com/2015-05-06-1430956386-1580308-MariaBrito_MisakiKawai33.jpg\\\"\\u003E\\u003Cimg alt=\\\"2015-05-06-1430956386-1580308-MariaBrito_MisakiKawai33.jpg\\\" src=\\\"http://images.huffingtonpost.com/2015-05-06-1430956386-1580308-MariaBrito_MisakiKawai33-thumb.jpg\\\" width=\\\"570\\\" height=\\\"320\\\" /\\u003E\\u003C/a\\u003E\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\nSo when I heard from \\u003Ca href=\\\"http://www.ericfirestonegallery.com/\\\" target=\\\"_hplink\\\"\\u003EEric Firestone\\u003C/a\\u003E that Kawai was working on a special solo-booth installation to be unveiled at \\u003Ca href=\\\"http://www.newartdealers.org/\\\" target=\\\"_hplink\\\"\\u003ENADA Art Fair\\u003C/a\\u003E next Thursday, May 14th, I could not resist the urge to go and see everything before the work came to be installed in New York City. \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Ca href=\\\"http://images.huffingtonpost.com/2015-05-06-1430956056-5741908-MariaBrito_MisakiKawai17.jpg\\\"\\u003E\\u003Cimg alt=\\\"2015-05-06-1430956056-5741908-MariaBrito_MisakiKawai17.jpg\\\" src=\\\"http://images.huffingtonpost.com/2015-05-06-1430956056-5741908-MariaBrito_MisakiKawai17-thumb.jpg\\\" width=\\\"570\\\" height=\\\"429\\\" /\\u003E\\u003C/a\\u003E\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\nIn the same tradition of great painters who settled in the Hamptons during the winter months to work without interruption and take advantage of the large spaces and one of the most beautiful lights of the Northeast (Jackson Pollock, Willem de Kooning and Robert Motherwell are just a few who come to mind), Kawai and her husband, photographer Justin Waldron, set camp in a modernist-style home and adjacent studio in East Hampton.  Kawai's studio space allowed her to produce as many pieces as she wanted in as many different formats and sizes as she would need (including large, medium and small canvases along with super cool furniture pieces). \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Ca href=\\\"http://images.huffingtonpost.com/2015-05-06-1430956241-8308256-MariaBrito_MisakiKawai22.jpg\\\"\\u003E\\u003Cimg alt=\\\"2015-05-06-1430956241-8308256-MariaBrito_MisakiKawai22.jpg\\\" src=\\\"http://images.huffingtonpost.com/2015-05-06-1430956241-8308256-MariaBrito_MisakiKawai22-thumb.jpg\\\" width=\\\"570\\\" height=\\\"320\\\" /\\u003E\\u003C/a\\u003E\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\nWhile admiring the explosion of saturated colors, mostly primary but ranging from deep black to hot pink, it dawned on me that Kawai's work also fits the description of a contemporary expressionist.  She's constantly exploring the subject matter of the objects that surround her day-to-day life and the way she sees them, adding a touch of humor with shapes, words or hashtags.  There is a lot of her internal world that she gives to us spectators, but it is ultimately the unexpected that we find in her work that keeps us guessing and on our toes.  For example: one of the pieces in the studio is a large yellow canvas depicting several animals that look like crocodiles or iguanas, but Kawai aptly points out that the green creatures are dinosaurs taken from video games.  When I look again, some of the characters on the canvas remind me of the days when I incessantly played Pac-Man, which must have also been on Kawai's radar since Atari is a Japanese company and we are both from the same generation. \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Ca href=\\\"http://images.huffingtonpost.com/2015-05-06-1430956137-9436565-MariaBrito_MisakiKawai18.jpg\\\"\\u003E\\u003Cimg alt=\\\"2015-05-06-1430956137-9436565-MariaBrito_MisakiKawai18.jpg\\\" src=\\\"http://images.huffingtonpost.com/2015-05-06-1430956137-9436565-MariaBrito_MisakiKawai18-thumb.jpg\\\" width=\\\"570\\\" height=\\\"320\\\" /\\u003E\\u003C/a\\u003E\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\nThe caricaturesque nature of her work is so intertwined with the aesthetics and graphics that are commonplace in modern Japan - where cartoons are used as graphics for so many products, retail spaces, signage and more.  She not only agrees but emphasizes that in her hometown of Osaka, which is known for being the Japanese capital of comedy, that even when bad things happen in life, people will try to make joke out of it.  And that seems to be exactly Misaki Kawai's philosophy of life and perspective on her surroundings.  I left inspired and uplifted, finding optimism in everything I saw that day and trying, even if for a day or two, to emulate Kawai's vantage point in life.\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Cem\\u003EMisaki Kawai \\u003C/em\\u003E\\u003Cbr /\\u003E\\nNADA NYC\\u003Cbr /\\u003E\\nPier 36 \\u003Cbr /\\u003E\\nEric Firestone Gallery\\u003Cbr /\\u003E\\nBooth 4.02 \\u003Cbr /\\u003E\\nMay 14 - 17, 2015 \\u003Cp\\u003E-- This feed and its contents are the property of The Huffington Post, and use is subject to our \\u003Ca href='http://www.huffingtonpost.com/terms.html/'\\u003Eterms.\\u003C/a\\u003E It may be used for personal consumption, but may not be distributed on a website.\\u003C/p\\u003E\",\"pubDate\":\"2015-05-07T15:44:01-04:00\",\"guid\":\"http://www.huffingtonpost.com/maria-gabriela-brito/misaki-kawais-soulful-neo_b_7227948.html\"}"], ["link", "http://www.huffingtonpost.com/maria-gabriela-brito/misaki-kawais-soulful-neo_b_7227948.html?utm_hp_ref=arts&amp;ir=Arts"], ["published_at", Thu, 07 May 2015 19:44:01 UTC +00:00], ["title", "Misaki Kawai's Soulful Neo Expressionism"], ["updated_at", Thu, 07 May 2015 20:33:25 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:33:25 UTC +00:00], ["feed_id", 8], ["guid", "http://www.huffingtonpost.com/okello-kelo-sam/escaping-war-saved-my-lif_b_7216332.html"], ["json", "{\"title\":\"Escaping War Saved My Life. Song and Dance Saved My Soul.\",\"link\":\"http://www.huffingtonpost.com/okello-kelo-sam/escaping-war-saved-my-lif_b_7216332.html?utm_hp_ref=arts\\u0026amp;ir=Arts\",\"author\":\"Okello Kelo Sam\",\"description\":\"\\u003Cem\\u003EA similar version of this story was published on the online theatrical journal \\u003Ca href=\\\"http://bit.ly/HowlRound-Forged\\\" target=\\\"_hplink\\\"\\u003EHowlRound\\u003C/a\\u003E. \\u003C/em\\u003E\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\nI was born in northern Uganda to the Acholi tribe on December 8, 1969, the third child in a family that included one father, three wives and twenty siblings. When I was 16, en route to school, a rebel army abducted me and, to make a dark story short, forced me to do terrible things against my will, and very much against my nature. I was lucky to escape with my life.\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\nWith northern Uganda in chaos, my family was not to be found. I made my way to the capital city Kampala, where an uncle I had never met was said to live. I found him living with two wives and four children in a two-room house in the slum known as Nguru. They found room for me, and offered a mat on the floor and I began to earn money to resume my education.\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Ca href=\\\"http://images.huffingtonpost.com/2015-05-05-1430855858-2715180-ScreenShot20150504at2.32.16PM.png\\\"\\u003E\\u003Cimg alt=\\\"2015-05-05-1430855858-2715180-ScreenShot20150504at2.32.16PM.png\\\" src=\\\"http://images.huffingtonpost.com/2015-05-05-1430855858-2715180-ScreenShot20150504at2.32.16PM-thumb.png\\\" width=\\\"570\\\" height=\\\"355\\\" /\\u003E\\u003C/a\\u003E\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\nCulture is an important part of human development. Our values are embedded in our culture. So it's no wonder I found solace and healing through art. I practiced and studied the arts in high school, then college, ultimately earning a degree in performing arts. This started a career that has allowed me to see the world. Whenever I feel a darkness creep into my soul, I sing, dance and play music on the adungu, a traditional hand-held harp of northern Uganda. It always works, the darkness recedes. Art is my detox.\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\nTen years after my own bitter experience, just as my career started to take off, my younger brother Godfrey, a special person to me, was abducted and killed by Joseph Kony's infamous Lord's Resistance Army. He lived for some time in that evil army, the one known worldwide from \\\"Kony 2012.\\\"\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Ca href=\\\"http://images.huffingtonpost.com/2015-05-05-1430857498-9776742-ScreenShot20141030at3.04.36PM.png\\\"\\u003E\\u003Cimg alt=\\\"2015-05-05-1430857498-9776742-ScreenShot20141030at3.04.36PM.png\\\" src=\\\"http://images.huffingtonpost.com/2015-05-05-1430857498-9776742-ScreenShot20141030at3.04.36PM-thumb.png\\\" width=\\\"380\\\" height=\\\"265\\\" style=\\\"float: right; margin:10px\\\" /\\u003E\\u003C/a\\u003E My first response to Godfrey's abduction was to start \\u003Ca href=\\\"http://www.hopenorth.org\\\" target=\\\"_hplink\\\"\\u003EHope North\\u003C/a\\u003E, a safe haven and school for young victims of Uganda's civil war--a place where they can rebuild their lives and heal, as I healed, through education and creativity. This creativity is part of the core curriculum at Hope North, an accredited secondary. Arts education preserves our Acholi culture. Culture is an important part of human development. It is as important as food, water, shelter and academics--it cannot be ignored. Our values are embedded in our culture.\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\nKony and the warlords that preceded him decimated traditional Acholi ways; his stated purpose was to \\\"cleanse the Acholi people.\\\" For two decades culture was stalled, lost, forgotten. When the Ugandan government responded to the civil war by moving tens of thousands of us into Internally Displaced Persons (IDP) camps, it was the nail in the coffin. \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\nTo make one more dark story short, the camps were not a nice place to be. Our culture is very much based in place, each year we celebrate our birthdays at the place where we have buried our umbilical cord. When we were forcibly moved from our homes, this hurt our souls. So, my life's mission as a performing artist has been to rejuvenate our culture, with Hope North, and most recently with my dance company \\u003Ca href=\\\"http://miziziensemble.weebly.com/\\\" target=\\\"_hplink\\\"\\u003EMizizi Ensemble\\u003C/a\\u003E.\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Ca href=\\\"http://images.huffingtonpost.com/2015-05-05-1430856087-947324-StageForged1.jpg\\\"\\u003E\\u003Cimg alt=\\\"2015-05-05-1430856087-947324-StageForged1.jpg\\\" src=\\\"http://images.huffingtonpost.com/2015-05-05-1430856087-947324-StageForged1-thumb.jpg\\\" width=\\\"570\\\" height=\\\"389\\\" /\\u003E\\u003C/a\\u003E\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\nAs it turns out, I also needed to remember and honor Godfrey in more ways, and thus have created a play with songs, \\u003Ca href=\\\"http://hopenorth.org/forged-in-fire/\\\" target=\\\"_hplink\\\"\\u003EForged in Fire\\u003C/a\\u003E. (Runs through May 15, in New York.) Theater might be unique form of memory and love, but Godfrey was and is part of me, part of my identity and my existence. To find that I can still communicate through him, and to him in this play, has been important to me. I could have chosen to write a song, or an essay, I suppose. But theatre has a broad reach and endless life. The basic elements of theatre are universal: poetry, motion, emotion, visual arts and music. Anyone can relate to these things, even if you are blind or deaf, you will appreciate theatre. Theatre enhances life; it makes me feel more alive, as a performer and spectator.\\u003Cbr /\\u003E\\n \\u003Cbr /\\u003E\\n\\u003Ca href=\\\"http://hopenorth.org/forged-in-fire/\\\" target=\\\"_hplink\\\"\\u003EForged in Fire\\u003C/a\\u003E is essentially a modern play, but one rooted in traditional Ugandan and Acholi storytelling and musical traditions. The play shows my culture intersecting with persistent war and violence. Most of the stories referenced above are told in more detail in the play, leavened with music, dance and humor.\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Ca href=\\\"http://images.huffingtonpost.com/2015-05-06-1430879381-8130661-ScreenShot20150504at2.41.04PM.png\\\"\\u003E\\u003Cimg alt=\\\"2015-05-06-1430879381-8130661-ScreenShot20150504at2.41.04PM.png\\\" src=\\\"http://images.huffingtonpost.com/2015-05-06-1430879381-8130661-ScreenShot20150504at2.41.04PM-thumb.png\\\" width=\\\"400\\\" height=\\\"271\\\"  style=\\\"float: right; margin:10px\\\" /\\u003E\\u003C/a\\u003ESo I am using that instinct for novelty to share a surprising story. I suppose I am also tweaking our instincts to consume the horrors of the world, to seek out the dark stories. There is a character in the play who is a tour guide, taking gaping tourists way beyond sight-seeing and into the heart of the war zone. To me, that character is asking the audience to step beyond \\u003Cem\\u003Elooking,\\u003C/em\\u003E to act when they see something terrible happening, especially to children. Theatre allows others to relate to each other and to stories that are far from their own experience. If others can relate to this story, maybe they will begin to dream about peace on Earth, a planet where no child suffers unnecessarily from a war for greed or a mania for power. It can be.\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Cem\\u003EForged in Fire is playing in New York, at Brooklyn's Voorhees Theatre, through May 15th. Tickets and info available \\u003Ca href=\\\"http://forgedinfire.brownpapertickets.com/\\\" \\u003Ctarget=\\\"_hplink\\\"\\u003Ehere\\u003C/a\\u003E. \\u003C/em\\u003E\\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Cem\\u003EPhotos: Hope North, courtesy \\u003Ca href=\\\"http://www.ingridsongster.com/\\\" target=\\\"_hplink\\\"\\u003EIngrid Songster\\u003C/a\\u003E; Others, courtesy \\u003Ca href=\\\"http://www.johnhuntington.photography/\\\" target=\\\"_hplink\\\"\\u003EJohn Huntington\\u003C/a\\u003E.\\u003C/em\\u003E \\u003Cp\\u003E-- This feed and its contents are the property of The Huffington Post, and use is subject to our \\u003Ca href='http://www.huffingtonpost.com/terms.html/'\\u003Eterms.\\u003C/a\\u003E It may be used for personal consumption, but may not be distributed on a website.\\u003C/p\\u003E\",\"pubDate\":\"2015-05-07T15:41:23-04:00\",\"guid\":\"http://www.huffingtonpost.com/okello-kelo-sam/escaping-war-saved-my-lif_b_7216332.html\"}"], ["link", "http://www.huffingtonpost.com/okello-kelo-sam/escaping-war-saved-my-lif_b_7216332.html?utm_hp_ref=arts&amp;ir=Arts"], ["published_at", Thu, 07 May 2015 19:41:23 UTC +00:00], ["title", "Escaping War Saved My Life. Song and Dance Saved My Soul."], ["updated_at", Thu, 07 May 2015 20:33:25 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:33:25 UTC +00:00], ["feed_id", 8], ["guid", "http://www.huffingtonpost.com/2015/05/07/tehran-art-gallery_n_7233522.html"], ["json", "{\"title\":\"Tehran Becomes Giant Open-Air Art Gallery\",\"link\":\"http://www.huffingtonpost.com/2015/05/07/tehran-art-gallery_n_7233522.html?utm_hp_ref=arts\\u0026amp;ir=Arts\",\"author\":\"Katie Sola\",\"description\":\"The daily commute for many residents of Tehran, Iran, has gotten a little brighter -- a much more cultural. \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Ca href=\\\"http://www.nytimes.com/2015/05/08/world/middleeast/suddenly-tehrans-mayor-becomes-a-patron-of-the-arts.html?_r=4\\\" target=\\\"_hplink\\\"\\u003EThe city's mayor had 1,500 billboards\\u003C/a\\u003E, which were once covered with advertisements, replaced with reproductions of works of art from some Western and Iranian artists, The New York Times reports. \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003Ca href=\\\"http://www.theguardian.com/world/2015/may/07/tehran-swaps-death-to-america-billboards-picasso-matisse-hockney-iran\\\" target=\\\"_hplink\\\"\\u003EMany locals are impressed\\u003C/a\\u003E with the project, which is called A Gallery As Big As a Town. \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\\"It’s wonderful to see billboard ads of laundry machines or big corporate banks being replaced by a Rembrandt or a Cézanne or a Picasso,\\\" Sadra Mohaqeq, a journalist in the city, told The Guardian. \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n“This really inspires me to for the first time in my life to go to a museum, instead of again going out and smoke water pipe,\\\" a physics students named Majed Hobi told The New York Times. \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\nIn a congested city, the billboards provide something of an oasis for the eyes. “My usual morning route has become a big adventure for me,” Hamid Hamraz, a taxi driver, told the paper, adding that the art display has become a conversation topic for him and his clients. \\u003Cbr /\\u003E\\n\\u003Cbr /\\u003E\\n\\u003CHH--236SLIDEEXPAND--423870--HH\\u003E \\u003Cp\\u003E-- This feed and its contents are the property of The Huffington Post, and use is subject to our \\u003Ca href='http://www.huffingtonpost.com/terms.html/'\\u003Eterms.\\u003C/a\\u003E It may be used for personal consumption, but may not be distributed on a website.\\u003C/p\\u003E\",\"pubDate\":\"2015-05-07T15:25:20-04:00\",\"guid\":\"http://www.huffingtonpost.com/2015/05/07/tehran-art-gallery_n_7233522.html\"}"], ["link", "http://www.huffingtonpost.com/2015/05/07/tehran-art-gallery_n_7233522.html?utm_hp_ref=arts&amp;ir=Arts"], ["published_at", Thu, 07 May 2015 19:25:20 UTC +00:00], ["title", "Tehran Becomes Giant Open-Air Art Gallery"], ["updated_at", Thu, 07 May 2015 20:33:25 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mEntry Load (3.4ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1  [["feed_id", 8]]
+Completed 200 OK in 487ms (Views: 474.8ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:34:34 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[36mFeed Load (0.7ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/feeds/1" for 127.0.0.1 at 2015-05-07 16:34:36 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "feeds" SET "updated_at" = '2015-05-07 20:34:36.327133' WHERE "feeds"."id" = 1[0m
+  [1m[35m (1.4ms)[0m  SELECT "entries"."guid" FROM "entries"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:34:36 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030870"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:34:30+00:00\",\"link\":\"http://example.com/test/1431030870\",\"description\":\"Mollit eiusmod mollit enim et fugiat ut tempor velit ipsum ad occaecat exercitation excepteur est.\",\"pubDate\":\"2015-05-07T16:34:30-04:00\",\"guid\":\"http://example.com/test/1431030870\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030870"], ["published_at", Thu, 07 May 2015 20:34:30 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:34:30+00:00"], ["updated_at", Thu, 07 May 2015 20:34:36 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:34:36 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030860"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:34:20+00:00\",\"link\":\"http://example.com/test/1431030860\",\"description\":\"Non et adipisicing dolor non dolor cupidatat officia excepteur fugiat consectetur.\",\"pubDate\":\"2015-05-07T16:34:20-04:00\",\"guid\":\"http://example.com/test/1431030860\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030860"], ["published_at", Thu, 07 May 2015 20:34:20 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:34:20+00:00"], ["updated_at", Thu, 07 May 2015 20:34:36 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:34:36 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030850"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:34:10+00:00\",\"link\":\"http://example.com/test/1431030850\",\"description\":\"Quis enim dolore elit deserunt excepteur exercitation ex.\",\"pubDate\":\"2015-05-07T16:34:10-04:00\",\"guid\":\"http://example.com/test/1431030850\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030850"], ["published_at", Thu, 07 May 2015 20:34:10 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:34:10+00:00"], ["updated_at", Thu, 07 May 2015 20:34:36 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:34:36 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030840"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:34:00+00:00\",\"link\":\"http://example.com/test/1431030840\",\"description\":\"Occaecat enim sit sunt velit cupidatat occaecat minim adipisicing mollit qui ad qui ad.\",\"pubDate\":\"2015-05-07T16:34:00-04:00\",\"guid\":\"http://example.com/test/1431030840\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030840"], ["published_at", Thu, 07 May 2015 20:34:00 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:34:00+00:00"], ["updated_at", Thu, 07 May 2015 20:34:36 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:34:36 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030830"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:33:50+00:00\",\"link\":\"http://example.com/test/1431030830\",\"description\":\"Sit eiusmod laborum qui enim.\",\"pubDate\":\"2015-05-07T16:33:50-04:00\",\"guid\":\"http://example.com/test/1431030830\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030830"], ["published_at", Thu, 07 May 2015 20:33:50 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:33:50+00:00"], ["updated_at", Thu, 07 May 2015 20:34:36 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:34:36 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030820"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:33:40+00:00\",\"link\":\"http://example.com/test/1431030820\",\"description\":\"Nisi aute exercitation proident veniam nulla.\",\"pubDate\":\"2015-05-07T16:33:40-04:00\",\"guid\":\"http://example.com/test/1431030820\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030820"], ["published_at", Thu, 07 May 2015 20:33:40 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:33:40+00:00"], ["updated_at", Thu, 07 May 2015 20:34:36 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:34:36 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030810"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:33:30+00:00\",\"link\":\"http://example.com/test/1431030810\",\"description\":\"Velit occaecat sit labore pariatur ullamco minim consectetur cupidatat mollit consectetur dolor occaecat.\",\"pubDate\":\"2015-05-07T16:33:30-04:00\",\"guid\":\"http://example.com/test/1431030810\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030810"], ["published_at", Thu, 07 May 2015 20:33:30 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:33:30+00:00"], ["updated_at", Thu, 07 May 2015 20:34:36 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:34:36 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030800"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:33:20+00:00\",\"link\":\"http://example.com/test/1431030800\",\"description\":\"Tempor proident eiusmod id sunt dolor nostrud ipsum.\",\"pubDate\":\"2015-05-07T16:33:20-04:00\",\"guid\":\"http://example.com/test/1431030800\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030800"], ["published_at", Thu, 07 May 2015 20:33:20 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:33:20+00:00"], ["updated_at", Thu, 07 May 2015 20:34:36 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:34:36 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030790"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:33:10+00:00\",\"link\":\"http://example.com/test/1431030790\",\"description\":\"Velit est sint magna Lorem.\",\"pubDate\":\"2015-05-07T16:33:10-04:00\",\"guid\":\"http://example.com/test/1431030790\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030790"], ["published_at", Thu, 07 May 2015 20:33:10 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:33:10+00:00"], ["updated_at", Thu, 07 May 2015 20:34:36 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:34:36 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030780"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:33:00+00:00\",\"link\":\"http://example.com/test/1431030780\",\"description\":\"Do dolore esse id occaecat aliquip non irure sunt et.\",\"pubDate\":\"2015-05-07T16:33:00-04:00\",\"guid\":\"http://example.com/test/1431030780\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030780"], ["published_at", Thu, 07 May 2015 20:33:00 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:33:00+00:00"], ["updated_at", Thu, 07 May 2015 20:34:36 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mEntry Load (2.8ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1[0m  [["feed_id", 1]]
+Completed 200 OK in 405ms (Views: 387.8ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/api/feeds/1" for 127.0.0.1 at 2015-05-07 16:34:37 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mEntry Load (2.7ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1[0m  [["feed_id", 1]]
+Completed 200 OK in 96ms (Views: 92.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 8ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[35mFeed Load (3.5ms)[0m  SELECT "feeds".* FROM "feeds"
+Completed 200 OK in 8ms (Views: 4.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/api/feeds/1" for 127.0.0.1 at 2015-05-07 16:35:14 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSQL (1.1ms)[0m  UPDATE "feeds" SET "updated_at" = '2015-05-07 20:35:14.681948' WHERE "feeds"."id" = 1
+  [1m[36m (0.9ms)[0m  [1mSELECT "entries"."guid" FROM "entries"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:35:14 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030910"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:35:10+00:00\",\"link\":\"http://example.com/test/1431030910\",\"description\":\"Ipsum reprehenderit duis ipsum eiusmod cupidatat commodo voluptate fugiat sint.\",\"pubDate\":\"2015-05-07T16:35:10-04:00\",\"guid\":\"http://example.com/test/1431030910\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030910"], ["published_at", Thu, 07 May 2015 20:35:10 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:35:10+00:00"], ["updated_at", Thu, 07 May 2015 20:35:14 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:35:14 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030900"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:35:00+00:00\",\"link\":\"http://example.com/test/1431030900\",\"description\":\"Veniam eu deserunt et occaecat tempor ipsum anim pariatur.\",\"pubDate\":\"2015-05-07T16:35:00-04:00\",\"guid\":\"http://example.com/test/1431030900\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030900"], ["published_at", Thu, 07 May 2015 20:35:00 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:35:00+00:00"], ["updated_at", Thu, 07 May 2015 20:35:14 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:35:14 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030890"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:34:50+00:00\",\"link\":\"http://example.com/test/1431030890\",\"description\":\"Duis excepteur sit dolore in anim duis quis deserunt proident in sint dolore cillum commodo.\",\"pubDate\":\"2015-05-07T16:34:50-04:00\",\"guid\":\"http://example.com/test/1431030890\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030890"], ["published_at", Thu, 07 May 2015 20:34:50 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:34:50+00:00"], ["updated_at", Thu, 07 May 2015 20:35:14 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:35:14 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030880"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:34:40+00:00\",\"link\":\"http://example.com/test/1431030880\",\"description\":\"Ad est elit culpa mollit sunt est laboris dolor consectetur veniam.\",\"pubDate\":\"2015-05-07T16:34:40-04:00\",\"guid\":\"http://example.com/test/1431030880\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030880"], ["published_at", Thu, 07 May 2015 20:34:40 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:34:40+00:00"], ["updated_at", Thu, 07 May 2015 20:35:14 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mEntry Load (2.2ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1  [["feed_id", 1]]
+Completed 200 OK in 291ms (Views: 280.4ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:35:46 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[36mFeed Load (0.8ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 22ms (Views: 8.7ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/api/feeds/1" for 127.0.0.1 at 2015-05-07 16:35:47 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mSQL (1.2ms)[0m  [1mUPDATE "feeds" SET "updated_at" = '2015-05-07 20:35:47.028395' WHERE "feeds"."id" = 1[0m
+  [1m[35m (0.8ms)[0m  SELECT "entries"."guid" FROM "entries"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:35:47 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030940"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:35:40+00:00\",\"link\":\"http://example.com/test/1431030940\",\"description\":\"Adipisicing commodo fugiat duis culpa aliquip irure cupidatat.\",\"pubDate\":\"2015-05-07T16:35:40-04:00\",\"guid\":\"http://example.com/test/1431030940\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030940"], ["published_at", Thu, 07 May 2015 20:35:40 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:35:40+00:00"], ["updated_at", Thu, 07 May 2015 20:35:47 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:35:47 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030930"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:35:30+00:00\",\"link\":\"http://example.com/test/1431030930\",\"description\":\"Laborum elit labore in amet qui cupidatat dolore consectetur culpa.\",\"pubDate\":\"2015-05-07T16:35:30-04:00\",\"guid\":\"http://example.com/test/1431030930\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030930"], ["published_at", Thu, 07 May 2015 20:35:30 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:35:30+00:00"], ["updated_at", Thu, 07 May 2015 20:35:47 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:35:47 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030920"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:35:20+00:00\",\"link\":\"http://example.com/test/1431030920\",\"description\":\"Nostrud tempor Lorem pariatur laborum minim elit exercitation ullamco amet amet et.\",\"pubDate\":\"2015-05-07T16:35:20-04:00\",\"guid\":\"http://example.com/test/1431030920\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030920"], ["published_at", Thu, 07 May 2015 20:35:20 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:35:20+00:00"], ["updated_at", Thu, 07 May 2015 20:35:47 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mEntry Load (2.2ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1  [["feed_id", 1]]
+Completed 200 OK in 293ms (Views: 277.1ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/api/feeds/1" for 127.0.0.1 at 2015-05-07 16:37:03 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSQL (0.9ms)[0m  UPDATE "feeds" SET "updated_at" = '2015-05-07 20:37:03.118793' WHERE "feeds"."id" = 1
+  [1m[36m (1.0ms)[0m  [1mSELECT "entries"."guid" FROM "entries"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:37:03 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431031020"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:37:00+00:00\",\"link\":\"http://example.com/test/1431031020\",\"description\":\"Fugiat exercitation veniam aliqua Lorem veniam et pariatur.\",\"pubDate\":\"2015-05-07T16:37:00-04:00\",\"guid\":\"http://example.com/test/1431031020\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431031020"], ["published_at", Thu, 07 May 2015 20:37:00 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:37:00+00:00"], ["updated_at", Thu, 07 May 2015 20:37:03 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:37:03 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431031010"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:36:50+00:00\",\"link\":\"http://example.com/test/1431031010\",\"description\":\"Mollit occaecat cupidatat ea est.\",\"pubDate\":\"2015-05-07T16:36:50-04:00\",\"guid\":\"http://example.com/test/1431031010\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431031010"], ["published_at", Thu, 07 May 2015 20:36:50 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:36:50+00:00"], ["updated_at", Thu, 07 May 2015 20:37:03 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:37:03 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431031000"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:36:40+00:00\",\"link\":\"http://example.com/test/1431031000\",\"description\":\"Incididunt laboris sint dolor laboris cillum consectetur consequat aute et fugiat et veniam.\",\"pubDate\":\"2015-05-07T16:36:40-04:00\",\"guid\":\"http://example.com/test/1431031000\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431031000"], ["published_at", Thu, 07 May 2015 20:36:40 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:36:40+00:00"], ["updated_at", Thu, 07 May 2015 20:37:03 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:37:03 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030990"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:36:30+00:00\",\"link\":\"http://example.com/test/1431030990\",\"description\":\"Aliquip do reprehenderit commodo consectetur aute Lorem.\",\"pubDate\":\"2015-05-07T16:36:30-04:00\",\"guid\":\"http://example.com/test/1431030990\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030990"], ["published_at", Thu, 07 May 2015 20:36:30 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:36:30+00:00"], ["updated_at", Thu, 07 May 2015 20:37:03 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:37:03 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030980"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:36:20+00:00\",\"link\":\"http://example.com/test/1431030980\",\"description\":\"Et aute fugiat minim amet.\",\"pubDate\":\"2015-05-07T16:36:20-04:00\",\"guid\":\"http://example.com/test/1431030980\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030980"], ["published_at", Thu, 07 May 2015 20:36:20 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:36:20+00:00"], ["updated_at", Thu, 07 May 2015 20:37:03 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:37:03 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030970"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:36:10+00:00\",\"link\":\"http://example.com/test/1431030970\",\"description\":\"Aute officia sint cillum in irure labore incididunt velit.\",\"pubDate\":\"2015-05-07T16:36:10-04:00\",\"guid\":\"http://example.com/test/1431030970\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030970"], ["published_at", Thu, 07 May 2015 20:36:10 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:36:10+00:00"], ["updated_at", Thu, 07 May 2015 20:37:03 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:37:03 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030960"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:36:00+00:00\",\"link\":\"http://example.com/test/1431030960\",\"description\":\"Ut amet occaecat laboris ipsum excepteur.\",\"pubDate\":\"2015-05-07T16:36:00-04:00\",\"guid\":\"http://example.com/test/1431030960\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030960"], ["published_at", Thu, 07 May 2015 20:36:00 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:36:00+00:00"], ["updated_at", Thu, 07 May 2015 20:37:03 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:37:03 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431030950"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:35:50+00:00\",\"link\":\"http://example.com/test/1431030950\",\"description\":\"Consequat exercitation reprehenderit veniam aliqua mollit excepteur eu duis culpa.\",\"pubDate\":\"2015-05-07T16:35:50-04:00\",\"guid\":\"http://example.com/test/1431030950\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431030950"], ["published_at", Thu, 07 May 2015 20:35:50 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:35:50+00:00"], ["updated_at", Thu, 07 May 2015 20:37:03 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mEntry Load (2.4ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1  [["feed_id", 1]]
+Completed 200 OK in 270ms (Views: 256.9ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 316ms (Views: 315.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[36mFeed Load (2.2ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/feeds/1" for 127.0.0.1 at 2015-05-07 16:38:03 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mFeed Load (0.9ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mSQL (1.5ms)[0m  [1mUPDATE "feeds" SET "updated_at" = '2015-05-07 20:38:03.643911' WHERE "feeds"."id" = 1[0m
+  [1m[35m (1.0ms)[0m  SELECT "entries"."guid" FROM "entries"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (13.2ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:38:03 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431031080"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:38:00+00:00\",\"link\":\"http://example.com/test/1431031080\",\"description\":\"Cupidatat mollit sunt mollit sint enim minim do quis officia exercitation non qui.\",\"pubDate\":\"2015-05-07T16:38:00-04:00\",\"guid\":\"http://example.com/test/1431031080\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431031080"], ["published_at", Thu, 07 May 2015 20:38:00 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:38:00+00:00"], ["updated_at", Thu, 07 May 2015 20:38:03 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:38:03 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431031070"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:37:50+00:00\",\"link\":\"http://example.com/test/1431031070\",\"description\":\"Ex est ipsum non irure velit velit reprehenderit velit anim.\",\"pubDate\":\"2015-05-07T16:37:50-04:00\",\"guid\":\"http://example.com/test/1431031070\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431031070"], ["published_at", Thu, 07 May 2015 20:37:50 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:37:50+00:00"], ["updated_at", Thu, 07 May 2015 20:38:03 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:38:03 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431031060"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:37:40+00:00\",\"link\":\"http://example.com/test/1431031060\",\"description\":\"Non nulla sit nostrud labore adipisicing.\",\"pubDate\":\"2015-05-07T16:37:40-04:00\",\"guid\":\"http://example.com/test/1431031060\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431031060"], ["published_at", Thu, 07 May 2015 20:37:40 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:37:40+00:00"], ["updated_at", Thu, 07 May 2015 20:38:03 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:38:03 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431031050"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:37:30+00:00\",\"link\":\"http://example.com/test/1431031050\",\"description\":\"Tempor ullamco id occaecat mollit laborum et incididunt do qui excepteur.\",\"pubDate\":\"2015-05-07T16:37:30-04:00\",\"guid\":\"http://example.com/test/1431031050\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431031050"], ["published_at", Thu, 07 May 2015 20:37:30 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:37:30+00:00"], ["updated_at", Thu, 07 May 2015 20:38:03 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 07 May 2015 20:38:03 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431031040"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:37:20+00:00\",\"link\":\"http://example.com/test/1431031040\",\"description\":\"Do nisi deserunt amet non cillum proident aliquip proident pariatur occaecat cillum anim eu ex.\",\"pubDate\":\"2015-05-07T16:37:20-04:00\",\"guid\":\"http://example.com/test/1431031040\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431031040"], ["published_at", Thu, 07 May 2015 20:37:20 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:37:20+00:00"], ["updated_at", Thu, 07 May 2015 20:38:03 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 07 May 2015 20:38:03 UTC +00:00], ["feed_id", 1], ["guid", "http://example.com/test/1431031030"], ["json", "{\"title\":\"Lorem ipsum 2015-05-07T20:37:10+00:00\",\"link\":\"http://example.com/test/1431031030\",\"description\":\"Dolore nostrud aute nulla enim aliquip.\",\"pubDate\":\"2015-05-07T16:37:10-04:00\",\"guid\":\"http://example.com/test/1431031030\",\"dc_creator\":\"John Smith\"}"], ["link", "http://example.com/test/1431031030"], ["published_at", Thu, 07 May 2015 20:37:10 UTC +00:00], ["title", "Lorem ipsum 2015-05-07T20:37:10+00:00"], ["updated_at", Thu, 07 May 2015 20:38:03 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mEntry Load (2.5ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1[0m  [["feed_id", 1]]
+Completed 200 OK in 284ms (Views: 257.3ms | ActiveRecord: 25.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 89ms (Views: 89.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[35mFeed Load (3.1ms)[0m  SELECT "feeds".* FROM "feeds"
+Completed 200 OK in 12ms (Views: 8.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/feeds/1" for 127.0.0.1 at 2015-05-07 16:38:11 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mEntry Load (3.7ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1  [["feed_id", 1]]
+Completed 200 OK in 135ms (Views: 129.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 124ms (Views: 124.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/utils/composite_view.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/views/feeds/index.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/views/feeds/entry.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/views/feeds/show.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/routers/feed_router.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+Processing by Api::FeedsController#index as JSON
+  [1m[36mFeed Load (0.8ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/feeds/1" for 127.0.0.1 at 2015-05-07 16:38:20 -0400
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mFeed Load (0.6ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mEntry Load (4.2ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1[0m  [["feed_id", 1]]
+Completed 200 OK in 131ms (Views: 124.4ms | ActiveRecord: 4.8ms)

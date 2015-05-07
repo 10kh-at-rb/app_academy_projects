@@ -6,7 +6,6 @@ NewsReader.Models.Feed = Backbone.Model.extend({
       this._entries = new NewsReader.Collections.Entries([], { feed: this });
     }
 
-    this._entries.sort();
     return this._entries;
   },
 

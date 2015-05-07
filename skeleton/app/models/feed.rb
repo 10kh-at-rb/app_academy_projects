@@ -42,5 +42,5 @@ class Feed < ActiveRecord::Base
     self.reload if self.updated_at < 30.seconds.ago
     return self.entries
   end
-  
+
 end

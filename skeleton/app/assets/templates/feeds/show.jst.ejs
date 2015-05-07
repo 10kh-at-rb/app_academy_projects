@@ -2,8 +2,5 @@
 
 <a href="" class="refresh">Refresh Feed</a>
 
-<ul>
-  <% entries.each(function (entry) { %>
-    <li><a href="<%= entry.get('link') %>"><%= entry.escape('title') %></a></li>
-  <% }) %>
+<ul class="entry-list">
 </ul>
