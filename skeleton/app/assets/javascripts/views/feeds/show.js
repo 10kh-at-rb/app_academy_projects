@@ -7,6 +7,8 @@ NewsReader.Views.FeedShow = Backbone.CompositeView.extend({
 
   tagName: "main",
 
+  className: "feed-show",
+
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
     this.collection = this.model.entries();
