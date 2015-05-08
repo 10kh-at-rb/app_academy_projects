@@ -3,7 +3,7 @@ TrelloClone.Collections.Cards = Backbone.Collection.extend({
 
   initialize: function(model, options) {
     this.list = options.list;
-  }
+  },
 
   model: TrelloClone.Models.Card,
 
@@ -16,8 +16,11 @@ TrelloClone.Collections.Cards = Backbone.Collection.extend({
         success: function () {
           cards.add(card)
         }
-      })
+      });
+    } else {
+      card.fetch();
     }
+    return card;
   }
 
 });

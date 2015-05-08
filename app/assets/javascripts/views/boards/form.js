@@ -21,17 +21,19 @@ TrelloClone.Views.BoardForm = Backbone.View.extend({
     this.model.set(attrs);
 
     var success = function () {
-      console.log("hi")
       this.collection.add(this.model, { merge: true })
       Backbone.history.navigate("", { trigger: true })
     }.bind(this)
 
+    var that = this;
     var errors = function (model, response) {
-      $(".errors").empty();
-      response.forEach(function (error) {
+      var $errorList = $("<ul>");
+      debugger;
+      response.responseJSON.forEach(function (error) {
         var $li = $("<li>");
         $li.html(error);
-        $(".errors").append($li);
+        $errorList.append($li);
+        that.$el.prepend($errorList);
       })
     }
 

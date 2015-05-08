@@ -15,7 +15,7 @@ TrelloClone.Collections.Lists = Backbone.Collection.extend({
     var lists = this;
     var list = this.get(id);
     if (!list) {
-      list = new TrelloClone.Models.List({ id: id });
+      list = new TrelloClone.Models.List({ id: id, board: this.board });
       list.fetch({
         success: function() {
           lists.add(list);
