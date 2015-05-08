@@ -30,11 +30,20 @@ ul {
 .snake-square {
   display: block;
   float: left;
-  height: 10px;
-  width: 10px;
-  border: 1px solid black;
+  height: 15px;
+  width: 15px;
+  background: #eee;
+  border: 1px solid white;
 }
 
 .snake {
   background: green;
+}
+
+.head {
+  back
+}
+
+.apple {
+  background: red;
 }

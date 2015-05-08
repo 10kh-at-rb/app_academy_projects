@@ -5,6 +5,7 @@
   var View = window.Snake.View = function($el) {
     this.$el = $el;
     this.board = new window.Snake.Board();
+    this.$ul = this.makeAndFillUl();
     this.step();
     $(window).on("keydown", this.handleKeyEvent.bind(this));
 
@@ -23,7 +24,7 @@
       that.board.snake.move()
       that.board.render();
       that.render();
-    }.bind(this), 1000/20);
+    }.bind(this), 1000/60);
   };
 
   View.prototype.handleKeyEvent = function(event) {
@@ -50,8 +51,8 @@
   }
 
   View.prototype.render = function() {
-    this.$el.empty();
-    $ul = this.makeAndFillUl();
+    $("li").removeClass("snake apple");
+
     var count = 0;
     for (var i = 0; i < this.board.dimX; i++) {
       for (var j = 0; j < this.board.dimY; j++) {
