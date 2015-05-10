@@ -1,9 +1,9 @@
-TrelloClone.Views.ListForm = Backbone.View.extend({
-  template: JST["lists/form"],
+TrelloClone.Views.CardForm = Backbone.View.extend({
+  template: JST["cards/form"],
 
   initialize: function(options) {
     this.listenTo(this.model, "sync", this.render);
-    this.board = options.board;
+    this.list = options.list;
   },
 
   events: {
@@ -12,8 +12,7 @@ TrelloClone.Views.ListForm = Backbone.View.extend({
 
   render: function() {
     var content = this.template({
-      list: this.model,
-      board: this.board
+      list: this.list
     });
     this.$el.html(content);
     return this;
@@ -21,11 +20,11 @@ TrelloClone.Views.ListForm = Backbone.View.extend({
 
   submit: function (event) {
     event.preventDefault();
-    var attrs = $(event.currentTarget).find("form").serializeJSON().list;
+    var attrs = $(event.currentTarget).find("form").serializeJSON().card;
     this.model.set(attrs);
 
     var success = function() {
-      this.board.lists().add(this.model, { merge: true });
+      this.list.cards().add(this.model, { merge: true });
       this.remove();
       // var url = "boards/" + boardId;
       // Backbone.history.navigate(url, { trigger: true });

@@ -14,3 +14,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+.list-show {
+  float: left;
+  background: #91FFDA;
+  margin: 10px 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+.card-show:hover {
+  background: #3399FF;
+}
+
+.card-add {
+  background: green;
+}

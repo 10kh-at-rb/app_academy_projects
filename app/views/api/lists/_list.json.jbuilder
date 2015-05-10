@@ -1,6 +1,6 @@
 json.extract!(
   list,
-  :title, :board_id, :ord, :created_at, :updated_at
+  :id, :title, :board_id, :ord, :created_at, :updated_at
 )
 
 json.cards do
