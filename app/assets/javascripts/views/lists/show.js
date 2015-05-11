@@ -32,44 +32,20 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
         card.save({"list_id": newListId}, {
           success: function() {
             cards.add(card)
-            that.$el.find(".card-show").each(function (liIndex) {
-              var card2 = cards.get($(this).data("id"))
-              card2.set("ord", liIndex);
-              card2.save()
-            })
+            // that.updateListOrder(that.$el.find(".sortable"));
           }
         });
 
-          // debugger
-        }
-      })
+      }
+    })
+  },
 
-      // deactivate: function (event, ui) {
-      //   var $target = $(event.target);
-      //   $target.children().each(function(li) {
-      //     var $li = $(this);
-      //     var card = cards.getOrFetch($li.attr("data-id"));
-      //     card.
-      //   })
-      // }
-
-
-
-        // $(".sortable").each(function(ulIndex) {
-        //   var $list = $(this);
-        //   $list.children().each(function() {
-        //     var $li = $(this);
-        //     var card = cards.getOrFetch($li.attr("data-id"))
-        //     card.fetch({
-        //       success: function() {
-        //         card.set("ord", $li.index());
-        //         card.save();
-        //       }
-        //     })
-        //     // debugger;
-        //   })
-        // })
-
+  updateListOrder: function($ul) {
+    $ul.children().each(function(liIndex) {
+      var card = this.cards.get($(this).data("id"));
+      card.set("ord", liIndex);
+      card.save();
+    }.bind(this))
   },
 
   render: function() {
