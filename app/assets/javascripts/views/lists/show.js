@@ -7,7 +7,7 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
   className: "list-show",
 
   initialize: function () {
-    this.listenTo(this.model, "sync", this.render)
+    // this.listenTo(this.model, "sync", this.render)
     this.cards = this.model.cards();
     this.listenTo(this.cards, "add", this.addCardView);
     this.listenTo(this.cards, "add", this.addCardNewView);
@@ -17,10 +17,58 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
 
   onRender: function () {
     Backbone.CompositeView.prototype.onRender.call(this);
+    var cards = this.cards;
+    var that = this;
+
+
     this.$el.find(".sortable").sortable({
       connectWith: ".connectedSortable",
-      cursor: "move"
-    }).disableSelection();
+      cursor: "move",
+      receive: function(event, ui) {
+
+        var card = new TrelloClone.Models.Card({id: ui.item.attr("data-id")})
+        var newListId = $(event.target).attr("data-id");
+        // card.set("list_id", newListId);
+        card.save({"list_id": newListId}, {
+          success: function() {
+            cards.add(card)
+            that.$el.find(".card-show").each(function (liIndex) {
+              var card2 = cards.get($(this).data("id"))
+              card2.set("ord", liIndex);
+              card2.save()
+            })
+          }
+        });
+
+          // debugger
+        }
+      })
+
+      // deactivate: function (event, ui) {
+      //   var $target = $(event.target);
+      //   $target.children().each(function(li) {
+      //     var $li = $(this);
+      //     var card = cards.getOrFetch($li.attr("data-id"));
+      //     card.
+      //   })
+      // }
+
+
+
+        // $(".sortable").each(function(ulIndex) {
+        //   var $list = $(this);
+        //   $list.children().each(function() {
+        //     var $li = $(this);
+        //     var card = cards.getOrFetch($li.attr("data-id"))
+        //     card.fetch({
+        //       success: function() {
+        //         card.set("ord", $li.index());
+        //         card.save();
+        //       }
+        //     })
+        //     // debugger;
+        //   })
+        // })
 
   },
 
