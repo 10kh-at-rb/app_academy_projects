@@ -8,7 +8,7 @@ TrelloClone.Collections.Lists = Backbone.Collection.extend({
   },
 
   comparator: function(list) {
-    return list.get('updated_at')
+    return list.get('ord')
   },
 
   getOrFetch: function(id) {
