@@ -1,0 +1,32 @@
+<% if @cat.persisted? %>
+  <form action="<%= cat_url(@cat) %>" method="post">
+    <input name="_method" type="hidden" value="patch">
+<% else %>
+    <form action="<%= cats_url %>" method="post">
+<% end %>
+  <%= auth_token %>
+  <label>Name
+    <input type="text" name="cat[name]" value="<%= @cat.name %>">
+  </label><br />
+  <label>Color
+    <select name="cat[color]" value=""<%= @cat.color %>>
+      <% Cat::COLORS.each do |color| %>
+        <option value="<%= color %>"><%= color %></option>
+      <% end %>
+    </select>
+  </label><br />
+  <label>Gender
+    <select name="cat[sex]" value=<%= @cat.sex %>>
+      <option value="m">male</option>
+      <option value="f">female</option>
+      <option value="t">transgender</option>
+    </select>
+  </label><br />
+  <label>Birth date
+    <input type="date" name="cat[birth_date]" value= <%= @cat.birth_date %>>
+  </label><br />
+  <label>Description<br/>
+    <textarea name="cat[description]" rows="8" cols="40"><%= @cat.description %></textarea>
+  </label><br/>
+  <input type="submit" value="Save">
+</form>

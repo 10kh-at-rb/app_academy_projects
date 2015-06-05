@@ -1,0 +1,5 @@
+== 99 Cats
+
+This is a website built in Rails modeled after the defunct 99Dresses website. In this version, users can post their cats and rent other peoples cats.
+
+I built this in learning to use Rails. The trickiest part was making it so when the owner of a cat accepts the rental request of an individual it rejects all other requests from the same date.
