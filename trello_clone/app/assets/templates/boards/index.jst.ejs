@@ -1,0 +1,28 @@
+<a href="#boards/new" class="new-board">Create New Board</a>
+<h2>Your Boards</h2>
+<ul>
+  <% boards.each(function(board) { %>
+    <li>
+
+      <a href="#boards/<%= board.get("id") %>">
+        <%= board.escape("title") %>
+      </a>
+      <ul>
+        <li>
+          <a href="#" class="delete" data-id="<%= board.get("id") %>">
+            Delete <%= board.escape("title") %>
+          </a>
+        </li>
+
+        <li>
+          <a href="#/boards/<%= board.get("id") %>/edit" class="edit-board">
+            Edit <%= board.escape("title") %>
+          </a>
+        </li>
+
+      </ul>
+
+
+    </li>
+  <%  }) %>
+</ul>
