@@ -1,0 +1,43 @@
+<%= render 'shared/errors' %>
+
+<h1><%= @sub.title %></h1>
+<p>
+  Moderated by: <%= @sub.moderator.username %>
+</p>
+<h3>Description:</h3>
+<p>
+  <%= @sub.description %>
+</p>
+<% if @sub.moderator_id == current_user.id %>
+  <a href="<%= edit_sub_url(@sub) %>">Edit this Sub</a>
+<% end %>
+<table>
+  <tr>
+    <th>
+      Title
+    </th>
+    <th>
+      Author
+    </th>
+
+  </tr>
+  <% @posts.each do |post| %>
+    <tr>
+      <td>
+        <% link_to_content = (post.url.nil? ? post_url(post) : post.url) %>
+        <a href="<%= link_to_content %>"><%= post.title %></a>
+      </td>
+      <td>
+        <a href="<%= user_url(post.author_id) %>"><%= post.author.username %></a>
+      </td>
+      <td>
+        <% if post.author_id == current_user.id %>
+          <a href=" <%= edit_post_url(post) %> ">Edit</a>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+
+</table>
+
+<a href=" <%= new_sub_post_url(@sub) %> ">Add a Post to this Sub</a>

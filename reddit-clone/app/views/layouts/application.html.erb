@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reddit</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <% if current_user %>
+    <a href=" <%= user_url(current_user) %> "><p><%= current_user.username %></p></a>
+    <form action="<%= session_url %>" method="post">
+      <%= auth_token %>
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" name="Logout" value="Logout">
+    </form>
+    <% else %>
+      <a href="<%= new_session_url %>">Login</a>
+      <a href="<%= new_user_url %>">Signup</a>
+    <% end %>
+    <a href="<%= root_url %>"><h1>Reddit</h1></a>
+
+<%= yield %>
+
+</body>
+</html>

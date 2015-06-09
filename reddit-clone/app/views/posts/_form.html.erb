@@ -1,0 +1,50 @@
+<% action = (post.persisted? ? post_url(post) : posts_url) %>
+<% method = (post.persisted? ? "PATCH" : "POST") %>
+
+<form  action="<%= action %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="_method" value="<%= method %>">
+
+
+  <input type="hidden" name="post[sub_ids][]" value="">
+
+    <% chk = (checked="checked") %>
+  <% @subs.each do |sub| %>
+  <input type="checkbox"
+    name="post[sub_ids][]"
+    id="post_sub_id_<%= sub.title %>"
+    value="<%= sub.id %>"
+    <% if params[:sub_id].to_i == sub.id %>
+    <%= chk %>
+    <% elsif post.sub_ids.include?(sub.id) %>
+    <%= chk %>
+    <% end %>>
+    <label for="post_sub_id_<%= sub.title %>"><%= sub.title %></label>
+  <% end %>
+
+  <table>
+    <tr>
+      <td>
+        <label for="post_title">Title</label>
+      </td>
+      <td>
+        <input type="text" name="post[title]" value="<%= post.title %>">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="post_url">URL</label>
+      </td>
+      <td>
+        <input type="text" name="post[url]" value="<%= post.url %>">
+      </td>
+    </tr>
+
+  </table>
+
+  <label for="post_content">Content</label><br>
+  <textarea name="post[content]" rows="8" cols="40"><%= post.content %></textarea>
+  <br>
+
+  <input type="submit" name="submit">
+</form>

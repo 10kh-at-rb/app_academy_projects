@@ -1,0 +1,16 @@
+<h2><%= @post.title %></h2>
+<%= render 'shared/errors' %>
+
+<h3>
+   by <%= @post.author.username %></h3>
+
+<h4>Content</h4>
+
+<p>
+  <%= @post.content %>
+</p>
+
+<h4>Comments</h4>
+<% @comments.each do |comment| %>
+<%= render comment %>
+<% end %>
