@@ -1,0 +1,21 @@
+<h1><%= "#{@user.username}'s Goals" %></h1>
+
+<h2>New Goal</h2>
+<%= render 'goals/form', goal: @goal %>
+
+<% if @incomplete_goals %>
+<h2>Incomplete Goals</h2>
+<ul>
+  <% @incomplete_goals.each do |goal| %>
+    <%= render goal %>
+  <% end %>
+</ul>
+<% end %>
+<% if @complete_goals %>
+<h2>Complete Goals</h2>
+<ul>
+  <% @complete_goals.each do |goal| %>
+    <%= render goal %>
+  <% end %>
+</ul>
+<% end %>
