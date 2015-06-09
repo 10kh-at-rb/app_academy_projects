@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Snake!</title>
+    <link rel="stylesheet" type="text/css" href="../css/snake.css">
+  </head>
+  <body>
+    <h1>Snake!</h1>
+
+    <div class="snake-game">
+
+    </div>
+
+    <script src="../js/jquery-2.1.1.js"></script>
+    <!-- Whackjobs at GithubPages don't understand symlinks... -->
+    <script src="../js/snake.js"></script>
+    <script src="../js/underscore.js"></script>
+    <script src="../js/snake-view.js"></script>
+
+    <script>
+      var $el = $(".snake-game");
+      var View = new window.Snake.View($el);
+
+      // Write your code here.
+      // var game = new Hanoi.Game()
+      // var newView = new TOH.View(game, $el)
+
+    </script>
+
+  </body>
+</html>

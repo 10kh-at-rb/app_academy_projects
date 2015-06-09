@@ -1,0 +1,82 @@
+html, ul, li, h1, div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  background: transparent;
+  text-decoration: inherit;
+}
+ul, li {
+  list-style: none;
+}
+
+
+h1 {
+  font-size: 50px;
+  text-align: center;
+}
+
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.TOH {
+  width: 720px;
+  margin: 40px auto;
+
+}
+
+.tower {
+  display: block;
+  width: 200px;
+  height: 150px;
+  float: left;
+  margin: 20px 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.tower:after {
+  content: "";
+  display: block;
+  height: 20px;
+  background: yellow;
+  position: absolute;
+  bottom: -10px;
+  width: 200px;
+  text-align: center;
+  font-weight: 600;
+
+}
+
+.tower:hover:after {
+  background: pink;
+}
+
+.tower.clicked:after {
+  background: red;
+}
+
+.disc.d1 {
+  width: 40px;
+  background: blue;
+}
+
+.disc.d2 {
+  width: 80px;
+  background: blue;
+
+}
+
+.disc.d3 {
+  width: 160px;
+  background: blue;
+}
+
+.disc {
+  height: 20px;
+  margin: 20px auto;
+  opacity: .5;
+}
