@@ -1,0 +1,97 @@
+html, body, header, ul, li, div, p, h1, a {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  text-decoration: inherit;
+  background: transparent;
+  text-align: inherit;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body{
+  background: #FAFFFF;
+  font-family: sans-serif;
+}
+
+.heading {
+  text-align: center;
+  font-size: 40px;
+  margin: 10px;
+  color: #7D7F7F;
+}
+
+
+.carousel {
+  height: 240px;
+  width: 320px;
+  background: white;
+  border: 5px solid #7D7F7F;
+  margin: auto;
+}
+
+.items {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+.items li {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+
+.items .active {
+  display: block;
+  left: 0%;
+  transition: left .5s;
+}
+
+.items .active.right {
+  left: -100%;
+}
+
+.items .active.left {
+  left: 100%;
+}
+
+.items li img {
+  height: 100%;
+  width: 100%;
+}
+
+.slide-right, .slide-left {
+  display: block;
+  float: left;
+  margin: 20px 50px;
+  padding: 10px;
+  border-radius: 10px;
+  color: #7D7F7F;
+  background: #C8CCCC;
+  border: 1px solid #C8CCCC;
+}
+
+.slide-right:hover, .slide-left:hover {
+  background: #7D7F7F;
+  color: #C8CCCC;
+}
+
+.slide-right:active, .slide-left:active {
+  background: #7D7F7F;
+  color: white;
+}
