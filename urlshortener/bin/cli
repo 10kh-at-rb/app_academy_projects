@@ -1,0 +1,36 @@
+puts "Input your email"
+
+email = gets.chomp
+user = User.where(email: email).first
+
+puts "What do you want to do?"
+puts "0. Create shortened URL"
+puts "1. Visit shortened URL"
+
+choice = gets.chomp.to_i
+
+if choice == 0
+  puts "Type in your long URL"
+  long_url = gets.chomp
+  ShortenedUrl.create_for_user_and_long_url!(user, long_url)
+
+  puts "Short url is: #{ShortenedUrl.last.short_url}"
+
+  puts "Select a Tag for your link:"
+  TagTopic::TAGS.each_with_index do |tag, i|
+    puts "#{i}. #{tag}"
+  end
+
+  tag_index= gets.chomp.to_i
+  topic = TagTopic.find_by_topic(TagTopic::TAGS[tag_index])
+  Tagging.record_tag!(ShortenedUrl.last, topic)
+
+elsif choice == 1
+  puts "Type in the shortened URL"
+  short_url = gets.chomp
+  url = ShortenedUrl.find_by_short_url(short_url)
+
+  Launchy.open(url.long_url)
+  Visit.record_visit!(user, url)
+else
+end
